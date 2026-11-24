@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+data/raw/
+data/cache/
+logs/
+results/*-mock/
+paper/overleaf.zip
+.DS_Store
