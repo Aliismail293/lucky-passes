@@ -1,0 +1,34 @@
+# Candidate references for Phase 1. Each is checked with scripts/verify_citations.py.
+# Closest work (knowledge leakage, decomposing correctness by retrieval / parametric knowledge)
+arxiv:2605.08838   # SeedRG, leakage-free benchmarks
+arxiv:2604.19047   # RARE
+arxiv:2606.07783   # RAG reliability under clean / misleading / mixed retrieval
+arxiv:2601.19827   # When Iterative RAG Beats Ideal Evidence
+arxiv:2607.16604   # Controlled Evaluation of Graph and Multimodal Augmentation in RAG
+arxiv:2511.08598   # OKBench
+arxiv:2602.08070   # IRB
+arxiv:2602.10210   # HybridRAG-Bench
+arxiv:2402.16457   # RetrievalQA
+arxiv:2404.13781   # eRAG, evaluating retrieval quality in RAG
+# Parametric vs retrieved knowledge, closed-book baselines
+arxiv:2212.10511   # When Not to Trust Language Models (PopQA)
+arxiv:2002.08910   # How Much Knowledge Can You Pack Into the Parameters
+arxiv:2008.02637   # Question and Answer Test-Train Overlap in Open-Domain QA
+arxiv:2109.05052   # Entity-Based Knowledge Conflicts in QA
+# RAG and RAG evaluation frameworks
+arxiv:2005.11401   # RAG
+arxiv:2309.15217   # RAGAS
+arxiv:2311.09476   # ARES
+arxiv:2309.01431   # RGB
+arxiv:2408.08067   # RAGChecker
+# Answer-correctness metrics and judges
+arxiv:2305.06984   # Evaluating Open-Domain QA in the Era of LLMs
+arxiv:2306.05685   # LLM-as-a-judge, MT-Bench
+# Datasets and retrievers used in the experiment
+arxiv:1809.09600   # HotpotQA
+doi:10.1162/tacl_a_00276   # Natural Questions
+url:https://aclanthology.org/Q19-1026/   # Natural Questions, ACL Anthology page (source of the quote)
+arxiv:1906.00300   # Latent Retrieval (NQ-open)
+arxiv:2104.08663   # BEIR
+doi:10.1561/1500000019     # BM25 and beyond
+doi:10.1145/1571941.1572114  # Reciprocal Rank Fusion
