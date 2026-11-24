@@ -1,0 +1,11 @@
+# Phase 3 pilot: two datasets, one model, hybrid retrieval at k=5.
+run_name: pilot
+seed: 13
+datasets:
+  - name: hotpotqa
+    n: 100
+  - name: invented
+    n: 100
+models: [qwen2.5:7b]
+retrievers: [hybrid]
+ks: [5]
