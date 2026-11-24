@@ -1,0 +1,15 @@
+# Phase 4 k-sweep: hybrid retrieval, qwen2.5:7b only, k = 1, 3, 5.
+run_name: ksweep
+seed: 13
+datasets:
+  - name: hotpotqa
+    n: 300
+  - name: nq
+    n: 300
+  - name: invented
+    n: 300
+  - name: utm
+    n: 300
+models: [qwen2.5:7b]
+retrievers: [hybrid]
+ks: [1, 3, 5]
