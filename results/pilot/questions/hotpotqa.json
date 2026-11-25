@@ -2,7 +2,10 @@
  "info": {
   "available": 7405,
   "after_yes_no_filter": 6947,
-  "sampled": 100
+  "sampled": 100,
+  "corpus": "full",
+  "corpus_passages": 66581,
+  "corpus_title_text_clashes": 63
  },
  "questions": [
   {

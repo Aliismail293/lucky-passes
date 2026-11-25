@@ -1,4 +1,5 @@
-# Phase 3 pilot: two datasets, one model, hybrid retrieval at k=5.
+# Phase 3 pilot: two datasets, one model, k=5. BM25 and dense added after re-run 1 (hybrid@5 hit 100% on HotpotQA),
+# so the sanity gate checks the retrievers the core grid compares.
 run_name: pilot
 seed: 13
 datasets:
@@ -7,5 +8,5 @@ datasets:
   - name: invented
     n: 100
 models: [qwen2.5:7b]
-retrievers: [hybrid]
+retrievers: [bm25, dense, hybrid]
 ks: [5]

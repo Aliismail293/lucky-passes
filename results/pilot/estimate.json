@@ -1,9 +1,12 @@
 {
-  "answer_calls": 600,
-  "judge_calls_est": 360,
-  "question_generation_calls_est": 418,
-  "already_cached": 0,
-  "uncached_calls_est": 1378,
-  "seconds_per_call": 3.0,
-  "hours_est": 1.1483333333333334
+  "answer_calls": 740,
+  "answer_calls_cached": 451,
+  "judge_calls_cached": 435,
+  "judge_calls_uncached_est": 336,
+  "question_generation_calls_est": 0,
+  "uncached_calls_est": 625,
+  "seconds_per_call": 6.348,
+  "embeddings_uncached": 0,
+  "seconds_per_embedding": 0.0357,
+  "hours_est": 1.1020833333333333
 }

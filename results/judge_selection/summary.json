@@ -1,0 +1,228 @@
+{
+  "items": 149,
+  "reference_labels": {
+    "correct": 69,
+    "incorrect": 75,
+    "unclear": 5
+  },
+  "reference_sources": {
+    "claude": 149
+  },
+  "reference_label_note": "Reference labels from a stronger model (Claude Opus), spot-checked by the author; not human labels. Ali's edits (human_correct = 'edited by Ali') override.",
+  "unclear_qids": [
+    "hp:5a7a88e455429941d65f268c",
+    "hp:5a7e7ed05542991319bc94c2"
+  ],
+  "judge_prompt": "v2",
+  "pilot_generator": "qwen2.5:7b",
+  "results": {
+    "llama3.1:8b (v1 prompt, pilot)": {
+      "n": 144,
+      "agreement": {
+        "value": 0.4791666666666667,
+        "lo": 0.3958333333333333,
+        "hi": 0.5626736111111109,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.16071428571428573,
+        "oracle": 0.875,
+        "rag": 0.5208333333333334
+      }
+    },
+    "llama3.1:8b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.8194444444444444,
+        "lo": 0.7569444444444444,
+        "hi": 0.875,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.32,
+        "lo": 0.21333333333333335,
+        "hi": 0.4266666666666667,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.028985507246376812,
+        "lo": 0.0,
+        "hi": 0.07246376811594203,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.7321428571428571,
+        "oracle": 0.925,
+        "rag": 0.8333333333333334
+      },
+      "methods": {
+        "llm": 146,
+        "non_answer": 3
+      }
+    },
+    "gemma2:9b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.8472222222222222,
+        "lo": 0.7916666666666666,
+        "hi": 0.9027777777777778,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.26666666666666666,
+        "lo": 0.17333333333333334,
+        "hi": 0.37366666666666637,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.028985507246376812,
+        "lo": 0.0,
+        "hi": 0.07246376811594203,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.8214285714285714,
+        "oracle": 0.925,
+        "rag": 0.8125
+      },
+      "methods": {
+        "llm": 146,
+        "non_answer": 3
+      }
+    },
+    "qwen2.5:7b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.8888888888888888,
+        "lo": 0.8333333333333334,
+        "hi": 0.9375,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.05333333333333334,
+        "lo": 0.013333333333333334,
+        "hi": 0.10666666666666667,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.17391304347826086,
+        "lo": 0.10144927536231885,
+        "hi": 0.26123188405797065,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.9464285714285714,
+        "oracle": 0.85,
+        "rag": 0.8541666666666666
+      },
+      "methods": {
+        "llm": 146,
+        "non_answer": 3
+      }
+    },
+    "llama3.1:8b+gemma2:9b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.9027777777777778,
+        "lo": 0.8541666666666666,
+        "hi": 0.9444444444444444,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.16,
+        "lo": 0.08,
+        "hi": 0.25333333333333335,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.028985507246376812,
+        "lo": 0.0,
+        "hi": 0.07246376811594203,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.9285714285714286,
+        "oracle": 0.925,
+        "rag": 0.8541666666666666
+      }
+    },
+    "llama3.1:8b+qwen2.5:7b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.8888888888888888,
+        "lo": 0.8333333333333334,
+        "hi": 0.9375,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.05333333333333334,
+        "lo": 0.013333333333333334,
+        "hi": 0.10666666666666667,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.17391304347826086,
+        "lo": 0.10144927536231885,
+        "hi": 0.26123188405797065,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.9464285714285714,
+        "oracle": 0.85,
+        "rag": 0.8541666666666666
+      }
+    },
+    "gemma2:9b+qwen2.5:7b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.8888888888888888,
+        "lo": 0.8333333333333334,
+        "hi": 0.9375,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.05333333333333334,
+        "lo": 0.013333333333333334,
+        "hi": 0.10666666666666667,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.17391304347826086,
+        "lo": 0.10144927536231885,
+        "hi": 0.26123188405797065,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.9464285714285714,
+        "oracle": 0.85,
+        "rag": 0.8541666666666666
+      }
+    }
+  },
+  "chosen": {
+    "llama": "qwen2.5:7b",
+    "qwen": "llama3.1:8b+gemma2:9b"
+  },
+  "min_agreement": 0.9,
+  "meets_min_agreement": {
+    "llama3.1:8b": false,
+    "gemma2:9b": false,
+    "qwen2.5:7b": false,
+    "llama3.1:8b+gemma2:9b": true,
+    "llama3.1:8b+qwen2.5:7b": false,
+    "gemma2:9b+qwen2.5:7b": false
+  },
+  "mock": false
+}

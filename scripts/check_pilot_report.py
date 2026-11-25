@@ -27,8 +27,8 @@ RATE_RULES = {
     "accuracy": lambda r: r["correct_rag"],
     "true_pass": lambda r: r["outcome"] == "true_pass",
     "lucky_pass": lambda r: r["outcome"] == "lucky_pass",
-    "memory_lucky": lambda r: r["lucky_kind"] == "memory",
-    "guess_lucky": lambda r: r["lucky_kind"] == "guess",
+    "memory_lucky": lambda r: r["lucky_kind"] == "memory_lucky",
+    "guess_lucky": lambda r: r["lucky_kind"] == "guess_lucky",
     "grounding_failure": lambda r: r["outcome"] == "grounding_failure",
     "miss": lambda r: r["outcome"] == "miss",
     "hit_any": lambda r: r["hit_any"],
@@ -41,9 +41,11 @@ RATE_RULES = {
 
 
 def report_numbers_not_in_summary(report: str, summary: dict) -> list[tuple[int, str]]:
-    """Numbers inside summary strings (the started/finished timestamps) count, and so does wall time in minutes."""
+    """Numbers inside summary strings (the started/finished timestamps) count, and so do the two timings the report
+    prints in minutes: wall time and time per 100 questions."""
     allowed: set[str] = set()
-    derived = [summary["meta"]["timing"]["wall_seconds"] / 60] if "timing" in summary.get("meta", {}) else []
+    timing = summary.get("meta", {}).get("timing", {})
+    derived = [timing[key] / 60 for key in ("wall_seconds", "seconds_per_100_questions") if key in timing]
     for value in [*_numbers(summary), *derived]:
         for v in (value, value * 100):
             allowed.update({f"{v:.0f}", f"{v:.1f}", f"{v:.2f}", f"{v:.3f}"})

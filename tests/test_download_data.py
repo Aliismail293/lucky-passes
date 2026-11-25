@@ -67,8 +67,19 @@ def test_parquet_converts_to_original_hotpot_format(tmp_path):
     assert not target.with_suffix(".json.part").exists()
 
     dataset = load_hotpotqa(target, n=10, seed=0)
-    assert dataset.info == {"available": 2, "after_yes_no_filter": 1, "sampled": 1}
+    assert dataset.info["available"] == 2 and dataset.info["after_yes_no_filter"] == 1
+    assert dataset.info["sampled"] == 1
     question = dataset.questions[0]
     assert question.answers == ["Beta City"]
     assert sorted(dataset.passages[p].title for p in question.gold_ids) == ["Alpha", "Gamma"]
     assert dataset.passages[question.gold_ids[1]].text == "Gamma is a country. Its capital is Beta City."
+
+
+def test_beir_parquet_converts_to_the_jsonl_load_nq_reads(tmp_path):
+    parquet = tmp_path / "corpus.parquet"
+    pq.write_table(
+        pa.Table.from_pylist([{"_id": "doc0", "title": "T", "text": "Some text.", "extra": 1}]), parquet
+    )
+    out = tmp_path / "corpus.jsonl"
+    assert download_data.parquet_to_jsonl(parquet, out, ("_id", "title", "text")) == 1
+    assert json.loads(out.read_text()) == {"_id": "doc0", "title": "T", "text": "Some text."}

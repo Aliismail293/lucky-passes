@@ -13,7 +13,7 @@ PILOT = REPO_ROOT / "configs" / "pilot.yaml"
 def test_mock_pilot_end_to_end(isolated_paths):
     run_dir = run(load_config(PILOT), PILOT, mock=True, echo=lambda _: None)
     summary = json.loads((run_dir / "summary.json").read_text())
-    cells = {c["dataset"]: c for c in summary["cells"]}
+    cells = {c["dataset"]: c for c in summary["cells"] if c["retriever"] == "hybrid"}
     assert set(cells) == {"hotpotqa", "invented"}
     for cell in cells.values():
         assert cell["n"] == 100
@@ -27,7 +27,7 @@ def test_mock_pilot_end_to_end(isolated_paths):
     assert (run_dir / "tables" / "main_table.tex").exists()
     assert (run_dir / "figures" / "lucky_by_dataset.pdf").exists()
     records = (run_dir / "records.jsonl").read_text().splitlines()
-    assert len(records) == 200
+    assert len(records) == 2 * 100 * 3  # 2 datasets x 100 questions x 3 retrievers
     progress = (isolated_paths / "research" / "research-progress.md").read_text()
     assert "pilot (mock)" in progress
 
