@@ -4,6 +4,9 @@ Checked: every decimal number (62.3), every percentage (62%), and every integer 
 year between 1900 and 2100. Small integers ("3 retrievers", "k = 5") and LaTeX commands, citations, labels and
 comments are skipped. A results value of 0.623 counts as 62.3, 62 and 0.62, so rounding is accepted.
 A line can opt out with the comment `% nocheck`, which reviewers will see.
+
+Evidence is machine-written files only: .json, .csv and .tex under results/. Markdown is not evidence, because
+some of it is prose written by people or Claude (FINDINGS.md); it would otherwise vouch for its own numbers.
 """
 
 import json
@@ -47,7 +50,7 @@ def numbers_in_results(results_dir: Path) -> set[str]:
     for path in results_dir.rglob("*"):
         if path.suffix == ".json":
             walk(json.loads(path.read_text()))
-        elif path.suffix in (".csv", ".md", ".tex"):
+        elif path.suffix in (".csv", ".tex"):
             for match in re.findall(r"\d+(?:\.\d+)?", path.read_text()):
                 add(float(match))
     return allowed

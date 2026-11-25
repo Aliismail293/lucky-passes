@@ -1,0 +1,72 @@
+\section{Method}
+\label{sec:method}
+% Drafted by Claude from the code (lp/) and configs/; every design choice below is in research-progress.md with
+% its reason. Ali: check each sentence against the code before keeping it.
+
+\paragraph{Outcome classes.}
+For every question and every RAG configuration we record whether the answer is correct and whether a gold passage
+was among the top $k$ retrieved passages (\textit{hit@k}). Crossing the two gives four classes: a \textit{true
+pass} (correct, gold retrieved), a \textit{grounding failure} (wrong, gold retrieved), a \textit{lucky pass}
+(correct, no gold passage retrieved) and a \textit{miss} (wrong, no gold passage retrieved). Our main measure of
+how much an answer-only score overstates retrieval is the lucky-pass rate, which equals answer accuracy minus the
+true-pass rate. The main rule counts a question as retrieved when \emph{any} gold passage is in the top $k$; it is
+conservative, a lower bound on lucky passes. For multi-hop HotpotQA we also report the \emph{all}-gold version, in
+which a question counts as retrieved only if every supporting paragraph is. Both rules were fixed before the full
+run.
+
+\paragraph{Memory and guess.}
+Each question is also answered \textit{closed-book} (no passages) and with an \textit{oracle} context (the gold
+passages only). A lucky pass whose closed-book answer is also correct is \textit{memory lucky}: the model knew the
+answer. One whose closed-book answer is wrong is \textit{guess lucky}: the non-gold passages, or chance, produced
+it. The oracle condition is the ceiling and flags questions whose gold answer may be wrong.
+
+\paragraph{Datasets.}
+\textbf{HotpotQA} \citep{yang2018hotpotqa}, distractor dev split: multi-hop questions with gold supporting
+paragraphs. The passage pool is every paragraph of every dev question, deduplicated by title, so the sampled
+questions compete with the whole dev set's paragraphs rather than only their own ten. Yes/no questions are left out,
+since a coin flip would answer half of them and inflate guess-lucky passes.
+\textbf{Natural Questions} \citep{kwiatkowski2019nq}: questions and gold passages from BEIR's \texttt{nq}
+\citep{thakur2021beir}, joined on normalised question text with the short answers of NQ-open \citep{lee2019latent},
+with every gold passage plus a fixed random sample of distractor passages from the BEIR corpus.
+\textbf{Invented documents} (control): the bundled demo corpus of ragaudit, documents about a fictional coastal
+survey office that no model can have seen in training. Questions are generated from each chunk and checked by a
+second model from a different family; the corpus yields fewer questions than the other datasets, and we use all
+that pass verification.
+\textbf{UTM calendar}: public course-calendar pages of the University of Toronto Mississauga, stored by an
+existing student app; real and niche, so only partly memorised. Questions are generated and verified the same way.
+Questions are sampled with a fixed seed; the number used per dataset is reported next to every result.
+
+\paragraph{Models.}
+Three generators run locally through Ollama at temperature 0 with a fixed seed: \texttt{qwen2.5:7b},
+\texttt{llama3.1:8b} and \texttt{llama3.2:3b}. The prompt asks for a short answer and, in the RAG and oracle
+conditions, to use the passages; it does not forbid answering from memory, because a typical application prompt
+doesn't either.
+
+\paragraph{Retrieval.}
+BM25 \citep{robertson2009bm25}, dense retrieval with \texttt{nomic-embed-text} (with its query and document
+prefixes), and a hybrid that fuses the two rankings with reciprocal rank fusion \citep{cormack2009rrf}. Retrieval
+does not depend on the generator, so it is run once per dataset and cached. The core grid crosses all three
+retrievers with all three generators at $k = 5$; the $k$-sweep uses the hybrid retriever with \texttt{qwen2.5:7b}
+at $k \in \{1, 3, 5\}$.
+
+\paragraph{Judging correctness.}
+A normalised contains-match (gold answer string inside the prediction) decides ``correct''. An empty answer or a
+non-answer (e.g.\ ``unknown'', ``not specified'') is wrong by rule. Everything else goes to an LLM judge from a
+different model family than the generator, with a strict prompt and four invented worked examples. A random share
+of contains-match decisions is also sent to the LLM judge to measure agreement between the two signals.
+The judge for each generator family was chosen before the full run, by agreement with reference labels on the
+pilot's judge-disagreement items (Section~\ref{sec:results} reports the judge's accuracy on a separate, fresh
+sample labelled by the author). The reference labels were produced by a stronger model and spot-checked by the
+author; they are not human labels.
+
+\paragraph{Statistics.}
+Every rate is reported with a 95\% percentile bootstrap interval over questions (1,000 resamples, fixed seed) and
+its $n$. Comparisons on the same questions (e.g.\ two retrievers, or two values of $k$) use a paired bootstrap of
+the difference and an exact McNemar test.
+
+\paragraph{Hypotheses.}
+Written down before the full run.
+\textbf{H1}: the lucky-pass rate is high on public datasets and near zero on the invented corpus.
+\textbf{H2}: it rises as retrieval weakens (smaller $k$; BM25 on reworded questions).
+\textbf{H3}: larger models have more memory-lucky passes.
+\textbf{H4}: a dataset's closed-book accuracy predicts its lucky-pass rate.

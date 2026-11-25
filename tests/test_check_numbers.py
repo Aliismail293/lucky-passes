@@ -25,3 +25,8 @@ def test_small_ints_years_citations_and_comments_are_skipped(tmp_path):
     allowed = check_numbers.numbers_in_results(tmp_path)
     tex = "We use 3 retrievers at k = 5 in 2026 \\cite{lewis2020}. % 99.9 in a comment\nSee Table~\\ref{tab:1}."
     assert check_numbers.unverified_numbers(tex, allowed) == []
+
+
+def test_markdown_is_not_evidence(tmp_path):
+    (tmp_path / "FINDINGS.md").write_text("The rate was 37.4%.")
+    assert "37.4" not in check_numbers.numbers_in_results(tmp_path)
