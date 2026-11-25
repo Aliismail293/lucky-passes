@@ -49,3 +49,7 @@ Notes
   methods their titles name (BM25, RRF). The quote in the notes is therefore the title.
 - Two close papers (refs 4 and 5) were also read in full HTML for NOVELTY.md. Claims about their method details
   that go beyond the abstract are marked "(full text)" in the notes and must be re-read before the paper cites them.
+
+## Re-verification (Phase 7, step 4)
+
+- 2026-11-25 02:00: `scripts/verify_citations.py --file paper/references.txt --check-quotes paper/related_work_notes.md` re-fetched all 28 pages: every one HTTP 200 with the same title and authors as `verified_pages.json`; 0 quotes not found. Every key cited in `paper/main.tex` and `paper/sections/` is in `references.bib`. Re-run once more on the final reference list before submission.
