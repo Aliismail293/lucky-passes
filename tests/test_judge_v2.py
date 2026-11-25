@@ -242,3 +242,44 @@ def test_export_refuses_to_overwrite_a_labelled_sheet(tmp_path, monkeypatch):
     sheet.write_text("labels")
     monkeypatch.setattr("sys.argv", ["export", str(run_dir), str(sheet)])
     assert export.main() == 1 and sheet.read_text() == "labels"
+
+
+def test_two_judges_must_both_accept():
+    from lp.judge import all_accept
+
+    assert all_accept([True, True]) is True
+    assert all_accept([True, False]) is False
+    assert all_accept([None, False]) is False
+    assert all_accept([True, None]) is None
+
+
+class _Fixed:
+    def __init__(self, reply: str) -> None:
+        self.reply = reply
+
+    def complete(self, system: str, user: str) -> str:
+        return self.reply
+
+
+def test_judge_with_a_list_of_clients_records_each_verdict():
+    from lp.judge import judge as run_judge
+
+    lenient, strict = _Fixed('{"correct": true}'), _Fixed('{"correct": false}')
+    v = run_judge("Q?", ["07:00 to 15:00"], "8 AM - 5 PM", [lenient, strict], "q|m|closed", 0.0)
+    assert v["correct"] is False and v["method"] == "llm" and v["llm_each"] == [True, False]
+    v = run_judge("Q?", ["07:00 to 15:00"], "8 AM - 5 PM", [lenient, lenient], "q|m|closed", 0.0)
+    assert v["correct"] is True
+
+
+def test_choose_accepts_pairs_only_when_every_judge_is_cross_family():
+    def r(agree, fa):
+        return {"agreement": {"value": agree}, "false_accept_rate": {"value": fa}}
+
+    results = {
+        "gemma2:9b": r(0.85, 0.27), "qwen2.5:7b": r(0.889, 0.053), "llama3.1:8b": r(0.82, 0.32),
+        "llama3.1:8b+gemma2:9b": r(0.903, 0.16), "gemma2:9b+qwen2.5:7b": r(0.889, 0.053),
+        "llama3.1:8b+qwen2.5:7b": r(0.95, 0.0),
+    }
+    chosen = evaluate.choose(results)
+    assert chosen["qwen"] == "llama3.1:8b+gemma2:9b"
+    assert chosen["llama"] == "qwen2.5:7b"

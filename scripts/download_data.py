@@ -36,6 +36,16 @@ HOTPOT_PARQUET_URL = (
 )
 FALLBACKS = {"hotpot_dev_distractor_v1.json": HOTPOT_PARQUET_URL}
 
+# The BEIR host (public.ukp.informatik.tu-darmstadt.de) timed out (Nov 2026). Fallback: the same BEIR nq files on
+# Hugging Face (BeIR/nq and BeIR/nq-qrels), pinned to revisions, written out in the layout of the BEIR zip.
+BEIR_NQ_REVISION = "b7253e6c379163d024ddb1d6948152a91a2e3b46"
+BEIR_NQ_QRELS_REVISION = "519acd4e48bb3e5da22b2b888ce36c614f4f2bc9"
+BEIR_NQ_HF = {
+    "corpus": f"https://huggingface.co/datasets/BeIR/nq/resolve/{BEIR_NQ_REVISION}/corpus/corpus-00000-of-00001.parquet",
+    "queries": f"https://huggingface.co/datasets/BeIR/nq/resolve/{BEIR_NQ_REVISION}/queries/queries-00000-of-00001.parquet",
+    "qrels": f"https://huggingface.co/datasets/BeIR/nq-qrels/resolve/{BEIR_NQ_QRELS_REVISION}/test.tsv",
+}
+
 
 def hf_rows_to_hotpot(rows: Iterable[dict]) -> list[dict]:
     """Turn Hugging Face hotpot_qa rows back into the original HotpotQA JSON records.
@@ -78,6 +88,40 @@ def download_hotpot_from_hf(target: Path) -> None:
     print(f"wrote {n} records to {target.name}")
 
 
+def parquet_to_jsonl(parquet_path: Path, target: Path, fields: tuple[str, ...]) -> int:
+    """Write one JSON object per row with just `fields`, in batches so the 0.8 GB corpus never sits in memory."""
+    import pyarrow.parquet as pq
+
+    partial = target.with_suffix(target.suffix + ".part")
+    n = 0
+    with partial.open("w", encoding="utf-8") as handle:
+        for batch in pq.ParquetFile(parquet_path).iter_batches(columns=list(fields)):
+            for row in batch.to_pylist():
+                handle.write(json.dumps({f: row[f] for f in fields}, ensure_ascii=False) + "\n")
+                n += 1
+    partial.rename(target)
+    return n
+
+
+def download_beir_nq_from_hf(raw: Path) -> None:
+    """Rebuild raw/nq/{corpus.jsonl, queries.jsonl, qrels/test.tsv}, the files load_nq reads from the BEIR zip."""
+    nq = raw / "nq"
+    (nq / "qrels").mkdir(parents=True, exist_ok=True)
+    for name, out, fields in (
+        ("queries", nq / "queries.jsonl", ("_id", "text")),
+        ("corpus", nq / "corpus.jsonl", ("_id", "title", "text")),
+    ):
+        if out.exists():
+            continue
+        parquet = raw / f"beir_nq_{name}.parquet"
+        if not parquet.exists():
+            download(BEIR_NQ_HF[name], parquet)
+        print(f"wrote {parquet_to_jsonl(parquet, out, fields)} rows to nq/{out.name}")
+        parquet.unlink()
+    if not (nq / "qrels" / "test.tsv").exists():
+        download(BEIR_NQ_HF["qrels"], nq / "qrels" / "test.tsv")
+
+
 def download(url: str, target: Path) -> None:
     partial = target.with_suffix(target.suffix + ".part")
     print(f"downloading {url}")
@@ -106,12 +150,20 @@ def main() -> int:
             continue
         for filename, url in files:
             target = raw / filename
-            if target.exists():
+            if target.exists() or (filename == "nq.zip" and (raw / "nq" / "corpus.jsonl").exists()):
                 print(f"have {target.name}")
                 continue
             try:
                 download(url, target)
             except httpx.HTTPError as exc:
+                if filename == "nq.zip":
+                    print(f"FAILED {url}: {exc}\ntrying Hugging Face fallback (BeIR/nq)")
+                    try:
+                        download_beir_nq_from_hf(raw)
+                    except httpx.HTTPError as exc2:
+                        print(f"FAILED Hugging Face BeIR/nq: {exc2}\nPut nq.zip at {target} by hand", file=sys.stderr)
+                        return 1
+                    continue
                 if filename not in FALLBACKS:
                     print(f"FAILED {url}: {exc}\nDownload it in a browser and put it at {target}", file=sys.stderr)
                     return 1

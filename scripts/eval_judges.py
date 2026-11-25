@@ -18,6 +18,7 @@ re-run pilot reuses them.
 
 import argparse
 import csv
+import itertools
 import json
 import os
 import sys
@@ -85,13 +86,16 @@ def score(items: list[dict], accepted: list[bool]) -> dict:
 
 def choose(results: dict[str, dict]) -> dict[str, str | None]:
     """For each generator family, the candidate with the best agreement among judges of a different family
-    (ties: lower false-accept rate, then name)."""
+    (ties: lower false-accept rate, then fewer judges, then name). A candidate "a+b" is two judges that must both
+    accept; every one of its judges must be of another family than the generator."""
     out: dict[str, str | None] = {}
     for gen_family in sorted({family(g) for g in GENERATORS}):
-        eligible = [j for j in results if family(j) != gen_family]
+        eligible = [j for j in results if all(family(part) != gen_family for part in j.split("+"))]
         ranked = sorted(
             eligible,
-            key=lambda j: (-results[j]["agreement"]["value"], results[j]["false_accept_rate"]["value"], j),
+            key=lambda j: (
+                -results[j]["agreement"]["value"], results[j]["false_accept_rate"]["value"], j.count("+"), j
+            ),
         )
         out[gen_family] = ranked[0] if ranked else None
     return out
@@ -134,7 +138,14 @@ def main(argv: list[str] | None = None) -> int:
         results[model] = score(items, [v["correct"] for v in verdicts])
         results[model]["methods"] = dict(Counter(v["method"] for v in verdicts))
 
-    candidates = {j: r for j, r in results.items() if j in args.judges}
+    # Two-judge candidates (both must accept), from the verdicts above: no extra calls. Added after pilot re-run 1
+    # showed the single gemma2:9b judge still accepting wrong closed-book answers.
+    pairs = ["+".join(pair) for pair in itertools.combinations(args.judges, 2)]
+    for pair in pairs:
+        a, b = pair.split("+")
+        accepted = [row[a] and row[b] for row in per_item]
+        results[pair] = score(items, accepted)
+    candidates = {j: r for j, r in results.items() if j in args.judges or j in pairs}
     labels = Counter(it["reference"] for it in items)
     unclear = sorted({it["qid"] for it in items if it["reference"] == "unclear"})
     summary = {

@@ -131,17 +131,98 @@
         "llm": 146,
         "non_answer": 3
       }
+    },
+    "llama3.1:8b+gemma2:9b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.9027777777777778,
+        "lo": 0.8541666666666666,
+        "hi": 0.9444444444444444,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.16,
+        "lo": 0.08,
+        "hi": 0.25333333333333335,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.028985507246376812,
+        "lo": 0.0,
+        "hi": 0.07246376811594203,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.9285714285714286,
+        "oracle": 0.925,
+        "rag": 0.8541666666666666
+      }
+    },
+    "llama3.1:8b+qwen2.5:7b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.8888888888888888,
+        "lo": 0.8333333333333334,
+        "hi": 0.9375,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.05333333333333334,
+        "lo": 0.013333333333333334,
+        "hi": 0.10666666666666667,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.17391304347826086,
+        "lo": 0.10144927536231885,
+        "hi": 0.26123188405797065,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.9464285714285714,
+        "oracle": 0.85,
+        "rag": 0.8541666666666666
+      }
+    },
+    "gemma2:9b+qwen2.5:7b": {
+      "n": 144,
+      "agreement": {
+        "value": 0.8888888888888888,
+        "lo": 0.8333333333333334,
+        "hi": 0.9375,
+        "n": 144
+      },
+      "false_accept_rate": {
+        "value": 0.05333333333333334,
+        "lo": 0.013333333333333334,
+        "hi": 0.10666666666666667,
+        "n": 75
+      },
+      "false_reject_rate": {
+        "value": 0.17391304347826086,
+        "lo": 0.10144927536231885,
+        "hi": 0.26123188405797065,
+        "n": 69
+      },
+      "by_condition": {
+        "closed": 0.9464285714285714,
+        "oracle": 0.85,
+        "rag": 0.8541666666666666
+      }
     }
   },
   "chosen": {
     "llama": "qwen2.5:7b",
-    "qwen": "gemma2:9b"
+    "qwen": "llama3.1:8b+gemma2:9b"
   },
   "min_agreement": 0.9,
   "meets_min_agreement": {
     "llama3.1:8b": false,
     "gemma2:9b": false,
-    "qwen2.5:7b": false
+    "qwen2.5:7b": false,
+    "llama3.1:8b+gemma2:9b": true,
+    "llama3.1:8b+qwen2.5:7b": false,
+    "gemma2:9b+qwen2.5:7b": false
   },
   "mock": false
 }

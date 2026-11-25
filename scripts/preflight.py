@@ -7,7 +7,7 @@ import sys
 
 import httpx
 
-from lp.config import REPO_ROOT, judge_for, load_config
+from lp.config import REPO_ROOT, judge_models, load_config
 from lp.runner import corpus_folder
 
 
@@ -21,7 +21,7 @@ def main(config_name: str) -> int:
     except httpx.HTTPError:
         have = set()
         problems.append("Ollama is not running. Open the Ollama app (or run: ollama serve) and try again.")
-    needed = set(config.models) | {judge_for(config, m) for m in config.models} | {config.embed_model}
+    needed = set(config.models) | {j for m in config.models for j in judge_models(config, m)} | {config.embed_model}
     if any(s.name in ("invented", "utm") for s in config.datasets):
         needed |= {config.question_generator, config.question_verifier}
     if have:

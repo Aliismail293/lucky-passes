@@ -17,7 +17,7 @@ from typing import Any
 
 from lp import classify, generate, judge, report
 from lp.cache import Cache
-from lp.config import REPO_ROOT, RunConfig, judge_for
+from lp.config import REPO_ROOT, RunConfig, judge_for, judge_models
 from lp.datasets import (
     Dataset,
     Passage,
@@ -268,7 +268,7 @@ def walk_planned_calls(clients: Clients, config: RunConfig, dataset: Dataset, re
     if rankings is None and needs_dense:
         counts["embeddings_uncached"] = clients.embedder.uncached_count(document_texts(dataset))
     for model in config.models:
-        chat, judge_chat = clients.chat(model), clients.chat(judge_for(config, model))
+        chat, judge_chats = clients.chat(model), [clients.chat(j) for j in judge_models(config, model)]
         for q in dataset.questions:
             gold = [dataset.passages[p] for p in q.gold_ids if p in dataset.passages]
             planned: list[tuple[str, list[Passage] | None, bool]] = [("closed", None, True), ("oracle", gold, True)]
@@ -289,8 +289,9 @@ def walk_planned_calls(clients: Clients, config: RunConfig, dataset: Dataset, re
                 if not judge.needs_llm(q.answers, prediction, item_id, config.judge_agreement_sample, version):
                     continue
                 prompt = judge.judge_prompt(q.question, q.answers, prediction, version)
-                cached = judge_chat.is_cached(judge.JUDGE_SYSTEM_PROMPT, prompt)
-                counts["judges_cached" if cached else "judges_uncached"] += 1
+                for judge_chat in judge_chats:
+                    cached = judge_chat.is_cached(judge.JUDGE_SYSTEM_PROMPT, prompt)
+                    counts["judges_cached" if cached else "judges_uncached"] += 1
     return counts
 
 
@@ -357,7 +358,7 @@ def gate(config: RunConfig, est: dict, approve_hours: float | None, progress: Pr
 
 
 def judged(clients: Clients, config: RunConfig, model: str, q, prediction: str, mode: str) -> dict:
-    judge_client = clients.chat(judge_for(config, model))
+    judge_client = [clients.chat(j) for j in judge_models(config, model)]
     item_id = f"{q.qid}|{model}|{mode}"
     return judge.judge(
         q.question, q.answers, prediction, judge_client, item_id, config.judge_agreement_sample, config.judge_prompt

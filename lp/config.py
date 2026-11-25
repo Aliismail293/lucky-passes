@@ -67,8 +67,11 @@ class RunConfig:
     ks: list[int]
     # Judge for each generator family: always a different family (B3, "Judge"). Chosen by scripts/eval_judges.py
     # (results/judge_selection/summary.json): the best agreement with the reference labels among other-family
-    # judges. The first pilot used llama3.1:8b for qwen with the v1 prompt.
-    judges: dict[str, str] = field(default_factory=lambda: {"qwen": "gemma2:9b", "llama": "qwen2.5:7b"})
+    # judges. "a+b" means two judges that must both accept (pilot re-run 1 showed gemma2:9b alone too lenient).
+    # The first pilot used llama3.1:8b for qwen with the v1 prompt.
+    judges: dict[str, str] = field(
+        default_factory=lambda: {"qwen": "llama3.1:8b+gemma2:9b", "llama": "qwen2.5:7b"}
+    )
     # Question generation for invented + UTM corpora reuses ragaudit; generator and verifier differ.
     question_generator: str = "qwen2.5:7b"
     question_verifier: str = "llama3.1:8b"
@@ -114,9 +117,9 @@ def validate(config: RunConfig) -> None:
     if config.hotpotqa_corpus not in ("full", "sampled"):
         raise ValueError(f"hotpotqa_corpus must be full or sampled, not {config.hotpotqa_corpus!r}")
     for model in config.models:
-        judge = judge_for(config, model)
-        if family(judge) == family(model):
-            raise ValueError(f"judge {judge} is the same family as generator {model}")
+        for judge in judge_models(config, model):
+            if family(judge) == family(model):
+                raise ValueError(f"judge {judge} is the same family as generator {model}")
     if family(config.question_generator) == family(config.question_verifier):
         raise ValueError("question generator and verifier must be different model families")
 
@@ -137,3 +140,8 @@ def judge_for(config: RunConfig, model: str) -> str:
     if fam not in config.judges:
         raise ValueError(f"no judge configured for model family {fam!r} (model {model})")
     return config.judges[fam]
+
+
+def judge_models(config: RunConfig, model: str) -> list[str]:
+    """The judge models for a generator: one, or several joined by '+' that must all accept."""
+    return judge_for(config, model).split("+")

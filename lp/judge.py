@@ -159,21 +159,35 @@ def judge(
     """Returns {correct, method, contains, llm}.
 
     method is 'contains', 'llm', 'empty', 'non_answer' (v2 only) or 'llm_unparseable'.
+    judge_client may be a list of clients: then every judge must accept (any "wrong" makes it wrong; otherwise
+    any unparseable reply makes it unparseable), and `llm_each` holds each judge's verdict.
     """
     contains = contains_match(prediction, golds)
     if not prediction.strip():
         return {"correct": False, "method": "empty", "contains": False, "llm": None}
     if _rule_says_non_answer(prediction, golds, prompt_version):
         return {"correct": False, "method": "non_answer", "contains": False, "llm": None}
-    llm_verdict = None
+    clients = judge_client if isinstance(judge_client, list) else [judge_client]
+    llm_verdict, each = None, None
     if needs_llm(golds, prediction, item_id, sample_rate, prompt_version):
         prompt = judge_prompt(question, golds, prediction, prompt_version)
-        llm_verdict = parse_judge(judge_client.complete(JUDGE_SYSTEM_PROMPT, prompt))
+        each = [parse_judge(client.complete(JUDGE_SYSTEM_PROMPT, prompt)) for client in clients]
+        llm_verdict = all_accept(each)
+    extra = {"llm_each": each} if len(clients) > 1 else {}
     if contains:
-        return {"correct": True, "method": "contains", "contains": True, "llm": llm_verdict}
+        return {"correct": True, "method": "contains", "contains": True, "llm": llm_verdict, **extra}
     if llm_verdict is None:
-        return {"correct": False, "method": "llm_unparseable", "contains": False, "llm": None}
-    return {"correct": llm_verdict, "method": "llm", "contains": False, "llm": llm_verdict}
+        return {"correct": False, "method": "llm_unparseable", "contains": False, "llm": None, **extra}
+    return {"correct": llm_verdict, "method": "llm", "contains": False, "llm": llm_verdict, **extra}
+
+
+def all_accept(verdicts: list[bool | None]) -> bool | None:
+    """Several judges: False if any says wrong, else None if any is unparseable, else True."""
+    if any(v is False for v in verdicts):
+        return False
+    if any(v is None for v in verdicts):
+        return None
+    return True
 
 
 def agreement(verdicts: list[dict]) -> dict:

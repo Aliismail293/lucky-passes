@@ -11,7 +11,9 @@
    "relative_time": 2,
    "verifier_unparseable": 1
   },
-  "sampled": 48
+  "sampled": 48,
+  "corpus": "full",
+  "corpus_passages": 38
  },
  "questions": [
   {
