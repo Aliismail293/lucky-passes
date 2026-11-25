@@ -51,11 +51,14 @@ at $k \in \{1, 3, 5\}$.
 
 \paragraph{Judging correctness.}
 A normalised contains-match (gold answer string inside the prediction) decides ``correct''. An empty answer or a
-non-answer (e.g.\ ``unknown'', ``not specified'') is wrong by rule. Everything else goes to an LLM judge from a
-different model family than the generator, with a strict prompt and four invented worked examples. A random share
-of contains-match decisions is also sent to the LLM judge to measure agreement between the two signals.
-The judge for each generator family was chosen before the full run, by agreement with reference labels on the
-pilot's judge-disagreement items (Section~\ref{sec:results} reports the judge's accuracy on a separate, fresh
+non-answer (e.g.\ ``unknown'', ``not specified'') is wrong by rule. Everything else goes to LLM judges from a
+different model family than the generator, with a strict prompt and invented worked examples. Answers from
+\texttt{qwen2.5:7b} must be accepted by two judges, \texttt{llama3.1:8b} and \texttt{gemma2:9b}; answers from the
+\texttt{llama} models are judged by \texttt{qwen2.5:7b}, with a prompt that adds explicit rules for numbers, times and
+ranges and for lists of required items. A random share of contains-match decisions is also sent to the LLM judges to
+measure agreement between the two signals.
+The judge set-up for each generator family was chosen before the full run, by agreement with reference labels on
+the pilot's judge-disagreement items (Section~\ref{sec:results} reports the judges' accuracy on a separate, fresh
 sample labelled by the author). The reference labels were produced by a stronger model and spot-checked by the
 author; they are not human labels.
 
