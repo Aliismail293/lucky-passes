@@ -73,16 +73,32 @@ V2_EXAMPLES = [
 ]
 
 
+# v3 (pilot attempt 2): two more rules and two more invented examples, for the two error types both v2 judges made
+# on the pilot (a different time range; a list missing the required items). Also invented, not from any dataset.
+V3_EXTRA_EXAMPLES = [
+    ("When is the ferry ticket office open?", "09:30 to 16:00", "9 AM - 6 PM", False),
+    ("What does a diver need before joining the team?", "a medical certificate and a dive log", "a swimming test", False),
+]
+V3_EXTRA_RULES = (
+    "- Incorrect: a different number, time, date, duration or range from the reference, whatever the format "
+    '("9 AM - 6 PM" is not "09:30 to 16:00").\n'
+    "- Incorrect: when the reference names several required items, an answer that names other items or only some "
+    "of them.\n"
+)
+
+
 def judge_prompt(question: str, golds: list[str], prediction: str, version: str = "v2") -> str:
     if version == "v1":
         return judge_prompt_v1(question, golds, prediction)
-    if version != "v2":
+    if version not in ("v2", "v3"):
         raise ValueError(f"unknown judge prompt version {version!r}")
+    shots = V2_EXAMPLES + (V3_EXTRA_EXAMPLES if version == "v3" else [])
     examples = "\n\n".join(
         f"Question: {q}\n{REFERENCE_LABEL} {g}\n{PREDICTED_LABEL} {p}\n"
         + ('{"correct": true}' if ok else '{"correct": false}')
-        for q, g, p, ok in V2_EXAMPLES
+        for q, g, p, ok in shots
     )
+    extra_rules = V3_EXTRA_RULES if version == "v3" else ""
     return (
         "Grade the predicted answer against the reference answer(s). Be strict.\n"
         "- Correct: it names the same person, place, thing, number or date as a reference. A short form, nickname, "
@@ -91,7 +107,8 @@ def judge_prompt(question: str, golds: list[str], prediction: str, version: str 
         "another work by the same author).\n"
         "- Incorrect: a vaguer answer that doesn't name the reference (a nationality instead of a city, "
         "a category instead of a title).\n"
-        '- Incorrect: a refusal or non-answer such as "None" or "Not specified".\n\n'
+        '- Incorrect: a refusal or non-answer such as "None" or "Not specified".\n'
+        f"{extra_rules}\n"
         f"Examples:\n\n{examples}\n\nNow grade this one. "
         'Reply exactly {"correct": true} or {"correct": false}.\n\n'
         f"Question: {question}\n"

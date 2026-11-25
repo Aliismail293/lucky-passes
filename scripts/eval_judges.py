@@ -106,6 +106,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--csv", type=Path, default=REPO_ROOT / "audit" / "pilot_judge_check.csv")
     parser.add_argument("--out", type=Path, default=REPO_ROOT / "results" / "judge_selection")
     parser.add_argument("--judges", nargs="+", default=DEFAULT_JUDGES)
+    parser.add_argument("--prompt", default="v2", choices=["v2", "v3"], help="judge prompt version")
     parser.add_argument("--mock", action="store_true", help="offline: the mock judge (exact match) instead of Ollama")
     args = parser.parse_args(argv)
     if not args.mock and os.environ.get("LP_REAL") != "1":
@@ -130,7 +131,7 @@ def main(argv: list[str] | None = None) -> int:
         for i, it in enumerate(items):
             golds = [g.strip() for g in it["gold_answers"].split(" | ")]
             item_id = f"{it['qid']}|judge-check|{it['condition']}"
-            verdicts.append(judge.judge(it["question"], golds, it["prediction"], chat, item_id, 0.0, "v2"))
+            verdicts.append(judge.judge(it["question"], golds, it["prediction"], chat, item_id, 0.0, args.prompt))
             print(f"\r{model}: {i + 1}/{len(items)}", end="", file=sys.stderr)
         print(file=sys.stderr)
         for row, v in zip(per_item, verdicts, strict=True):
@@ -155,7 +156,7 @@ def main(argv: list[str] | None = None) -> int:
         "reference_label_note": "Reference labels from a stronger model (Claude Opus), spot-checked by the author; "
         "not human labels. Ali's edits (human_correct = 'edited by Ali') override.",
         "unclear_qids": unclear,
-        "judge_prompt": "v2",
+        "judge_prompt": args.prompt,
         "pilot_generator": PILOT_GENERATOR,
         "results": results,
         "chosen": choose(candidates),

@@ -81,7 +81,8 @@ class RunConfig:
     retrieval_depth: int = 10
     nq_distractors: int = 20000
     judge_prompt: str = "v2"
-    """v2: non-answers wrong by rule + stricter prompt with examples. v1 reproduces the first pilot."""
+    """v2: non-answers wrong by rule + stricter prompt with examples. v1 reproduces the first pilot. v3 (pilot attempt
+    2): v2 plus rules for numbers/times/ranges and for lists of required items."""
     hotpotqa_corpus: str = "full"
     """full: the passage pool is every dev question's paragraphs (deduplicated by title); only the sampled
     questions are asked. sampled: only the sampled questions' own paragraphs (the first pilot; too easy)."""
@@ -112,8 +113,8 @@ def validate(config: RunConfig) -> None:
     for name in config.retrievers:
         if name not in RETRIEVER_NAMES:
             raise ValueError(f"unknown retriever {name!r}; expected one of {RETRIEVER_NAMES}")
-    if config.judge_prompt not in ("v1", "v2"):
-        raise ValueError(f"judge_prompt must be v1 or v2, not {config.judge_prompt!r}")
+    if config.judge_prompt not in ("v1", "v2", "v3"):
+        raise ValueError(f"judge_prompt must be v1, v2 or v3, not {config.judge_prompt!r}")
     if config.hotpotqa_corpus not in ("full", "sampled"):
         raise ValueError(f"hotpotqa_corpus must be full or sampled, not {config.hotpotqa_corpus!r}")
     for model in config.models:
