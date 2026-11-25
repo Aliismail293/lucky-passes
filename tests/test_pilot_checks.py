@@ -26,7 +26,7 @@ def record(outcome, correct_rag, hit_any, closed=False, llm_closed=None):
         "dataset": "toy", "model": "m", "retriever": "hybrid", "k": 5, "qid": f"q{outcome}{correct_rag}",
         "question": "Q?", "answers": ["A"], "outcome": outcome, "outcome_all": outcome, "correct_rag": correct_rag,
         "hit_any": hit_any, "hit_all": hit_any, "correct_closed": closed, "correct_oracle": True,
-        "lucky_kind": ("memory" if closed else "guess") if outcome == "lucky_pass" else None,
+        "lucky_kind": ("memory_lucky" if closed else "guess_lucky") if outcome == "lucky_pass" else None,
         "pred_rag": "A", "pred_closed": "B", "pred_oracle": "A",
         "judge_rag": verdict(correct_rag, None), "judge_closed": verdict(False, llm_closed),
         "judge_oracle": verdict(True, True),
