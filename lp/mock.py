@@ -42,8 +42,9 @@ class MockChat:
 
     @staticmethod
     def _judge(user: str) -> str:
-        golds = user.split(judge.REFERENCE_LABEL, 1)[1].split("\n", 1)[0].split(" | ")
-        predicted = user.split(judge.PREDICTED_LABEL, 1)[1].split("\n", 1)[0]
+        # The item being graded comes last; earlier reference/predicted lines are the prompt's worked examples.
+        golds = user.rsplit(judge.REFERENCE_LABEL, 1)[1].split("\n", 1)[0].strip().split(" | ")
+        predicted = user.rsplit(judge.PREDICTED_LABEL, 1)[1].split("\n", 1)[0].strip()
         correct = any(judge.normalize(g) == judge.normalize(predicted) for g in golds)
         return '{"correct": true}' if correct else '{"correct": false}'
 

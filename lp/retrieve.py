@@ -87,6 +87,27 @@ def rrf(rankings: list[list[str]], depth: int, k: int = RRF_K) -> list[str]:
     return sorted(scores, key=lambda pid: (-scores[pid], pid))[:depth]
 
 
+def cache_path(dataset: Dataset, embed_model: str, cache_dir: Path) -> Path:
+    return cache_dir / f"{dataset.name}_{dataset.fingerprint()}_{embed_model}.json".replace(":", "-")
+
+
+def cached_rankings(dataset: Dataset, retrievers: list[str], embed_model: str, depth: int, cache_dir: Path):
+    """The saved rankings if every retriever has every question, else None. Never computes anything."""
+    path = cache_path(dataset, embed_model, cache_dir)
+    if not path.exists():
+        return None
+    results = json.loads(path.read_text())
+    qids = [q.qid for q in dataset.questions]
+    if any(name not in results or any(qid not in results[name] for qid in qids) for name in retrievers):
+        return None
+    return {name: {qid: results[name][qid][:depth] for qid in qids} for name in retrievers}
+
+
+def document_texts(dataset: Dataset) -> list[str]:
+    """Exactly the texts Dense embeds, so the estimate can check which vectors are cached."""
+    return [DOCUMENT_PREFIX + p.as_text() for p in dataset.passages.values()]
+
+
 def retrieve_all(dataset: Dataset, retrievers: list[str], embedder, depth: int, cache_dir: Path | None) -> dict:
     """{retriever: {qid: [pid, ...]}} for every question. Uses and fills the retrieval cache."""
     docs = {pid: p.as_text() for pid, p in dataset.passages.items()}
@@ -100,7 +121,7 @@ def retrieve_all(dataset: Dataset, retrievers: list[str], embedder, depth: int, 
     path = None
     if cache_dir is not None:
         cache_dir.mkdir(parents=True, exist_ok=True)
-        path = cache_dir / f"{dataset.name}_{dataset.fingerprint()}_{embedder.model}.json".replace(":", "-")
+        path = cache_path(dataset, embedder.model, cache_dir)
         if path.exists():
             results = json.loads(path.read_text())
     missing_q = lambda name: name not in results or any(qid not in results[name] for qid in qids)  # noqa: E731

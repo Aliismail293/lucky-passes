@@ -9,6 +9,7 @@ import json
 import os
 import subprocess
 import time
+from collections import Counter
 from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
@@ -19,6 +20,7 @@ from lp.cache import Cache
 from lp.config import REPO_ROOT, RunConfig, judge_for
 from lp.datasets import (
     Dataset,
+    Passage,
     chunk_corpus,
     generate_questions_for_chunks,
     load_generated,
@@ -27,7 +29,7 @@ from lp.datasets import (
     toy_dataset,
 )
 from lp.llm import CachedChat, CachedEmbedder, CallStats, LLMCallFailed, OllamaChat, OllamaEmbedder
-from lp.retrieve import retrieve_all
+from lp.retrieve import cached_rankings, document_texts, retrieve_all
 
 QGEN_CALLS_PER_CHUNK = 11
 """Rough: 1 fact extraction + 3 facts x (write + 1-2 rewrites + verify)."""
@@ -170,7 +172,11 @@ def load_static_datasets(
             )
         if spec.name == "hotpotqa":
             loaded[spec.name] = load_hotpotqa(
-                raw / "hotpot_dev_distractor_v1.json", spec.n, config.seed, config.exclude_yes_no
+                raw / "hotpot_dev_distractor_v1.json",
+                spec.n,
+                config.seed,
+                config.exclude_yes_no,
+                config.hotpotqa_corpus,
             )
         elif spec.name == "nq":
             loaded[spec.name] = load_nq(
@@ -214,16 +220,32 @@ def seconds_per_call(config: RunConfig, mock: bool) -> float:
     return config.default_seconds_per_call
 
 
-def record_speed(config: RunConfig, stats: CallStats) -> None:
-    if stats.seconds_per_miss is None or stats.misses < 20:
-        return
+def seconds_per_embedding(config: RunConfig, mock: bool) -> float:
+    if mock:
+        return 0.0
     path = speed_file(config)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(
-            {"seconds_per_call": round(stats.seconds_per_miss, 3), "measured_on_calls": stats.misses, "updated": now()}
+    if path.exists():
+        return float(json.loads(path.read_text()).get("seconds_per_embedding", config.default_seconds_per_embedding))
+    return config.default_seconds_per_embedding
+
+
+def record_speed(config: RunConfig, stats: CallStats, embedder: CachedEmbedder | None = None) -> None:
+    """Keeps the last measured speeds. Chat and embedding speeds are updated separately, each only when measured
+    on enough calls to mean something."""
+    path = speed_file(config)
+    speed = json.loads(path.read_text()) if path.exists() else {}
+    if stats.seconds_per_miss is not None and stats.misses >= 20:
+        speed.update(seconds_per_call=round(stats.seconds_per_miss, 3), measured_on_calls=stats.misses)
+    if embedder is not None and embedder.misses >= 256:
+        speed.update(
+            seconds_per_embedding=round(embedder.seconds_on_misses / embedder.misses, 4),
+            measured_on_embeddings=embedder.misses,
         )
-    )
+    if not speed:
+        return
+    speed["updated"] = now()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(speed))
 
 
 def planned_answer_calls(config: RunConfig, n_questions: dict[str, int]) -> int:
@@ -231,27 +253,82 @@ def planned_answer_calls(config: RunConfig, n_questions: dict[str, int]) -> int:
     return sum(n_questions.values()) * len(config.models) * per_question_model
 
 
-def estimate(config: RunConfig, cache: Cache, n_questions: dict[str, int], qgen_chunks: int, mock: bool) -> dict:
-    """Upper-bound-ish estimate of uncached model calls and hours.
+def walk_planned_calls(clients: Clients, config: RunConfig, dataset: Dataset, retrieval_dir: Path) -> Counter:
+    """Go through every answer and judge call the run will make for this dataset, without calling any model.
 
-    Answer calls already in the cache (from an earlier run with the same models) are subtracted,
-    which is approximate because the cache is shared between configs.
+    A cached answer is read back, so whether it needs a judge call (and whether that is cached) is known exactly.
+    RAG prompts are known only if retrieval is cached; otherwise those answers count as uncached. Uncached answers
+    get JUDGE_CALLS_PER_ANSWER judge calls each (an estimate). Also counts passage vectors still to embed.
     """
+    counts: Counter = Counter()
+    needs_dense = bool({"dense", "hybrid"} & set(config.retrievers))
+    rankings = cached_rankings(
+        dataset, config.retrievers, clients.embedder.model, config.retrieval_depth, retrieval_dir
+    )
+    if rankings is None and needs_dense:
+        counts["embeddings_uncached"] = clients.embedder.uncached_count(document_texts(dataset))
+    for model in config.models:
+        chat, judge_chat = clients.chat(model), clients.chat(judge_for(config, model))
+        for q in dataset.questions:
+            gold = [dataset.passages[p] for p in q.gold_ids if p in dataset.passages]
+            planned: list[tuple[str, list[Passage] | None, bool]] = [("closed", None, True), ("oracle", gold, True)]
+            for retriever in config.retrievers:
+                for k in config.ks:
+                    retrieved = rankings[retriever][q.qid][:k] if rankings else []
+                    passages = [dataset.passages[p] for p in retrieved]
+                    planned.append((f"rag-{retriever}-{k}", passages, rankings is not None))
+            for mode, context, known in planned:
+                raw = clients.cache.get(chat.key(*generate.prompt_for(q.question, context))) if known else None
+                if raw is None:
+                    counts["answers_uncached"] += 1
+                    continue
+                counts["answers_cached"] += 1
+                prediction = generate.clean_answer(raw)
+                item_id = f"{q.qid}|{model}|{mode}"
+                version = config.judge_prompt
+                if not judge.needs_llm(q.answers, prediction, item_id, config.judge_agreement_sample, version):
+                    continue
+                prompt = judge.judge_prompt(q.question, q.answers, prediction, version)
+                cached = judge_chat.is_cached(judge.JUDGE_SYSTEM_PROMPT, prompt)
+                counts["judges_cached" if cached else "judges_uncached"] += 1
+    return counts
+
+
+def estimate(
+    config: RunConfig,
+    cache: Cache,
+    n_questions: dict[str, int],
+    qgen_chunks: int,
+    mock: bool,
+    walked: dict[str, Counter] | None = None,
+) -> dict:
+    """Estimate of uncached model calls and hours.
+
+    Datasets in `walked` (see walk_planned_calls) are counted call by call against the cache. Any other dataset
+    (not built yet, e.g. questions still to generate) counts every answer as uncached, plus estimated judge calls.
+    """
+    walked = walked or {}
     answers = planned_answer_calls(config, n_questions)
-    judges = int(answers * JUDGE_CALLS_PER_ANSWER)
+    rough = planned_answer_calls(config, {name: n for name, n in n_questions.items() if name not in walked})
+    total: Counter = sum(walked.values(), Counter())
+    uncached_answers = rough + total["answers_uncached"]
+    judges_est = int(uncached_answers * JUDGE_CALLS_PER_ANSWER) + total["judges_uncached"]
     qgen = qgen_chunks * QGEN_CALLS_PER_CHUNK
-    models = set(config.models) | {judge_for(config, m) for m in config.models}
-    cached = sum(cache.count(m) for m in models)
-    uncached = max(0, answers + judges - cached) + qgen
+    uncached = uncached_answers + judges_est + qgen
     spc = seconds_per_call(config, mock)
+    spe = seconds_per_embedding(config, mock)
+    embeds = total["embeddings_uncached"]
     return {
         "answer_calls": answers,
-        "judge_calls_est": judges,
+        "answer_calls_cached": total["answers_cached"],
+        "judge_calls_cached": total["judges_cached"],
+        "judge_calls_uncached_est": judges_est,
         "question_generation_calls_est": qgen,
-        "already_cached": cached,
         "uncached_calls_est": uncached,
         "seconds_per_call": spc,
-        "hours_est": uncached * spc / 3600,
+        "embeddings_uncached": embeds,
+        "seconds_per_embedding": spe,
+        "hours_est": (uncached * spc + embeds * spe) / 3600,
     }
 
 
@@ -282,7 +359,9 @@ def gate(config: RunConfig, est: dict, approve_hours: float | None, progress: Pr
 def judged(clients: Clients, config: RunConfig, model: str, q, prediction: str, mode: str) -> dict:
     judge_client = clients.chat(judge_for(config, model))
     item_id = f"{q.qid}|{model}|{mode}"
-    return judge.judge(q.question, q.answers, prediction, judge_client, item_id, config.judge_agreement_sample)
+    return judge.judge(
+        q.question, q.answers, prediction, judge_client, item_id, config.judge_agreement_sample, config.judge_prompt
+    )
 
 
 def answer_dataset(
@@ -380,7 +459,15 @@ def run(
         spec.name: (len(datasets[spec.name].questions) if spec.name in datasets else spec.n) for spec in config.datasets
     }
     qgen_chunks = sum(pending_chunks(config, name, c) for name, c in chunks.items())
-    est = estimate(config, cache, n_questions, qgen_chunks, mock)
+    retrieval_dir = paths.cache / ("retrieval-mock" if mock else "retrieval")
+    known = dict(datasets)
+    for name, chunk_list in chunks.items():
+        if pending_chunks(config, name, chunk_list) == 0:
+            n = next(s.n for s in config.datasets if s.name == name)
+            known[name] = load_generated(name, chunk_list, generated_path(config, name), n, config.seed)
+            n_questions[name] = len(known[name].questions)
+    walked = {name: walk_planned_calls(clients, config, d, retrieval_dir) for name, d in known.items()}
+    est = estimate(config, cache, n_questions, qgen_chunks, mock, walked)
     (run_dir / "estimate.json").write_text(json.dumps(est, indent=2))
     gate(config, est, approve_hours, progress)
     if estimate_only:
@@ -416,7 +503,7 @@ def run(
             config.retrievers,
             clients.embedder,
             config.retrieval_depth,
-            paths.cache / ("retrieval-mock" if mock else "retrieval"),
+            retrieval_dir,
         )
         got, failed = answer_dataset(clients, config, dataset, rankings, progress, counter)
         records += got
@@ -427,7 +514,7 @@ def run(
         )
 
     if not mock:
-        record_speed(config, clients.stats)
+        record_speed(config, clients.stats, clients.embedder)
     with (run_dir / "records.jsonl").open("w") as handle:
         for record in records:
             handle.write(json.dumps(record, ensure_ascii=False) + "\n")
@@ -447,6 +534,8 @@ def run(
         "seed": config.seed,
         "models": config.models,
         "judges": {m: judge_for(config, m) for m in config.models},
+        "judge_prompt": config.judge_prompt,
+        "hotpotqa_corpus": config.hotpotqa_corpus,
         "retrievers": config.retrievers,
         "ks": config.ks,
         "embed_model": config.embed_model,

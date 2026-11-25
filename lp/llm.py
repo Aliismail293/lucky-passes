@@ -114,6 +114,12 @@ class CachedEmbedder:
         self.model = inner.model
         self.cache = cache
         self.batch_size = batch_size
+        self.misses = 0
+        self.seconds_on_misses = 0.0
+
+    def uncached_count(self, texts: list[str]) -> int:
+        """How many of these texts have no cached vector. Calls no model."""
+        return sum(self.cache.get_vector(make_key("embed", self.model, {"text": t})) is None for t in texts)
 
     def embed(self, texts: list[str]) -> np.ndarray:
         keys = [make_key("embed", self.model, {"text": t}) for t in texts]
@@ -126,7 +132,10 @@ class CachedEmbedder:
                 missing.append(i)
         for start in range(0, len(missing), self.batch_size):
             batch = missing[start : start + self.batch_size]
+            began = time.monotonic()
             new = self.inner.embed([texts[i] for i in batch])
+            self.seconds_on_misses += time.monotonic() - began
+            self.misses += len(batch)
             self.cache.put_vectors([(keys[i], new[j].astype(np.float32).tobytes()) for j, i in enumerate(batch)])
             for j, i in enumerate(batch):
                 vectors[i] = new[j]

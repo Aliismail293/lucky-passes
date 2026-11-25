@@ -65,8 +65,10 @@ class RunConfig:
     models: list[str]
     retrievers: list[str]
     ks: list[int]
-    # Judge for each generator family: always a different family (B3, "Judge").
-    judges: dict[str, str] = field(default_factory=lambda: {"qwen": "llama3.1:8b", "llama": "qwen2.5:7b"})
+    # Judge for each generator family: always a different family (B3, "Judge"). Chosen by scripts/eval_judges.py
+    # (results/judge_selection/summary.json): the best agreement with the reference labels among other-family
+    # judges. The first pilot used llama3.1:8b for qwen with the v1 prompt.
+    judges: dict[str, str] = field(default_factory=lambda: {"qwen": "gemma2:9b", "llama": "qwen2.5:7b"})
     # Question generation for invented + UTM corpora reuses ragaudit; generator and verifier differ.
     question_generator: str = "qwen2.5:7b"
     question_verifier: str = "llama3.1:8b"
@@ -75,6 +77,11 @@ class RunConfig:
     num_ctx: int = 4096
     retrieval_depth: int = 10
     nq_distractors: int = 20000
+    judge_prompt: str = "v2"
+    """v2: non-answers wrong by rule + stricter prompt with examples. v1 reproduces the first pilot."""
+    hotpotqa_corpus: str = "full"
+    """full: the passage pool is every dev question's paragraphs (deduplicated by title); only the sampled
+    questions are asked. sampled: only the sampled questions' own paragraphs (the first pilot; too easy)."""
     exclude_yes_no: bool = True
     """HotpotQA yes/no questions can be guessed half the time, which would inflate guess-lucky passes."""
     judge_agreement_sample: float = 0.25
@@ -82,6 +89,8 @@ class RunConfig:
     bootstrap_resamples: int = 1000
     max_hours: float = 10.0
     default_seconds_per_call: float = 3.0
+    default_seconds_per_embedding: float = 0.05
+    """Only used until a run (or scripts/measure_embed_speed.py) has measured the real speed into speed.json."""
     paths: Paths = field(default_factory=Paths)
 
 
@@ -100,6 +109,10 @@ def validate(config: RunConfig) -> None:
     for name in config.retrievers:
         if name not in RETRIEVER_NAMES:
             raise ValueError(f"unknown retriever {name!r}; expected one of {RETRIEVER_NAMES}")
+    if config.judge_prompt not in ("v1", "v2"):
+        raise ValueError(f"judge_prompt must be v1 or v2, not {config.judge_prompt!r}")
+    if config.hotpotqa_corpus not in ("full", "sampled"):
+        raise ValueError(f"hotpotqa_corpus must be full or sampled, not {config.hotpotqa_corpus!r}")
     for model in config.models:
         judge = judge_for(config, model)
         if family(judge) == family(model):

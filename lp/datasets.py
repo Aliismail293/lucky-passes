@@ -68,33 +68,55 @@ def sample(items: list, n: int, seed: int, key) -> list:
 # --- HotpotQA ----------------------------------------------------------------
 
 
-def load_hotpotqa(path: Path, n: int, seed: int, exclude_yes_no: bool = True) -> Dataset:
-    records = json.loads(path.read_text())
-    available = len(records)
+def load_hotpotqa(path: Path, n: int, seed: int, exclude_yes_no: bool = True, corpus: str = "full") -> Dataset:
+    """corpus="full": the passage pool is the paragraphs of every dev question (yes/no ones included, since they
+    are realistic distractors), deduplicated by title. corpus="sampled": only the sampled questions' paragraphs.
+    Either way only the sampled questions are asked.
+    """
+    if corpus not in ("full", "sampled"):
+        raise ValueError(f"corpus must be full or sampled, not {corpus!r}")
+    all_records = json.loads(path.read_text())
+    records = all_records
     if exclude_yes_no:
         records = [r for r in records if normalize(r["answer"]) not in ("yes", "no")]
     chosen = sample(records, n, seed, key=lambda r: r["_id"])
 
+    # Pool in a fixed order: sampled questions first, then all others by id. A title seen twice keeps its
+    # first text, so a sampled question's own gold paragraph is always the version in the corpus.
+    pool = chosen if corpus == "sampled" else chosen + sorted(all_records, key=lambda r: r["_id"])
     passages: dict[str, Passage] = {}
-    questions = []
-    for record in chosen:
-        title_to_pid = {}
+    clashes = 0
+    for record in pool:
         for title, sentences in record["context"]:
             pid = "hp:" + _short_hash(title)
-            title_to_pid[title] = pid
-            passages.setdefault(pid, Passage(pid=pid, title=title, text="".join(sentences).strip()))
+            text = "".join(sentences).strip()
+            if pid in passages:
+                clashes += passages[pid].text != text
+                continue
+            passages[pid] = Passage(pid=pid, title=title, text=text)
+
+    questions = []
+    for record in chosen:
+        context_titles = {title for title, _ in record["context"]}
         gold_titles = sorted({title for title, _ in record["supporting_facts"]})
         questions.append(
             Question(
                 qid="hp:" + record["_id"],
                 question=record["question"],
                 answers=[record["answer"]],
-                gold_ids=[title_to_pid[t] for t in gold_titles if t in title_to_pid],
+                gold_ids=["hp:" + _short_hash(t) for t in gold_titles if t in context_titles],
                 multi_hop=True,
                 meta={"type": record.get("type"), "level": record.get("level")},
             )
         )
-    info = {"available": available, "after_yes_no_filter": len(records), "sampled": len(questions)}
+    info = {
+        "available": len(all_records),
+        "after_yes_no_filter": len(records),
+        "sampled": len(questions),
+        "corpus": corpus,
+        "corpus_passages": len(passages),
+        "corpus_title_text_clashes": clashes,
+    }
     return Dataset(name="hotpotqa", questions=questions, passages=passages, info=info)
 
 
@@ -157,6 +179,7 @@ def load_nq(beir_dir: Path, nq_open_path: Path, n: int, seed: int, n_distractors
         "matched_to_nq_open": len(matched),
         "sampled": len(questions),
         "distractors": len(reservoir),
+        "corpus_passages": len(passages),
     }
     return Dataset(name="nq", questions=questions, passages=passages, info=info)
 
@@ -278,6 +301,9 @@ def load_generated(name: str, chunks, generated_path: Path, n: int, seed: int) -
         "verified_questions": len(active),
         "rejected": rejected,
         "sampled": len(chosen),
+        # Every chunk of the folder is in the passage pool, not only the chunks the sampled questions came from.
+        "corpus": "full",
+        "corpus_passages": len(passages),
     }
     return Dataset(name=name, questions=chosen, passages=passages, info=info)
 
