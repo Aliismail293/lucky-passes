@@ -292,3 +292,11 @@ def test_v3_adds_rules_and_examples_and_keeps_v2_unchanged():
     assert "whatever the format" in v3 and "several required items" in v3
     assert v3.count('{"correct": false}') == v2.count('{"correct": false}') + 2
     assert v3.rsplit(judge.REFERENCE_LABEL, 1)[1] == v2.rsplit(judge.REFERENCE_LABEL, 1)[1]
+
+
+def test_llama_generators_get_v3_qwen_keep_v2():
+    from lp.config import RunConfig, judge_prompt_for
+
+    config = RunConfig(run_name="x", seed=1, datasets=[], models=[], retrievers=[], ks=[])
+    assert judge_prompt_for(config, "llama3.2:3b") == "v3"
+    assert judge_prompt_for(config, "qwen2.5:7b") == "v2"

@@ -77,7 +77,12 @@ V2_EXAMPLES = [
 # on the pilot (a different time range; a list missing the required items). Also invented, not from any dataset.
 V3_EXTRA_EXAMPLES = [
     ("When is the ferry ticket office open?", "09:30 to 16:00", "9 AM - 6 PM", False),
-    ("What does a diver need before joining the team?", "a medical certificate and a dive log", "a swimming test", False),
+    (
+        "What does a diver need before joining the team?",
+        "a medical certificate and a dive log",
+        "a swimming test",
+        False,
+    ),
 ]
 V3_EXTRA_RULES = (
     "- Incorrect: a different number, time, date, duration or range from the reference, whatever the format "
