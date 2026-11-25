@@ -1,5 +1,8 @@
 # NOVELTY: is "lucky passes" new?
 
+> **Gate decision (Ali, 2026-11-24): Pivot A.** A replication of the H1 effect (Jonah et al. 2026) on small local
+> models, plus what's new: the memory/guess split, H2–H4, and the open tool. Framing notes: `paper/FRAMING.md`.
+
 **Short answer: the core finding is not new. Parts of the design are.** A paper from July 2026 already showed, on
 HotpotQA, that answers are often correct without the gold evidence and that raw accuracy overstates retrieval.
 Our H1 is a replication of that. What's left that's ours: the **memory-vs-guess split**, **how the gap moves
@@ -81,7 +84,7 @@ a "lucky pass" can be a retrieved non-gold document that holds the same evidence
 - Nothing found does all of it, and the practitioner tool angle is clearly open. For a student journal, that's
   enough. For a workshop, H2 has to come out with a clear, CI-backed effect.
 
-## Recommendation for the gate
+## Recommendation for the gate (Ali chose Pivot A on 2026-11-24)
 **Pivot A** (a replication on small local models plus an open practitioner tool), keeping the full experiment.
 In practice that's the same experiment with a different framing: the title and Introduction lead with H2 and the
 tool, and cite Jonah et al. for H1. Pick **Go** only if you're happy to keep the current pitch *and* cite Jonah
