@@ -1,0 +1,9 @@
+{
+  "answer_calls": 600,
+  "judge_calls_est": 360,
+  "question_generation_calls_est": 418,
+  "already_cached": 0,
+  "uncached_calls_est": 1378,
+  "seconds_per_call": 3.0,
+  "hours_est": 1.1483333333333334
+}

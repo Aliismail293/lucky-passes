@@ -1,0 +1,458 @@
+{
+  "cells": [
+    {
+      "dataset": "hotpotqa",
+      "model": "qwen2.5:7b",
+      "judge": "llama3.1:8b",
+      "retriever": "hybrid",
+      "k": 5,
+      "n": 100,
+      "counts": {
+        "true_pass": 88,
+        "grounding_failure": 12,
+        "lucky_pass": 0,
+        "miss": 0
+      },
+      "rates": {
+        "accuracy": {
+          "value": 0.88,
+          "lo": 0.81,
+          "hi": 0.94,
+          "n": 100
+        },
+        "true_pass": {
+          "value": 0.88,
+          "lo": 0.81,
+          "hi": 0.94,
+          "n": 100
+        },
+        "lucky_pass": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 100
+        },
+        "memory_lucky": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 100
+        },
+        "guess_lucky": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 100
+        },
+        "grounding_failure": {
+          "value": 0.12,
+          "lo": 0.06,
+          "hi": 0.19,
+          "n": 100
+        },
+        "miss": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 100
+        },
+        "hit_any": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 100
+        },
+        "hit_all": {
+          "value": 0.73,
+          "lo": 0.64,
+          "hi": 0.81,
+          "n": 100
+        },
+        "lucky_pass_all": {
+          "value": 0.21,
+          "lo": 0.13,
+          "hi": 0.3,
+          "n": 100
+        },
+        "closed_accuracy": {
+          "value": 0.59,
+          "lo": 0.49,
+          "hi": 0.68,
+          "n": 100
+        },
+        "oracle_accuracy": {
+          "value": 0.95,
+          "lo": 0.91,
+          "hi": 0.99,
+          "n": 100
+        },
+        "overstatement": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 100
+        },
+        "lucky_share_of_correct": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 88
+        }
+      },
+      "n_oracle_ok": 95,
+      "rates_oracle_ok": {
+        "accuracy": {
+          "value": 0.9263157894736842,
+          "lo": 0.8736842105263158,
+          "hi": 0.9789473684210527,
+          "n": 95
+        },
+        "true_pass": {
+          "value": 0.9263157894736842,
+          "lo": 0.8736842105263158,
+          "hi": 0.9789473684210527,
+          "n": 95
+        },
+        "lucky_pass": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 95
+        },
+        "memory_lucky": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 95
+        },
+        "guess_lucky": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 95
+        },
+        "grounding_failure": {
+          "value": 0.07368421052631578,
+          "lo": 0.021052631578947368,
+          "hi": 0.12631578947368421,
+          "n": 95
+        },
+        "miss": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 95
+        },
+        "hit_any": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 95
+        },
+        "hit_all": {
+          "value": 0.7157894736842105,
+          "lo": 0.6210526315789474,
+          "hi": 0.8,
+          "n": 95
+        },
+        "lucky_pass_all": {
+          "value": 0.22105263157894736,
+          "lo": 0.1368421052631579,
+          "hi": 0.3157894736842105,
+          "n": 95
+        },
+        "closed_accuracy": {
+          "value": 0.5894736842105263,
+          "lo": 0.4842105263157895,
+          "hi": 0.6736842105263158,
+          "n": 95
+        },
+        "oracle_accuracy": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 95
+        },
+        "overstatement": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 95
+        },
+        "lucky_share_of_correct": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 88
+        }
+      }
+    },
+    {
+      "dataset": "invented",
+      "model": "qwen2.5:7b",
+      "judge": "llama3.1:8b",
+      "retriever": "hybrid",
+      "k": 5,
+      "n": 48,
+      "counts": {
+        "true_pass": 48,
+        "grounding_failure": 0,
+        "lucky_pass": 0,
+        "miss": 0
+      },
+      "rates": {
+        "accuracy": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "true_pass": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "lucky_pass": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "memory_lucky": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "guess_lucky": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "grounding_failure": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "miss": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "hit_any": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "hit_all": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "lucky_pass_all": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "closed_accuracy": {
+          "value": 0.22916666666666666,
+          "lo": 0.125,
+          "hi": 0.3541666666666667,
+          "n": 48
+        },
+        "oracle_accuracy": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "overstatement": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "lucky_share_of_correct": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        }
+      },
+      "n_oracle_ok": 48,
+      "rates_oracle_ok": {
+        "accuracy": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "true_pass": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "lucky_pass": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "memory_lucky": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "guess_lucky": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "grounding_failure": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "miss": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "hit_any": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "hit_all": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "lucky_pass_all": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "closed_accuracy": {
+          "value": 0.22916666666666666,
+          "lo": 0.125,
+          "hi": 0.3541666666666667,
+          "n": 48
+        },
+        "oracle_accuracy": {
+          "value": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 48
+        },
+        "overstatement": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        },
+        "lucky_share_of_correct": {
+          "value": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 48
+        }
+      }
+    }
+  ],
+  "judge_agreement": {
+    "n": 295,
+    "agree": 146,
+    "rate": 0.49491525423728816,
+    "table": {
+      "both_correct": 51,
+      "both_wrong": 95,
+      "contains_only": 0,
+      "llm_only": 149
+    }
+  },
+  "meta": {
+    "config": "configs/pilot.yaml",
+    "config_name": "pilot",
+    "mock": false,
+    "seed": 13,
+    "models": [
+      "qwen2.5:7b"
+    ],
+    "judges": {
+      "qwen2.5:7b": "llama3.1:8b"
+    },
+    "retrievers": [
+      "hybrid"
+    ],
+    "ks": [
+      5
+    ],
+    "embed_model": "nomic-embed-text",
+    "question_generator": "qwen2.5:7b",
+    "question_verifier": "llama3.1:8b",
+    "bootstrap_resamples": 1000,
+    "git_commit": "0e6d5d8",
+    "started": "2026-11-24 17:00",
+    "finished": "2026-11-24 18:00",
+    "datasets": {
+      "hotpotqa": {
+        "available": 7405,
+        "after_yes_no_filter": 6947,
+        "sampled": 100
+      },
+      "invented": {
+        "chunks": 38,
+        "chunks_generated": 38,
+        "verified_questions": 48,
+        "rejected": {
+          "too_lexical": 34,
+          "ambiguous": 8,
+          "unsupported": 6,
+          "unanswerable": 4,
+          "relative_time": 2,
+          "verifier_unparseable": 1
+        },
+        "sampled": 48
+      }
+    },
+    "estimate": {
+      "answer_calls": 600,
+      "judge_calls_est": 360,
+      "question_generation_calls_est": 418,
+      "already_cached": 0,
+      "uncached_calls_est": 1378,
+      "seconds_per_call": 3.0,
+      "hours_est": 1.1483333333333334
+    },
+    "failures": 0,
+    "timing": {
+      "wall_seconds": 3619.7,
+      "uncached_calls": 1050,
+      "cache_hits": 50,
+      "failures": 0,
+      "seconds_per_uncached_call": 3.405,
+      "seconds_per_100_questions": 1634.6,
+      "projections_hours": {
+        "core": 27.2,
+        "ksweep": 9.1
+      },
+      "question_model_pairs": 148
+    }
+  }
+}
