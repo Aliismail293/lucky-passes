@@ -33,6 +33,13 @@ These are notes for Ali, who writes every sentence; this file is not paper text.
 - **Pilot:** `bash scripts/overnight.sh pilot`.
 - **Full run:** `bash scripts/overnight.sh full --approve-hours N` runs the core grid, then the k-sweep, then the
   paper assets.
+  - Core produced 4479 records, and the k-sweep 1494, on one Mac with local Ollama (logs: research-progress.md,
+    2026-11-25 19:45 to 2026-11-26 07:15).
+- **Analysis**, all from the committed records with no model calls:
+  - `uv run python scripts/compare_conditions.py`: paired tests → `results/comparisons.json`;
+  - `uv run python scripts/utm_sensitivity.py results/core`: the post-hoc UTM check;
+  - `uv run python scripts/make_paper_assets.py`: tables and figures. The PDFs carry no creation date, so a rebuild is
+    byte-identical.
 
 ## Guiding questions for writing this section
 - What would a stranger need, beyond the 3 commands, to get your exact numbers?

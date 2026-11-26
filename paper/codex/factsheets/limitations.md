@@ -12,7 +12,7 @@ is, which way it biases the results, and what the study does about it. Tagged nu
     speak directly to those models.
 - **Four datasets, English only.**
   - The datasets: HotpotQA, Natural Questions, one invented corpus and one university calendar.
-  - The invented corpus is small: in the pilot, 48 questions `[src: results/pilot/summary.json#meta/datasets/invented/verified_questions]`.
+  - The invented corpus is small: 48 questions `[src: results/core/summary.json#meta/datasets/invented/verified_questions]`.
     So its rates have wide intervals.
 
 ## Measurement
@@ -21,7 +21,8 @@ is, which way it biases the results, and what the study does about it. Tagged nu
   - This is more likely in the large HotpotQA pool of 66581 passages `[src: results/pilot/summary.json#meta/datasets/hotpotqa/corpus_passages]`,
     where other paragraphs mention the same entities.
   - Bias: it inflates lucky passes. The main rule (hit_any) biases the other way, as a lower bound.
-  - What the study does: the Phase 5 audit categorises lucky passes by hand and estimates how often this happens.
+  - What the study found: on UTM this is the main source of lucky passes (see below). On HotpotQA and NQ, lucky
+    passes are rare anyway.
 - **An LLM judges correctness when contains-match can't decide.**
   - The judges were chosen on the same 144 items `[src: results/judge_selection/summary.json#results/gemma2:9b/n]`
     they were scored on.
@@ -52,8 +53,21 @@ is, which way it biases the results, and what the study does about it. Tagged nu
   - Bias: a strict "passages only" prompt would probably lower memory-lucky passes. This wasn't tested.
 - **Possible bad gold answers.** The pilot review flagged 2 HotpotQA questions whose gold answer doesn't answer the
   question (`results/pilot/PILOT_REPORT.md`). They were kept, not cherry-picked out.
-- **The k-sweep may be reduced** to k ∈ {1, 5} if the runtime rule triggers (research-progress.md). If so, say that
-  H2's k trend rests on 2 points.
+- **UTM gold labels are incomplete, and some UTM questions are bad.** Found after the run, so it is reported as a
+  post-hoc sensitivity analysis.
+  - Many answers are boilerplate shared by many chunks, and some questions name no course.
+  - Bias: UTM lucky passes are strongly inflated. Most of the UTM rate is this artifact (results fact sheet,
+    section 3).
+  - The fix for future work: mark every chunk that holds the answer as gold, and reject boilerplate-answer and
+    underspecified questions at generation time.
+- **One missing call.** llama3.1:8b never answered one UTM question with a long exclusion list. It timed out on the
+  run and on the retry (temperature 0, so the output is the same each time).
+  - 3 UTM cells have n = 149 `[src: results/core/summary.json#cells[dataset=utm,model=llama3.1:8b,retriever=hybrid]/n]`
+    instead of 150.
+  - The timeout and output length were not changed after the fact.
+- **The LLM judge accepts some incomplete answers to list questions.** Of 30 sampled lucky passes, 6
+  `[src: results/core/error_sample.csv#count[category_claude=judge error]]` were such judge errors (Claude's reading).
+  - Bias: it inflates accuracy and lucky passes, mostly on UTM. Ali's audit measures how often it happens.
 
 ## Guiding questions for writing this section
 - Which limitation would most change the headline number if it went the other way? Put that one first.

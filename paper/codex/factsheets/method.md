@@ -68,9 +68,15 @@ Every dataset uses n = 150 questions in core; the invented corpus uses all it ha
 **UTM calendar.**
 - Public UTM course-calendar pages; real and niche, so only partly memorised.
 - Questions are generated and verified the same way as for the invented corpus.
-- The core run's log shows 125 chunks and 150 verified questions (rejected: ambiguous 10, unsupported 19, too
-  lexical 59, unanswerable 2). **Not tagged yet:** these become sourced from `results/core/summary.json` when core
-  finishes. Until then they are log values only.
+- 125 chunks `[src: results/core/summary.json#meta/datasets/utm/chunks]` gave 150 verified questions
+  `[src: results/core/summary.json#meta/datasets/utm/verified_questions]`.
+- **Rejected questions, by reason:**
+  - too lexical: 59 `[src: results/core/summary.json#meta/datasets/utm/rejected/too_lexical]`;
+  - unsupported: 19 `[src: results/core/summary.json#meta/datasets/utm/rejected/unsupported]`;
+  - ambiguous: 10 `[src: results/core/summary.json#meta/datasets/utm/rejected/ambiguous]`;
+  - unanswerable: 2 `[src: results/core/summary.json#meta/datasets/utm/rejected/unanswerable]`.
+- **Found after the run:** the verifier passed questions that name no course ("How is the course delivered?") and
+  questions with boilerplate answers. See the results fact sheet, section 3.
 
 **Question generation (invented and UTM).**
 - Generator: qwen2.5:7b. Verifier: llama3.1:8b, from a different family (`lp/config.py`, `question_generator` and
@@ -92,8 +98,9 @@ Every dataset uses n = 150 questions in core; the invented corpus uses all it ha
   - Retrieval depth is 10 `[src: lp/config.py#retrieval_depth]`; the top k is then taken.
 - Retrieval doesn't depend on the generator, so it runs once per dataset and is cached.
 - **Core grid:** all 3 retrievers × all 3 generators at k = 5 (`configs/core.yaml`).
-- **k-sweep:** hybrid retrieval, qwen2.5:7b only, k ∈ {1, 3, 5} (`configs/ksweep.yaml`). This may change to
-  {1, 5} under Ali's runtime rule; see research-progress.md.
+- **k-sweep:** hybrid retrieval, qwen2.5:7b only, k ∈ {1, 3, 5} (`configs/ksweep.yaml`).
+  - Ali's runtime rule would have cut it to {1, 5} if core plus the k-sweep had exceeded 40 h. The check at 300
+    pairs estimated about 15 h, so all three values ran (research-progress.md, 2026-11-25 23:13).
 
 ## Judging correctness
 1. **Contains-match:** the normalised gold answer appears in the prediction → correct.

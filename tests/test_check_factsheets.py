@@ -41,3 +41,15 @@ def test_rate_needs_n_and_bad_key_is_reported(tmp_path, monkeypatch):
     write_source(tmp_path, monkeypatch)
     assert cf.problems_in("10.4% [2.1, 18.8] `[src: r.json#cells[dataset=a]/rate]`", "t.md")
     assert "can't resolve" in cf.problems_in("1 `[src: r.json#meta/missing]`", "t.md")[0]
+
+
+def test_csv_counts_and_small_p_values(tmp_path, monkeypatch):
+    write_source(tmp_path, monkeypatch)
+    (tmp_path / "s.csv").write_text("row,category\n0,memory\n1,judge error\n2,judge error\n")
+    (tmp_path / "p.json").write_text(json.dumps({"p": 0.000121, "q": 0.00131}))
+    text = (
+        "2 judge errors `[src: s.csv#count[category=judge error]]`, "
+        "p = 0.0001 `[src: p.json#p]`, 0.0013 `[src: p.json#q]`"
+    )
+    assert cf.problems_in(text, "t.md") == []
+    assert cf.problems_in("3 judge errors `[src: s.csv#count[category=judge error]]`", "t.md") != []

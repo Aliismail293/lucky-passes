@@ -6,6 +6,7 @@ the text between the previous tag (or the start of the file) and this one contai
     `[src: results/pilot/summary.json#meta/datasets/hotpotqa/corpus_passages]`  a JSON (or YAML) value
     `[src: results/pilot/summary.json#cells[dataset=hotpotqa,retriever=bm25]/rates/lucky_pass]`  list filter
     `[src: lp/retrieve.py#RRF_K]`  a constant or dataclass default in Python code (`NAME = value`, `name: T = value`)
+    `[src: results/core/error_sample.csv#count[category_claude=memory]]`  number of CSV rows matching a filter
 
 Keys are separated by "/" (model names contain dots). A rate (a dict with value, lo, hi and n) must be written as
 "V% [L, H]" in percent with one decimal, plus "n = N"; any other number may be written as is, as an integer, or as a
@@ -16,6 +17,7 @@ Usage: uv run python scripts/check_factsheets.py [files...]
 """
 
 import ast
+import csv
 import json
 import re
 import sys
@@ -34,6 +36,9 @@ def load(path: Path):
         return json.loads(path.read_text())
     if path.suffix in (".yaml", ".yml"):
         return yaml.safe_load(path.read_text())
+    if path.suffix == ".csv":
+        with path.open(newline="") as f:
+            return list(csv.DictReader(f))
     raise ValueError(f"unsupported source type: {path}")
 
 
@@ -43,6 +48,9 @@ def resolve(obj, key: str):
         if not match:
             raise KeyError(part)
         name, filters = match.groups()
+        if name == "count" and isinstance(obj, list):
+            wanted = dict(f.split("=", 1) for f in (filters or "").split(",") if f)
+            return sum(all(str(item.get(k)) == v for k, v in wanted.items()) for item in obj)
         obj = obj[int(name)] if isinstance(obj, list) else obj[name]
         if filters:
             wanted = dict(f.split("=", 1) for f in filters.split(","))
@@ -76,6 +84,8 @@ def spellings(value) -> list[str]:
     for v in (value, value * 100):
         for digits in (0, 1, 2, 3):
             out.add(f"{v:.{digits}f}")
+            if digits and 0 < abs(v) < 0.01:
+                out.add(f"{v:.{digits}g}")  # small p-values: 0.0001, 0.0013
         out.add(f"{v:,.0f}")
     return sorted(out, key=len, reverse=True)
 
