@@ -34,7 +34,8 @@ def answer_frequency(answers: list[str], texts: dict[str, str]) -> int:
 def main(argv: list[str]) -> int:
     run_dir = Path(argv[0]) if argv else Path("results/core")
     summary = json.loads((run_dir / "summary.json").read_text())
-    texts = chunk_texts(Path(summary["meta"]["config"]))
+    meta = summary["meta"]
+    texts = chunk_texts(Path(meta["config"]))
     records = [json.loads(line) for line in (run_dir / "records.jsonl").open()]
     utm = [r for r in records if r["dataset"] == "utm"]
     freq = {r["qid"]: answer_frequency(r["answers"], texts) for r in utm}
@@ -52,7 +53,7 @@ def main(argv: list[str]) -> int:
             "boilerplate_questions": len(boiler),
             "lucky_records": len(lucky),
             "lucky_records_boilerplate": sum(r["qid"] in boiler for r in lucky),
-            "cells_without_boilerplate": report.summarize(kept)["cells"],
+            "cells_without_boilerplate": report.summarize(kept, meta["bootstrap_resamples"], meta["seed"])["cells"],
         }
     path = run_dir / "utm_sensitivity.json"
     path.write_text(json.dumps(out, indent=1))
