@@ -4,40 +4,53 @@
 those **lucky passes**. Answer-only evaluation counts them as successes, so they inflate the score by exactly the
 lucky-pass rate.
 
-**Pilot setup (2026-11-24).** Generator `qwen2.5:7b`; judge `llama3.1:8b` (a different family), with
-contains-match first; hybrid retrieval (BM25 + `nomic-embed-text`, reciprocal rank fusion), top k = 5; seed 13;
-95% bootstrap CIs (1000 resamples). Every question was also answered **closed-book** (no passages) and
-**oracle** (gold passages only).
-- **HotpotQA** distractor dev: 100 questions sampled from 6947 non-yes/no questions. Corpus: each question's
-  paragraphs (gold plus distractors), pooled into one shared corpus.
-- **Invented corpus**: 38 made-up documents about a fictional coastal survey office, which no model has seen.
-  48 questions passed generation and cross-model verification.
+**Pilot setup (2026-11-25).**
+- **Models:** generator `qwen2.5:7b`. Contains-match decides first; any other answer must be accepted by two LLM
+  judges from other model families (`llama3.1:8b` and `gemma2:9b`).
+- **Retrieval:** BM25, dense (`nomic-embed-text`), and hybrid (reciprocal rank fusion), all at top k = 5.
+- **Controls:** every question is also answered **closed-book** (no passages) and **oracle** (gold passages only).
+- Seed 13; 95% bootstrap CIs (1000 resamples).
+- **HotpotQA** distractor dev: 100 questions sampled from 6947 non-yes/no questions. The passage pool is every
+  dev-set paragraph, 66581 after deduplication.
+- **Invented corpus:** 38 made-up documents about a fictional coastal survey office, which no model has seen. 48
+  questions passed generation and cross-model verification.
 
-| | HotpotQA (n = 100) | Invented (n = 48) |
-|---|---|---|
-| Answer accuracy (what answer-only eval reports) | 88.0 [81.0, 94.0] | 100.0 [100.0, 100.0] |
-| True pass (correct, gold retrieved) | 88.0 [81.0, 94.0] | 100.0 [100.0, 100.0] |
-| **Lucky pass (correct, no gold retrieved)** | **0.0 [0.0, 0.0]** | **0.0 [0.0, 0.0]** |
-| Retrieval: any gold in top 5 | 100.0 | 100.0 |
-| Retrieval: all gold in top 5 | 73.0 [64.0, 81.0] | 100.0 |
-| Lucky pass if multi-hop needs *all* gold | 21.0 [13.0, 30.0] | 0.0 |
-| Closed-book accuracy | 59.0 [49.0, 68.0] | 22.9 [12.5, 35.4] |
-| Oracle accuracy | 95.0 [91.0, 99.0] | 100.0 [100.0, 100.0] |
+| HotpotQA (n = 100) | BM25 | Dense | Hybrid |
+|---|---|---|---|
+| Answer accuracy (what answer-only eval reports) | 54.0 [45.0, 64.0] | 63.0 [54.0, 72.0] | 62.0 [53.0, 71.0] |
+| **Lucky pass, main rule (pre-registered): correct, no gold passage in top 5** | **1.0 [0.0, 3.0]** | **2.0 [0.0, 5.0]** | **0.0 [0.0, 0.0]** |
+| Any gold passage in top 5 | 92.0 [87.0, 97.0] | 96.0 [92.0, 99.0] | 100.0 [100.0, 100.0] |
+| All gold passages in top 5 (multi-hop needs both) | 37.0 [28.0, 46.0] | 67.0 [58.0, 76.0] | 69.0 [60.0, 78.0] |
+| **Lucky pass, secondary rule: correct, not *all* gold passages in top 5** | **22.0 [15.0, 30.0]** | **9.0 [4.0, 15.0]** | **4.0 [1.0, 8.0]** |
+
+Closed-book accuracy is 22.0 [14.0, 30.0] and oracle accuracy 89.0 [83.0, 95.0], for every retriever.
+
+**Invented corpus (n = 48), all three retrievers:**
+- Lucky passes: 0.0 under both rules.
+- Answer accuracy: 97.9 to 100.0.
+- Closed-book accuracy: 10.4 [2.1, 18.8].
 
 **What the pilot shows**
-1. **Under the main rule (any gold passage counts), there are no lucky passes on either dataset.** Retrieval
-   found at least one gold passage for every question, so a lucky pass couldn't happen. At k = 5 this setup is
-   too easy to test the idea: HotpotQA questions name their entities, and the invented corpus has only 38
-   chunks. The full run's weaker settings (BM25 alone, k = 1) are where lucky passes can appear.
-2. **For multi-hop questions, 21.0% [13.0, 30.0] were answered correctly without all the needed paragraphs**,
-   against 0.0 on the invented corpus. That's the direction we expected, but see point 3.
-3. **The LLM judge is too lenient, so accuracy and closed-book numbers are overstated.** Contains-match and the
-   LLM judge agree on only 146 of 295 items (49.5%). Every disagreement goes one way: 149 answers the LLM judge
-   called correct that contains-match didn't, and 0 the other way. Spot checks show clear errors (a different
-   person's name accepted as correct). Closed-book accuracy of 22.9 on documents no model has seen is a symptom.
-   The judge has to be fixed and checked against human labels before the full run.
+1. **Under the pre-registered main rule (correct, but no gold passage in the top 5), lucky passes are rare at
+   k = 5.**
+   - HotpotQA (n = 100 per retriever): BM25 1.0% [0.0, 3.0], dense 2.0% [0.0, 5.0], hybrid 0.0% [0.0, 0.0].
+   - Invented corpus (n = 48): 0.0% [0.0, 0.0] under every retriever.
+   - The 3 HotpotQA lucky passes were all answered right closed-book too ("memory lucky").
+   - HotpotQA questions name one of their two entities, so retrieval almost always finds one gold paragraph.
+2. **Under the secondary "all gold passages retrieved" rule, the gap is large and depends on the retriever.**
+   HotpotQA questions need two paragraphs, so this rule also counts a correct answer as lucky when either one is
+   missing from the top 5.
+   - HotpotQA (n = 100 per retriever): BM25 22.0% [15.0, 30.0], dense 9.0% [4.0, 15.0], hybrid 4.0% [1.0, 8.0].
+   - Invented corpus (n = 48): 0.0% [0.0, 0.0] under every retriever (each question has one gold passage, so
+     the two rules agree there).
+   - That is the effect the full study measures: how much weaker retrieval inflates answer-only scores on public
+     data.
+3. **Memory helps on public data, but not only there.**
+   - Closed-book accuracy is 22% on HotpotQA vs 10.4% on the invented corpus.
+   - On the invented corpus, part of that is guessable questions (e.g. "every 15 minutes"), and part is judge
+     error, still under review.
+4. **The judge was made stricter after the first pilot,** because the first judge accepted wrong answers. The
+   accuracy of the current judges will be checked on a fresh, hand-labelled sample.
 
-**Cost.** 60.3 min wall time, 0 failures; 27.2 min per 100 questions per model. Projected for the full grid at
-this speed: core 27.2 h, k-sweep 9.1 h (before cuts).
-
-Code and data: https://github.com/Aliismail293/lucky-passes (all numbers from `results/pilot/summary.json`).
+**Next.** The full run covers 4 datasets (adding Natural Questions and a university course calendar), 3 models
+(3B to 8B) and 3 retrievers, plus a k = 1, 3, 5 sweep. Code and every result file are public.

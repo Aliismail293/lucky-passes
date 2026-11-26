@@ -1,0 +1,1966 @@
+{
+ "info": {
+  "beir_queries": 3452,
+  "matched_to_nq_open": 2255,
+  "sampled": 150,
+  "distractors": 20000,
+  "corpus_passages": 20193
+ },
+ "questions": [
+  {
+   "qid": "nq:test1011",
+   "question": "who is the head of the department of homeland security 2017",
+   "answers": [
+    "Kirstjen Nielsen"
+   ],
+   "gold_ids": [
+    "nq:doc35746"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1016",
+   "question": "who wrote ain't living long like this",
+   "answers": [
+    "Rodney Crowell"
+   ],
+   "gold_ids": [
+    "nq:doc35855"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1020",
+   "question": "what is the breakdown product formed when one phosphate group is removed from atp",
+   "answers": [
+    "adenosine diphosphate (ADP)"
+   ],
+   "gold_ids": [
+    "nq:doc35964"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1029",
+   "question": "where did the name huey helicopter come from",
+   "answers": [
+    "originally designated HU-1"
+   ],
+   "gold_ids": [
+    "nq:doc36159",
+    "nq:doc36162"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1081",
+   "question": "who did the steelers lose to in the playoffs last year",
+   "answers": [
+    "New England Patriots"
+   ],
+   "gold_ids": [
+    "nq:doc37682"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1171",
+   "question": "when is the last time congress passed a complete budget",
+   "answers": [
+    "FY2010",
+    "March 23, 2013"
+   ],
+   "gold_ids": [
+    "nq:doc41541"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1182",
+   "question": "when are the next commonwealth games going to be held",
+   "answers": [
+    "2022"
+   ],
+   "gold_ids": [
+    "nq:doc41944"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1204",
+   "question": "when does part 5 of jojo take place",
+   "answers": [
+    "The manga begins in 2001",
+    "2001"
+   ],
+   "gold_ids": [
+    "nq:doc42970"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1213",
+   "question": "when did the song things that make you go hmmm come out",
+   "answers": [
+    "June 1991",
+    "June 23, 1991"
+   ],
+   "gold_ids": [
+    "nq:doc43250"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1215",
+   "question": "how many seasons of the glades were made",
+   "answers": [
+    "four"
+   ],
+   "gold_ids": [
+    "nq:doc43361"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1216",
+   "question": "when was the problem of cfc's discovered",
+   "answers": [
+    "late 1970s",
+    "1974",
+    "1973",
+    "1970s"
+   ],
+   "gold_ids": [
+    "nq:doc43381"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1237",
+   "question": "who does demetrius love in a midsummer night dream",
+   "answers": [
+    "Helena",
+    "Hermia"
+   ],
+   "gold_ids": [
+    "nq:doc43872"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test124",
+   "question": "when did the log flume closed at alton towers",
+   "answers": [
+    "10\u00a0October\u00a02015",
+    "2015"
+   ],
+   "gold_ids": [
+    "nq:doc4632"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1251",
+   "question": "which indian actor has won most national awards",
+   "answers": [
+    "Amitabh Bachchan"
+   ],
+   "gold_ids": [
+    "nq:doc44175"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1381",
+   "question": "what year did return of the mack come out",
+   "answers": [
+    "18\u00a0March\u00a01996",
+    "March 1996",
+    "1996"
+   ],
+   "gold_ids": [
+    "nq:doc48965"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1384",
+   "question": "when was the japanese videogame company nintendo founded",
+   "answers": [
+    "23 September 1889"
+   ],
+   "gold_ids": [
+    "nq:doc49023"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1390",
+   "question": "when was penicillin first introduced to the public",
+   "answers": [
+    "After World War II",
+    "1942"
+   ],
+   "gold_ids": [
+    "nq:doc49487",
+    "nq:doc49507",
+    "nq:doc49510"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1401",
+   "question": "love yourself by justin bieber is about who",
+   "answers": [
+    "Rihanna"
+   ],
+   "gold_ids": [
+    "nq:doc50033",
+    "nq:doc50035"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1421",
+   "question": "when were the words under god added to the pledge",
+   "answers": [
+    "on Flag Day in 1954",
+    "1954",
+    "Flag Day in 1954"
+   ],
+   "gold_ids": [
+    "nq:doc50543"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1463",
+   "question": "where did the world's largest recorded wave occur",
+   "answers": [
+    "Lituya Bay in Alaska"
+   ],
+   "gold_ids": [
+    "nq:doc52186"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1479",
+   "question": "character in macbeth who is murdered and appears as a ghost",
+   "answers": [
+    "Lord Banquo",
+    "Banquo"
+   ],
+   "gold_ids": [
+    "nq:doc52676"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1515",
+   "question": "in which sea pearl is found in india",
+   "answers": [
+    "the Indian Ocean"
+   ],
+   "gold_ids": [
+    "nq:doc54130"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1623",
+   "question": "who sings the theme song for the tv show cops",
+   "answers": [
+    "Inner Circle",
+    "Jamaican reggae band Inner Circle"
+   ],
+   "gold_ids": [
+    "nq:doc57669"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1649",
+   "question": "when do the walking dead comics come out",
+   "answers": [
+    "October\u00a02003\u00a0\u2013 present",
+    "2003"
+   ],
+   "gold_ids": [
+    "nq:doc58379"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1667",
+   "question": "when was the worlds first laptop computer introduced in the market and by whom",
+   "answers": [
+    "September 1980",
+    "R2E Micral CCMC"
+   ],
+   "gold_ids": [
+    "nq:doc58992",
+    "nq:doc58993",
+    "nq:doc58997"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1696",
+   "question": "who are the characters in yo gabba gabba",
+   "answers": [
+    "DJ Lance Rock",
+    "Gooble",
+    "Brobee",
+    "Foofa",
+    "Muno",
+    "Plex",
+    "Toodee"
+   ],
+   "gold_ids": [
+    "nq:doc60175"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1698",
+   "question": "what is the longest pier in the uk",
+   "answers": [
+    "Southend Pier"
+   ],
+   "gold_ids": [
+    "nq:doc60266"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1717",
+   "question": "where was held the first session of muslim league",
+   "answers": [
+    "Dhaka, Bangladesh",
+    "Lucknow"
+   ],
+   "gold_ids": [
+    "nq:doc60925"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test172",
+   "question": "when does mexico play in the winter olympics",
+   "answers": [
+    "9 to 25 February 2018"
+   ],
+   "gold_ids": [
+    "nq:doc6274"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1720",
+   "question": "points outside the production possibilities curve represent combinations of products that are",
+   "answers": [
+    "unattainable"
+   ],
+   "gold_ids": [
+    "nq:doc61014",
+    "nq:doc61022"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1746",
+   "question": "what type of plate boundary is associated with iceland and its volcanic eruptions",
+   "answers": [
+    "divergent tectonic plate boundary",
+    "a divergent tectonic plate boundary",
+    "the mid-Atlantic Ridge"
+   ],
+   "gold_ids": [
+    "nq:doc61691"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1763",
+   "question": "who is the book of galatians written to",
+   "answers": [
+    "the churches of Galatia"
+   ],
+   "gold_ids": [
+    "nq:doc62257",
+    "nq:doc62264"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1778",
+   "question": "when is the last time the vikings were in the nfc championship",
+   "answers": [
+    "1976",
+    "2017/18"
+   ],
+   "gold_ids": [
+    "nq:doc62730"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1789",
+   "question": "who sang the song you got a friend in me",
+   "answers": [
+    "Lyle Lovett",
+    "Randy Newman"
+   ],
+   "gold_ids": [
+    "nq:doc63025"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1821",
+   "question": "make it or break it who goes to the olympics",
+   "answers": [
+    "Payson",
+    "Jordan",
+    "Lauren",
+    "Colleen",
+    "Kaylie"
+   ],
+   "gold_ids": [
+    "nq:doc64017"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1825",
+   "question": "element named after fictional planet from which superman came",
+   "answers": [
+    "Kryptonite"
+   ],
+   "gold_ids": [
+    "nq:doc64213"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1827",
+   "question": "where was the movie i am number 4 filmed",
+   "answers": [
+    "the Pittsburgh metropolitan area"
+   ],
+   "gold_ids": [
+    "nq:doc64292"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1871",
+   "question": "who has the most subscribers in faze clan",
+   "answers": [
+    "FaZe Rug"
+   ],
+   "gold_ids": [
+    "nq:doc65714"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1881",
+   "question": "where do peaches come from in the us",
+   "answers": [
+    "other states",
+    "South Carolina",
+    "California",
+    "Georgia"
+   ],
+   "gold_ids": [
+    "nq:doc66095"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1896",
+   "question": "who wrote the original little red riding hood story",
+   "answers": [
+    "Charles Perrault"
+   ],
+   "gold_ids": [
+    "nq:doc66608",
+    "nq:doc66618",
+    "nq:doc66621"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1919",
+   "question": "who sings far from the home i love in fiddler on the roof",
+   "answers": [
+    "Hodel"
+   ],
+   "gold_ids": [
+    "nq:doc67339"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1938",
+   "question": "who votes in the speaker of the house",
+   "answers": [
+    "The House of Representatives"
+   ],
+   "gold_ids": [
+    "nq:doc67897"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test1989",
+   "question": "krypton-85 decays by emission of a beta particle. the product of this decay is",
+   "answers": [
+    "rubidium-85"
+   ],
+   "gold_ids": [
+    "nq:doc69765"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test200",
+   "question": "when does ellen's new game show start",
+   "answers": [
+    "December 18, 2017"
+   ],
+   "gold_ids": [
+    "nq:doc7247"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2019",
+   "question": "who are nominated for president of india 2017",
+   "answers": [
+    "Meira Kumar",
+    "Ram Nath Kovind"
+   ],
+   "gold_ids": [
+    "nq:doc70579"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2038",
+   "question": "where was the witch of blackbird pond published",
+   "answers": [
+    "United States",
+    "1958",
+    "Houghton Mifflin"
+   ],
+   "gold_ids": [
+    "nq:doc71118"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2048",
+   "question": "who did michigan state play in the rose bowl",
+   "answers": [
+    "Stanford Cardinal"
+   ],
+   "gold_ids": [
+    "nq:doc71303"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2059",
+   "question": "what territory is spain and the united kingdom in a dispute over",
+   "answers": [
+    "Gibraltar"
+   ],
+   "gold_ids": [
+    "nq:doc71691",
+    "nq:doc71692",
+    "nq:doc71700"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2072",
+   "question": "where was the tv show friday night lights filmed",
+   "answers": [
+    "Austin",
+    "Pflugerville"
+   ],
+   "gold_ids": [
+    "nq:doc72191"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2085",
+   "question": "who played the mom on what's eating gilbert grape",
+   "answers": [
+    "Darlene Cates"
+   ],
+   "gold_ids": [
+    "nq:doc72516"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2129",
+   "question": "where is the capital city of alabama located",
+   "answers": [
+    "Montgomery"
+   ],
+   "gold_ids": [
+    "nq:doc73914"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2130",
+   "question": "when was coffee first made into a drink",
+   "answers": [
+    "15th century",
+    "the 15th century"
+   ],
+   "gold_ids": [
+    "nq:doc74071",
+    "nq:doc74079"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2136",
+   "question": "who led the conquest of the incas in south america",
+   "answers": [
+    "Francisco Pizarro",
+    "conquistador Francisco Pizarro"
+   ],
+   "gold_ids": [
+    "nq:doc74383"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2154",
+   "question": "when did the uk and us become allies",
+   "answers": [
+    "Since 1940",
+    "1940"
+   ],
+   "gold_ids": [
+    "nq:doc75087"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2176",
+   "question": "who wrote the song photograph by ringo starr",
+   "answers": [
+    "George Harrison",
+    "Ringo Starr",
+    "Richard Starkey"
+   ],
+   "gold_ids": [
+    "nq:doc75903"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2192",
+   "question": "what is the maximum data rate for the 802.11a standard select one",
+   "answers": [
+    "54\u00a0Mbit/s"
+   ],
+   "gold_ids": [
+    "nq:doc76323"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test220",
+   "question": "who was the grandfather on the cosby show",
+   "answers": [
+    "Earle Hyman"
+   ],
+   "gold_ids": [
+    "nq:doc7950"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2248",
+   "question": "when did under the cork tree come out",
+   "answers": [
+    "May 3, 2005"
+   ],
+   "gold_ids": [
+    "nq:doc77984"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test226",
+   "question": "the most stable mineral at the earth's surface",
+   "answers": [
+    "quartz",
+    "feldspar"
+   ],
+   "gold_ids": [
+    "nq:doc8127"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2260",
+   "question": "who made delhi as capital for the first time",
+   "answers": [
+    "the Pandavas"
+   ],
+   "gold_ids": [
+    "nq:doc78331",
+    "nq:doc78345"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2261",
+   "question": "where does jack ryan live in patriot games",
+   "answers": [
+    "Baltimore, Maryland"
+   ],
+   "gold_ids": [
+    "nq:doc78357",
+    "nq:doc78368"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2291",
+   "question": "where is the tablet of the ten commandments",
+   "answers": [
+    "Ark of the Covenant"
+   ],
+   "gold_ids": [
+    "nq:doc79422"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2314",
+   "question": "how long has it been since eagles went to super bowl",
+   "answers": [
+    "2018"
+   ],
+   "gold_ids": [
+    "nq:doc79863"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2323",
+   "question": "where does the term pop music come from",
+   "answers": [
+    "Britain"
+   ],
+   "gold_ids": [
+    "nq:doc80226"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2328",
+   "question": "what is the most famous building in rennes",
+   "answers": [
+    "Parlement de Bretagne",
+    "The Parlement de Bretagne"
+   ],
+   "gold_ids": [
+    "nq:doc80324"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2340",
+   "question": "where was one direction what makes you beautiful filmed",
+   "answers": [
+    "Malibu, California",
+    "a Malibu, California beach"
+   ],
+   "gold_ids": [
+    "nq:doc80759",
+    "nq:doc80770"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2369",
+   "question": "when did cybermen first appear in doctor who",
+   "answers": [
+    "in 1966",
+    "1966"
+   ],
+   "gold_ids": [
+    "nq:doc81942",
+    "nq:doc81943"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2407",
+   "question": "where did the rulers of the qing dynasty originate",
+   "answers": [
+    "Manchuria"
+   ],
+   "gold_ids": [
+    "nq:doc83148"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2418",
+   "question": "who did puss in boots grew up with",
+   "answers": [
+    "Humpty Dumpty",
+    "Kitty Softpaws",
+    "Humpty Alexander Dumpty"
+   ],
+   "gold_ids": [
+    "nq:doc83441",
+    "nq:doc83443"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test242",
+   "question": "when did the continental congress vote to adopt the declaration of independence",
+   "answers": [
+    "July 2, 1776"
+   ],
+   "gold_ids": [
+    "nq:doc8900",
+    "nq:doc8909"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2441",
+   "question": "what was the ancient chinese umbrella used for",
+   "answers": [
+    "a defense against rain"
+   ],
+   "gold_ids": [
+    "nq:doc84147"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2455",
+   "question": "where was it happened at the world fair filmed",
+   "answers": [
+    "Seattle, Washington",
+    "The Seattle Center",
+    "Camarillo, California"
+   ],
+   "gold_ids": [
+    "nq:doc84688",
+    "nq:doc84692"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2456",
+   "question": "what river flows through charleston west virginia\u2019s capital",
+   "answers": [
+    "Kanawha River",
+    "the Elk and Kanawha Rivers",
+    "Kanawha",
+    "Elk"
+   ],
+   "gold_ids": [
+    "nq:doc84694",
+    "nq:doc84769"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2457",
+   "question": "who sings so come and dance with me jai ho",
+   "answers": [
+    "Mahalaxmi Iyer",
+    "Vijay Prakash",
+    "Tanvi Shah",
+    "Sukhvinder Singh"
+   ],
+   "gold_ids": [
+    "nq:doc84775"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2473",
+   "question": "was star wars a book or a movie first",
+   "answers": [
+    "film"
+   ],
+   "gold_ids": [
+    "nq:doc85214",
+    "nq:doc85217"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test248",
+   "question": "who sang never gonna let you go",
+   "answers": [
+    "Joe Pizzulo and Leeza Miller",
+    "Joe Pizzulo",
+    "Leeza Miller"
+   ],
+   "gold_ids": [
+    "nq:doc9181"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2481",
+   "question": "when does the implantation of the embryo occur",
+   "answers": [
+    "around 9 days after ovulation"
+   ],
+   "gold_ids": [
+    "nq:doc85474",
+    "nq:doc85475"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2510",
+   "question": "two atoms of the same element that are covalently bonded",
+   "answers": [
+    "shared pairs or bonding pairs"
+   ],
+   "gold_ids": [
+    "nq:doc86595"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2557",
+   "question": "who won an oscar for schindler's list",
+   "answers": [
+    "Steven Zaillian",
+    "Michael Kahn",
+    "Steven Spielberg",
+    "Janusz Kami\u0144ski",
+    "John Williams",
+    "Ewa Braun",
+    "Gerald R. Molen",
+    "Branko Lustig",
+    "Allan Starski"
+   ],
+   "gold_ids": [
+    "nq:doc87895"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2581",
+   "question": "what dynasty completed the great wall of china",
+   "answers": [
+    "Qin",
+    "Ming dynasty",
+    "Qing"
+   ],
+   "gold_ids": [
+    "nq:doc88535",
+    "nq:doc88537"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2630",
+   "question": "how many nuclear power plants in washington state",
+   "answers": [
+    "3"
+   ],
+   "gold_ids": [
+    "nq:doc90095"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2650",
+   "question": "when does a cell have condensed visible chromosomes also known as sister chromatids",
+   "answers": [
+    "metaphase"
+   ],
+   "gold_ids": [
+    "nq:doc90765"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2665",
+   "question": "what song did the titanic band play when it sank",
+   "answers": [
+    "\"Autumn\""
+   ],
+   "gold_ids": [
+    "nq:doc91359"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test267",
+   "question": "who won the battle of the first battle of bull run",
+   "answers": [
+    "Confederate victory",
+    "Confederate forces",
+    "Confederate"
+   ],
+   "gold_ids": [
+    "nq:doc9883"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2672",
+   "question": "who owned the colts when they left baltimore",
+   "answers": [
+    "Robert Irsay",
+    "Irsay"
+   ],
+   "gold_ids": [
+    "nq:doc91519"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2679",
+   "question": "when is i can only imagine coming out",
+   "answers": [
+    "March 16, 2018"
+   ],
+   "gold_ids": [
+    "nq:doc91765"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2707",
+   "question": "where was the u.s.s maine when it exploded in 1898",
+   "answers": [
+    "Havana Harbor"
+   ],
+   "gold_ids": [
+    "nq:doc92693",
+    "nq:doc92696"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2734",
+   "question": "what part of dc is howard university in",
+   "answers": [
+    "in northwest Washington",
+    "northwest",
+    "northwest Washington"
+   ],
+   "gold_ids": [
+    "nq:doc93831"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2761",
+   "question": "how many counties does the state of georgia have",
+   "answers": [
+    "159",
+    "159 counties"
+   ],
+   "gold_ids": [
+    "nq:doc95006"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2782",
+   "question": "what does the m number mean on a pint glass",
+   "answers": [
+    "imperial fluid ounces",
+    "the manufacturing company or site"
+   ],
+   "gold_ids": [
+    "nq:doc95462"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2798",
+   "question": "dogs name in the grinch who stole christmas",
+   "answers": [
+    "Max"
+   ],
+   "gold_ids": [
+    "nq:doc96241"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2812",
+   "question": "where does the last name baca come from",
+   "answers": [
+    "New Mexico"
+   ],
+   "gold_ids": [
+    "nq:doc96599",
+    "nq:doc96605"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2901",
+   "question": "what year does the quiet man take place",
+   "answers": [
+    "the 1920s",
+    "In the 1920s"
+   ],
+   "gold_ids": [
+    "nq:doc99105"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2931",
+   "question": "where does the phrase train of thought come from",
+   "answers": [
+    "Thomas Hobbes in his Leviathan"
+   ],
+   "gold_ids": [
+    "nq:doc100251"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2942",
+   "question": "what are some special products made in mississippi",
+   "answers": [
+    "farm-raised catfish"
+   ],
+   "gold_ids": [
+    "nq:doc100729"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2961",
+   "question": "which two regions grow most of china\u2019s rice",
+   "answers": [
+    "provinces along the Yangtze River",
+    "provinces in the south"
+   ],
+   "gold_ids": [
+    "nq:doc101277"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test2982",
+   "question": "who said have you no sense of decency",
+   "answers": [
+    "Joseph Nye Welch"
+   ],
+   "gold_ids": [
+    "nq:doc102301"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3004",
+   "question": "what is the money called in south korea",
+   "answers": [
+    "won",
+    "The won"
+   ],
+   "gold_ids": [
+    "nq:doc103032"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3007",
+   "question": "where do most star formation occur in the milky way today",
+   "answers": [
+    "molecular clouds in interstellar space"
+   ],
+   "gold_ids": [
+    "nq:doc103118",
+    "nq:doc103119"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test301",
+   "question": "who won the 7 man elimination chamber match",
+   "answers": [
+    "Roman Reigns"
+   ],
+   "gold_ids": [
+    "nq:doc11496"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3034",
+   "question": "where are antibodies made and by what type of lymphocyte",
+   "answers": [
+    "B cells",
+    "lymph"
+   ],
+   "gold_ids": [
+    "nq:doc103975"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3062",
+   "question": "when did the wave hill walk off end",
+   "answers": [
+    "16 August 1975"
+   ],
+   "gold_ids": [
+    "nq:doc104835"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3075",
+   "question": "itai-itai disease was a form of poisoning associated with ingestion of",
+   "answers": [
+    "cadmium",
+    "Cadmium"
+   ],
+   "gold_ids": [
+    "nq:doc105148"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3079",
+   "question": "who are considered to be the founding fathers",
+   "answers": [
+    "George Washington",
+    "Benjamin Franklin",
+    "John Adams",
+    "Alexander Hamilton",
+    "John Jay",
+    "James Madison",
+    "Thomas Jefferson"
+   ],
+   "gold_ids": [
+    "nq:doc105300"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3103",
+   "question": "architectural elements forming rib vaults eg wells cathedral",
+   "answers": [
+    "an armature of piped masonry",
+    "barrel vaults",
+    "two to three barrel vaults"
+   ],
+   "gold_ids": [
+    "nq:doc106209"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3121",
+   "question": "who is known as father of green revolution in india",
+   "answers": [
+    "Mankombu Sambasivan Swaminathan"
+   ],
+   "gold_ids": [
+    "nq:doc106748"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3127",
+   "question": "who does tony end up with on skins",
+   "answers": [
+    "Michelle"
+   ],
+   "gold_ids": [
+    "nq:doc106918",
+    "nq:doc106921"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3202",
+   "question": "when does god of war ghost of sparta take place",
+   "answers": [
+    "ancient Greece"
+   ],
+   "gold_ids": [
+    "nq:doc109414"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3245",
+   "question": "when did the word of wisdom become mandatory",
+   "answers": [
+    "February 1834"
+   ],
+   "gold_ids": [
+    "nq:doc110911"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3254",
+   "question": "who died doing the luge in the olympics",
+   "answers": [
+    "Nodar Kumaritashvili"
+   ],
+   "gold_ids": [
+    "nq:doc111218",
+    "nq:doc111230"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3324",
+   "question": "what is the dogs name in wizard of oz",
+   "answers": [
+    "Toto"
+   ],
+   "gold_ids": [
+    "nq:doc113428"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3353",
+   "question": "what is the location at the end of minority report",
+   "answers": [
+    "an undisclosed location"
+   ],
+   "gold_ids": [
+    "nq:doc114461",
+    "nq:doc114471"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3422",
+   "question": "who has won the most masters green jackets",
+   "answers": [
+    "Jack Nicklaus"
+   ],
+   "gold_ids": [
+    "nq:doc116487"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3426",
+   "question": "when did the first junie b jones book come out",
+   "answers": [
+    "1992"
+   ],
+   "gold_ids": [
+    "nq:doc116523",
+    "nq:doc116561"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3428",
+   "question": "who invented the submarine during the civil war",
+   "answers": [
+    "Horace Lawson Hunley"
+   ],
+   "gold_ids": [
+    "nq:doc116565"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3440",
+   "question": "when did the united states became a nation",
+   "answers": [
+    "1776",
+    "July 4, 1776",
+    "In 1776"
+   ],
+   "gold_ids": [
+    "nq:doc117121",
+    "nq:doc117174"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test345",
+   "question": "who was originally cast as phoebe on charmed",
+   "answers": [
+    "Lori Rom"
+   ],
+   "gold_ids": [
+    "nq:doc13111"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test3451",
+   "question": "when will notre dame played michigan state again",
+   "answers": [
+    "2026"
+   ],
+   "gold_ids": [
+    "nq:doc117680"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test347",
+   "question": "when did the us dollar leave the gold standard",
+   "answers": [
+    "October 1976",
+    "August 15, 1971",
+    "1934"
+   ],
+   "gold_ids": [
+    "nq:doc13224",
+    "nq:doc13229",
+    "nq:doc13230"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test35",
+   "question": "what is the meaning of the dragon boat festival",
+   "answers": [
+    "commemorating fealty and filial piety"
+   ],
+   "gold_ids": [
+    "nq:doc972"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test36",
+   "question": "who is edmund on days of our lives",
+   "answers": [
+    "Adam Caine"
+   ],
+   "gold_ids": [
+    "nq:doc1010"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test388",
+   "question": "when did the cubs won a world series",
+   "answers": [
+    "1908",
+    "1907",
+    "2016"
+   ],
+   "gold_ids": [
+    "nq:doc14563"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test400",
+   "question": "what is the name given to the common currency to the european union",
+   "answers": [
+    "euro",
+    "The euro"
+   ],
+   "gold_ids": [
+    "nq:doc15007",
+    "nq:doc15008"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test405",
+   "question": "who has won the most united states championships",
+   "answers": [
+    "Lex Luger",
+    "Ric Flair"
+   ],
+   "gold_ids": [
+    "nq:doc15128"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test419",
+   "question": "what nfl coach has the most wins ever",
+   "answers": [
+    "Shula, Don",
+    "Don Shula"
+   ],
+   "gold_ids": [
+    "nq:doc15659"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test427",
+   "question": "who was the girl that played cindy lou who",
+   "answers": [
+    "Taylor Michel Momsen"
+   ],
+   "gold_ids": [
+    "nq:doc15868"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test448",
+   "question": "what is the meaning of lord shiva lingam",
+   "answers": [
+    "reminds of the Omnipotent Lord"
+   ],
+   "gold_ids": [
+    "nq:doc16675",
+    "nq:doc16678",
+    "nq:doc16682"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test456",
+   "question": "who wrote hallelujah i just love her so",
+   "answers": [
+    "Ray Charles"
+   ],
+   "gold_ids": [
+    "nq:doc16797"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test464",
+   "question": "how much square feet is a basketball court",
+   "answers": [
+    "94 by 50 feet"
+   ],
+   "gold_ids": [
+    "nq:doc17092"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test5",
+   "question": "who were the three elves who got rings",
+   "answers": [
+    "C\u00edrdan",
+    "Gil-galad",
+    "Galadriel"
+   ],
+   "gold_ids": [
+    "nq:doc50"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test506",
+   "question": "who plays the coach in old spice commercial",
+   "answers": [
+    "Isaiah Amir Mustafa"
+   ],
+   "gold_ids": [
+    "nq:doc18536"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test523",
+   "question": "when did brent barry won the dunk contest",
+   "answers": [
+    "1996"
+   ],
+   "gold_ids": [
+    "nq:doc19031"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test559",
+   "question": "what is the legal age for marriage in australia",
+   "answers": [
+    "18"
+   ],
+   "gold_ids": [
+    "nq:doc20262"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test580",
+   "question": "when was the last time the jets won a playoff game",
+   "answers": [
+    "2010"
+   ],
+   "gold_ids": [
+    "nq:doc20961"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test647",
+   "question": "who is the no. 1 ranked tennis player in the world",
+   "answers": [
+    "Rafael Nadal"
+   ],
+   "gold_ids": [
+    "nq:doc23025"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test668",
+   "question": "where do they film young and the restless",
+   "answers": [
+    "CBS Television City"
+   ],
+   "gold_ids": [
+    "nq:doc23926"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test701",
+   "question": "where do the maple leafs play hockey in toronto",
+   "answers": [
+    "Air Canada Centre",
+    "the Air Canada Centre"
+   ],
+   "gold_ids": [
+    "nq:doc24974"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test710",
+   "question": "created propaganda to support the war effort & encourage the sale of war bonds",
+   "answers": [
+    "the government"
+   ],
+   "gold_ids": [
+    "nq:doc25371"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test729",
+   "question": "when did the crucifix become the symbol of christianity",
+   "answers": [
+    "in the 2nd century",
+    "4th century",
+    "the 4th century"
+   ],
+   "gold_ids": [
+    "nq:doc26069",
+    "nq:doc26070"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test811",
+   "question": "who took control of jamestown and made new rules that made everyone work",
+   "answers": [
+    "John Smith"
+   ],
+   "gold_ids": [
+    "nq:doc29001"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test831",
+   "question": "when was the term prime minister first used",
+   "answers": [
+    "1624",
+    "18th century"
+   ],
+   "gold_ids": [
+    "nq:doc30084",
+    "nq:doc30085"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test841",
+   "question": "who played the middle sister on full house",
+   "answers": [
+    "Jodie Sweetin"
+   ],
+   "gold_ids": [
+    "nq:doc30365"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test843",
+   "question": "when was the first season of when calls the heart",
+   "answers": [
+    "January 11, 2014",
+    "2014"
+   ],
+   "gold_ids": [
+    "nq:doc30406"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test863",
+   "question": "who was running as vice president in 1984",
+   "answers": [
+    "George H. W. Bush",
+    "Ferraro",
+    "Vice President George H. W. Bush",
+    "Congresswoman Ferraro"
+   ],
+   "gold_ids": [
+    "nq:doc30831",
+    "nq:doc30833",
+    "nq:doc30860"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test894",
+   "question": "who does april end up with on parks and rec",
+   "answers": [
+    "Andy",
+    "Andy Dwyer"
+   ],
+   "gold_ids": [
+    "nq:doc31922",
+    "nq:doc31925",
+    "nq:doc31927"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test900",
+   "question": "when did sierra nevada brewery open in asheville",
+   "answers": [
+    "early 2014",
+    "January 2012",
+    "2014"
+   ],
+   "gold_ids": [
+    "nq:doc32068"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test919",
+   "question": "where does the band imagine dragons come from",
+   "answers": [
+    "Las Vegas, Nevada"
+   ],
+   "gold_ids": [
+    "nq:doc32705"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test96",
+   "question": "when was the chain first used for f1",
+   "answers": [
+    "1978"
+   ],
+   "gold_ids": [
+    "nq:doc3097"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test995",
+   "question": "what was guantanamo bay before it was a prison",
+   "answers": [
+    "Guantanamo Bay Naval Base"
+   ],
+   "gold_ids": [
+    "nq:doc34978"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  },
+  {
+   "qid": "nq:test996",
+   "question": "who plays brad pitt's daughter in moneyball",
+   "answers": [
+    "Kerris Lilla Dorsey"
+   ],
+   "gold_ids": [
+    "nq:doc35151"
+   ],
+   "multi_hop": false,
+   "meta": {}
+  }
+ ]
+}

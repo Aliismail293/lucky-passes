@@ -1,0 +1,12 @@
+{
+  "answer_calls": 7470,
+  "answer_calls_cached": 7465,
+  "judge_calls_cached": 6105,
+  "judge_calls_uncached_est": 3,
+  "question_generation_calls_est": 0,
+  "uncached_calls_est": 8,
+  "seconds_per_call": 3.536,
+  "embeddings_uncached": 0,
+  "seconds_per_embedding": 0.016,
+  "hours_est": 0.007857777777777778
+}
