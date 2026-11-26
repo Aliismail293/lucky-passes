@@ -8,7 +8,12 @@ spec.loader.exec_module(utm_sensitivity)
 
 
 def test_answer_frequency_counts_chunks_and_takes_the_most_common_answer():
-    texts = {"a": "mode of delivery in class", "b": "mode of delivery in class", "c": "prerequisite mat240h5"}
+    texts = {"a": " mode of delivery in class ", "b": " mode of delivery in class ", "c": " prerequisite mat240h5 "}
     assert utm_sensitivity.answer_frequency(["In Class"], texts) == 2
     assert utm_sensitivity.answer_frequency(["MAT240H5", "in class"], texts) == 2
     assert utm_sensitivity.answer_frequency(["MAT999H5"], texts) == 0
+
+
+def test_answer_frequency_matches_whole_words_only():
+    texts = {"a": " natural sciences ", "b": " science "}
+    assert utm_sensitivity.answer_frequency(["Science"], texts) == 1

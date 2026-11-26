@@ -1,9 +1,14 @@
-"""Fail if paper/main.tex contains a number that doesn't appear in any results file (ground rule B2.3).
+"""Fail if the paper contains a number that doesn't appear in any results file (ground rule B2.3).
+
+Checked files: paper/main.tex (ACL), paper/codex/main.tex (CODEX, if present) and paper/sections/*.tex.
 
 Checked: every decimal number (62.3), every percentage (62%), and every integer of 11 or more that isn't a
 year between 1900 and 2100. Small integers ("3 retrievers", "k = 5") and LaTeX commands, citations, labels and
 comments are skipped. A results value of 0.623 counts as 62.3, 62 and 0.62, so rounding is accepted.
 A line can opt out with the comment `% nocheck`, which reviewers will see.
+
+Evidence is machine-written files only: .json, .csv and .tex under results/. Markdown is not evidence, because
+some of it is prose written by people or Claude (FINDINGS.md); it would otherwise vouch for its own numbers.
 """
 
 import json
@@ -47,7 +52,7 @@ def numbers_in_results(results_dir: Path) -> set[str]:
     for path in results_dir.rglob("*"):
         if path.suffix == ".json":
             walk(json.loads(path.read_text()))
-        elif path.suffix in (".csv", ".md", ".tex"):
+        elif path.suffix in (".csv", ".tex"):
             for match in re.findall(r"\d+(?:\.\d+)?", path.read_text()):
                 add(float(match))
     return allowed
@@ -76,7 +81,8 @@ def main() -> int:
     if not tex_path.exists():
         print("paper/main.tex doesn't exist yet (Phase 6); nothing to check")
         return 0
-    tex = "\n".join(p.read_text() for p in [tex_path, *sorted((REPO_ROOT / "paper" / "sections").glob("*.tex"))])
+    mains = [tex_path, *[p for p in [REPO_ROOT / "paper" / "codex" / "main.tex"] if p.exists()]]
+    tex = "\n".join(p.read_text() for p in [*mains, *sorted((REPO_ROOT / "paper" / "sections").glob("*.tex"))])
     bad = unverified_numbers(tex, numbers_in_results(REPO_ROOT / "results"))
     for lineno, number in bad:
         print(f"line {lineno}: {number} is not in any results file")

@@ -45,3 +45,16 @@ def test_mcnemar_known_value():
 
 def test_mcnemar_no_flips():
     assert stats.mcnemar([True, False], [True, False])["p"] == 1.0
+
+
+def test_clopper_pearson_known_values():
+    zero = stats.clopper_pearson(0, 150)
+    assert zero["lo"] == 0.0 and abs(zero["hi"] - 0.0243) < 1e-3
+    mid = stats.clopper_pearson(3, 76)
+    assert abs(mid["lo"] - 0.0082) < 1e-3 and abs(mid["hi"] - 0.1111) < 1e-3
+    assert stats.clopper_pearson(48, 48)["hi"] == 1.0
+    assert stats.clopper_pearson(0, 0)["value"] is None
+
+
+def test_holm_adjusts_in_input_order():
+    assert stats.holm([0.01, 0.04, 0.03, 0.5]) == [0.04, 0.09, 0.09, 0.5]
