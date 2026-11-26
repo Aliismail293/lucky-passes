@@ -176,8 +176,9 @@ def _plt():
 
 def _save(fig, out_dir: Path, name: str) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
-    for ext in ("png", "pdf"):
-        fig.savefig(out_dir / f"{name}.{ext}", dpi=200, bbox_inches="tight")
+    # No creation date in the PDFs, so rebuilding unchanged results gives byte-identical files.
+    fig.savefig(out_dir / f"{name}.png", dpi=200, bbox_inches="tight")
+    fig.savefig(out_dir / f"{name}.pdf", dpi=200, bbox_inches="tight", metadata={"CreationDate": None})
 
 
 def _grouped_bars(plt, groups: list[str], series: dict[str, list[dict | None]], ylabel: str, title: str):
