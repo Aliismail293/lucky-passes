@@ -147,6 +147,7 @@ def write_tables(summary: dict, out_dir: Path) -> None:
     write_headline_table(summary, out_dir)
 
 
+DATASET_NAMES = {"hotpotqa": "HotpotQA", "nq": "NQ", "utm": "UTM calendar", "invented": "Invented"}
 HEADLINE_COLUMNS = ("accuracy", "hit_any", "lucky_pass", "lucky_pass_all", "closed_accuracy")
 
 
@@ -164,7 +165,7 @@ def write_headline_table(summary: dict, out_dir: Path) -> None:
         "\\midrule",
     ]
     for cell in cells:
-        values = [cell["dataset"], cell["model"], str(cell["n"])]
+        values = [DATASET_NAMES.get(cell["dataset"], cell["dataset"]), cell["model"], str(cell["n"])]
         values += [pct(cell["rates"][c]).replace("[", "{\\scriptsize[").replace("]", "]}") for c in HEADLINE_COLUMNS]
         lines.append(" & ".join(v.replace("_", "\\_") for v in values) + " \\\\")
     lines += ["\\bottomrule", "\\end{tabular}"]
