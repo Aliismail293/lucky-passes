@@ -1,0 +1,740 @@
+{
+ "info": {
+  "chunks": 38,
+  "chunks_generated": 38,
+  "verified_questions": 48,
+  "rejected": {
+   "too_lexical": 34,
+   "ambiguous": 8,
+   "unsupported": 6,
+   "unanswerable": 4,
+   "relative_time": 2,
+   "verifier_unparseable": 1
+  },
+  "sampled": 48,
+  "corpus": "full",
+  "corpus_passages": 38
+ },
+ "questions": [
+  {
+   "qid": "invented:0951b8a3ab381fb0:0",
+   "question": "In what year did the RV Tamberlin begin its operational service?",
+   "answers": [
+    "2005"
+   ],
+   "gold_ids": [
+    "invented:0951b8a3ab381fb0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:0951b8a3ab381fb0:1",
+   "question": "Which location is RV Tamberlin based at for its operations?",
+   "answers": [
+    "Ashgrove Point"
+   ],
+   "gold_ids": [
+    "invented:0951b8a3ab381fb0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:0951b8a3ab381fb0:2",
+   "question": "What is the deepest water level that RV Tamberlin's sonar can scan?",
+   "answers": [
+    "900 metres"
+   ],
+   "gold_ids": [
+    "invented:0951b8a3ab381fb0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:0b7e1bb46e33f97c:0",
+   "question": "What year did the Kestrelmoor Survey Office get officially established?",
+   "answers": [
+    "1987"
+   ],
+   "gold_ids": [
+    "invented:0b7e1bb46e33f97c"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:0f3a7110ef3bc265:0",
+   "question": "What is the update frequency of the Swell Index?",
+   "answers": [
+    "every 15 minutes"
+   ],
+   "gold_ids": [
+    "invented:0f3a7110ef3bc265"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:0f3a7110ef3bc265:2",
+   "question": "What is the yearly cost for Swell Index subscriptions?",
+   "answers": [
+    "75 marks a year"
+   ],
+   "gold_ids": [
+    "invented:0f3a7110ef3bc265"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:132f2c38acbae05e:2",
+   "question": "Approximately how many individuals are employed at the main location on Fenwick Strand?",
+   "answers": [
+    "40 people"
+   ],
+   "gold_ids": [
+    "invented:132f2c38acbae05e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:1458c69e5277feb0:1",
+   "question": "What is the maximum age of the tide forecast information in the Harbour Bulletin when it is released?",
+   "answers": [
+    "at most 6 hours old"
+   ],
+   "gold_ids": [
+    "invented:1458c69e5277feb0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:1458c69e5277feb0:2",
+   "question": "How long do back issues of the Harbour Bulletin get stored?",
+   "answers": [
+    "2 years"
+   ],
+   "gold_ids": [
+    "invented:1458c69e5277feb0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:3c5b00f9ecd3e58c:0",
+   "question": "In what depth is the Petrel anchored?",
+   "answers": [
+    "310 metres"
+   ],
+   "gold_ids": [
+    "invented:3c5b00f9ecd3e58c"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:3f18bdc9863d066a:0",
+   "question": "What regions does the Estuary office serve?",
+   "answers": [
+    "Quillmere and the RV Selkie Moss"
+   ],
+   "gold_ids": [
+    "invented:3f18bdc9863d066a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:3f85a805f925bfc8:0",
+   "question": "Which vessel is considered the main ship of the Survey Office?",
+   "answers": [
+    "RV Brannoch"
+   ],
+   "gold_ids": [
+    "invented:3f85a805f925bfc8"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:3f85a805f925bfc8:1",
+   "question": "What year did RV Brannoch begin its service?",
+   "answers": [
+    "1999"
+   ],
+   "gold_ids": [
+    "invented:3f85a805f925bfc8"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:47d6f217a068022a:0",
+   "question": "In what year did RV Oriel Fen become part of the fleet?",
+   "answers": [
+    "2019"
+   ],
+   "gold_ids": [
+    "invented:47d6f217a068022a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:47d6f217a068022a:2",
+   "question": "During which month does RV Oriel Fen undergo her refit?",
+   "answers": [
+    "every June"
+   ],
+   "gold_ids": [
+    "invented:47d6f217a068022a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:5273e9d5180b80c1:0",
+   "question": "Which locations and facilities are managed by the South Bight office?",
+   "answers": [
+    "Corran Sound and Haverlea, and for RV Marlow Quay"
+   ],
+   "gold_ids": [
+    "invented:5273e9d5180b80c1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:5273e9d5180b80c1:1",
+   "question": "What days and times is the South Bight regional office open?",
+   "answers": [
+    "09:00 to 16:00, Tuesday to Saturday"
+   ],
+   "gold_ids": [
+    "invented:5273e9d5180b80c1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:5273e9d5180b80c1:2",
+   "question": "How many people work at the South Bight regional office for managing Corran Sound and Haverlea?",
+   "answers": [
+    "5"
+   ],
+   "gold_ids": [
+    "invented:5273e9d5180b80c1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:57af967b004b4ab1:0",
+   "question": "What year did the Office acquire and transform RV Marlow Quay into a survey vessel?",
+   "answers": [
+    "2014"
+   ],
+   "gold_ids": [
+    "invented:57af967b004b4ab1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:57af967b004b4ab1:1",
+   "question": "From which location does RV Marlow Quay operate?",
+   "answers": [
+    "Haverlea"
+   ],
+   "gold_ids": [
+    "invented:57af967b004b4ab1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:5cdb2d1bbb192a32:0",
+   "question": "What regions are under the responsibility of the North Cape office?",
+   "answers": [
+    "Varnholt and Pellicot Reach"
+   ],
+   "gold_ids": [
+    "invented:5cdb2d1bbb192a32"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:5cdb2d1bbb192a32:1",
+   "question": "During weekdays, what times is the North Cape office operational?",
+   "answers": [
+    "07:00 to 15:00 on weekdays"
+   ],
+   "gold_ids": [
+    "invented:5cdb2d1bbb192a32"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:5cdb2d1bbb192a32:2",
+   "question": "How many workers are stationed at the North Cape regional office?",
+   "answers": [
+    "nine people"
+   ],
+   "gold_ids": [
+    "invented:5cdb2d1bbb192a32"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:706d1b6bb9689df3:0",
+   "question": "In which year began the tide recording at Haverlea station?",
+   "answers": [
+    "2012"
+   ],
+   "gold_ids": [
+    "invented:706d1b6bb9689df3"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:706d1b6bb9689df3:2",
+   "question": "What radio identifier is used for communications at the Haverlea tide station?",
+   "answers": [
+    "KS-HAV"
+   ],
+   "gold_ids": [
+    "invented:706d1b6bb9689df3"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:802426d6d5bf1510:0",
+   "question": "How frequently is the Shoal Atlas updated?",
+   "answers": [
+    "twice a year"
+   ],
+   "gold_ids": [
+    "invented:802426d6d5bf1510"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:802426d6d5bf1510:2",
+   "question": "What is the yearly cost for the licence mentioned in the Shoal Atlas context?",
+   "answers": [
+    "260 marks per year"
+   ],
+   "gold_ids": [
+    "invented:802426d6d5bf1510"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:8bf826a670f6836a:1",
+   "question": "What is the required duration of service at the Office before an editor can become a product editor?",
+   "answers": [
+    "3 years"
+   ],
+   "gold_ids": [
+    "invented:8bf826a670f6836a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:8bf826a670f6836a:2",
+   "question": "What is the longest period an editor can hold off a release decision independently?",
+   "answers": [
+    "24 hours"
+   ],
+   "gold_ids": [
+    "invented:8bf826a670f6836a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:a3322a7523c2fd03:2",
+   "question": "Under the KS-17 protocol, which situation would require a sonar line to be resurveyed?",
+   "answers": [
+    "more than 5 percent of the soundings are missing"
+   ],
+   "gold_ids": [
+    "invented:a3322a7523c2fd03"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:ab0510ab4f37ca9f:1",
+   "question": "How frequently do supplies arrive via the cliff railway at Ashgrove Point?",
+   "answers": [
+    "every 7 days"
+   ],
+   "gold_ids": [
+    "invented:ab0510ab4f37ca9f"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:af88f830302f8fa0:1",
+   "question": "During which year was the Skua buoy put into service?",
+   "answers": [
+    "2021"
+   ],
+   "gold_ids": [
+    "invented:af88f830302f8fa0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:b3835734a48f10ea:0",
+   "question": "What is the publication schedule for the Littoral Digest?",
+   "answers": [
+    "quarterly"
+   ],
+   "gold_ids": [
+    "invented:b3835734a48f10ea"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:b3835734a48f10ea:1",
+   "question": "During which weeks is the Littoral Digest released?",
+   "answers": [
+    "the first week of January, April, July and October"
+   ],
+   "gold_ids": [
+    "invented:b3835734a48f10ea"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:bad022b8e9e3cbed:0",
+   "question": "In what year was the Dunmarrow tide station officially opened?",
+   "answers": [
+    "2016"
+   ],
+   "gold_ids": [
+    "invented:bad022b8e9e3cbed"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:cd49adf77d075918:0",
+   "question": "Which year did RV Selkie Moss get constructed for working in estuaries?",
+   "answers": [
+    "2011"
+   ],
+   "gold_ids": [
+    "invented:cd49adf77d075918"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:cd49adf77d075918:1",
+   "question": "Where is RV Selkie Moss based when not out on missions?",
+   "answers": [
+    "Quillmere"
+   ],
+   "gold_ids": [
+    "invented:cd49adf77d075918"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:cd49adf77d075918:2",
+   "question": "In which month is the annual maintenance of RV Selkie Moss scheduled?",
+   "answers": [
+    "November"
+   ],
+   "gold_ids": [
+    "invented:cd49adf77d075918"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:d4646d727ee52850:0",
+   "question": "Which location does the Fulmar buoy indicate access to?",
+   "answers": [
+    "the entrance to the Quillmere lagoon"
+   ],
+   "gold_ids": [
+    "invented:d4646d727ee52850"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:d4646d727ee52850:1",
+   "question": "Which year had the buoy Fulmar installed?",
+   "answers": [
+    "2006"
+   ],
+   "gold_ids": [
+    "invented:d4646d727ee52850"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:d4646d727ee52850:2",
+   "question": "What is the reporting interval for the Fulmar buoy?",
+   "answers": [
+    "every 10 minutes"
+   ],
+   "gold_ids": [
+    "invented:d4646d727ee52850"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:d46726029ce10e99:2",
+   "question": "What is the typical duration for KS-11?",
+   "answers": [
+    "2 hours"
+   ],
+   "gold_ids": [
+    "invented:d46726029ce10e99"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:de2434b4bebc57c0:0",
+   "question": "In what year did Quillmere tide station become operational?",
+   "answers": [
+    "2003"
+   ],
+   "gold_ids": [
+    "invented:de2434b4bebc57c0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:f654788e5a59d8c5:1",
+   "question": "What credentials are needed for someone working as a station keeper?",
+   "answers": [
+    "a first-aid certificate and a boat licence"
+   ],
+   "gold_ids": [
+    "invented:f654788e5a59d8c5"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:fa6ff2f7b1a33e8e:1",
+   "question": "In which year did the Gannet wave buoy start its operation?",
+   "answers": [
+    "2010"
+   ],
+   "gold_ids": [
+    "invented:fa6ff2f7b1a33e8e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:fd7d02ad2a3b48e3:0",
+   "question": "At what interval is the Fog Register updated?",
+   "answers": [
+    "every hour on the hour"
+   ],
+   "gold_ids": [
+    "invented:fd7d02ad2a3b48e3"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:fd7d02ad2a3b48e3:1",
+   "question": "How long does the Fog Register retain hourly records?",
+   "answers": [
+    "5 years"
+   ],
+   "gold_ids": [
+    "invented:fd7d02ad2a3b48e3"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "invented:fd7d02ad2a3b48e3:2",
+   "question": "What is the maximum age of an entry in the Fog Register?",
+   "answers": [
+    "up to 70 minutes old"
+   ],
+   "gold_ids": [
+    "invented:fd7d02ad2a3b48e3"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  }
+ ]
+}

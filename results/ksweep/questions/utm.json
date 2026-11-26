@@ -1,0 +1,2268 @@
+{
+ "info": {
+  "chunks": 125,
+  "chunks_generated": 125,
+  "verified_questions": 150,
+  "rejected": {
+   "ambiguous": 10,
+   "unsupported": 19,
+   "too_lexical": 59,
+   "unanswerable": 2
+  },
+  "sampled": 150,
+  "corpus": "full",
+  "corpus_passages": 125
+ },
+ "questions": [
+  {
+   "qid": "utm:0044d62c5782fe55:0",
+   "question": "What distribution requirement category does MAT139H5 fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:0044d62c5782fe55"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0044d62c5782fe55:1",
+   "question": "How many total instructional hours are there for the course MAT139H5?",
+   "answers": [
+    "40L/24T"
+   ],
+   "gold_ids": [
+    "utm:0044d62c5782fe55"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0044d62c5782fe55:2",
+   "question": "How is MAT139H5 delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:0044d62c5782fe55"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0282089155b22deb:0",
+   "question": "What courses must be completed before enrolling in MAT247H5?",
+   "answers": [
+    "MAT240H5 or MAT240H1"
+   ],
+   "gold_ids": [
+    "utm:0282089155b22deb"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0282089155b22deb:1",
+   "question": "What is the Distribution Requirement category for the MAT247H5 course?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:0282089155b22deb"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0282089155b22deb:2",
+   "question": "How many instructional hours are allocated for the MAT247H5 Algebra II course?",
+   "answers": [
+    "36L/12T"
+   ],
+   "gold_ids": [
+    "utm:0282089155b22deb"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:042635771543f3ff:1",
+   "question": "What courses must be completed before enrolling in MAT239H5?",
+   "answers": [
+    "MAT237H5 and (MAT223H5 or MAT240H5)"
+   ],
+   "gold_ids": [
+    "utm:042635771543f3ff"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:09872b7ea83e6bbc:0",
+   "question": "Which two course combinations are needed for the First Year program for students starting in 2027-2028 (and later)?",
+   "answers": [
+    "(CSC108H5 and CSC148H5 and MAT102H5) or (CSC110Y5 and CSC111H5)"
+   ],
+   "gold_ids": [
+    "utm:09872b7ea83e6bbc"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:09872b7ea83e6bbc:1",
+   "question": "Which mathematics course must first-year students take if they join the program starting in 2027-2028?",
+   "answers": [
+    "MAT240H5"
+   ],
+   "gold_ids": [
+    "utm:09872b7ea83e6bbc"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:09872b7ea83e6bbc:2",
+   "question": "Which courses must students take in their first year if they start the program in 2027-2028 or later?",
+   "answers": [
+    "(MAT137H5 or MAT157H5) and (MAT139H5 or MAT159H5)"
+   ],
+   "gold_ids": [
+    "utm:09872b7ea83e6bbc"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0a50039352c52f7f:1",
+   "question": "Which group of students is prioritized for enrollment in MAT386H5?",
+   "answers": [
+    "students enrolled in the Mathematical Sciences - Major: Applied Mathematics program"
+   ],
+   "gold_ids": [
+    "utm:0a50039352c52f7f"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0a50039352c52f7f:2",
+   "question": "What delivery method is used for the MAT386H5 course?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:0a50039352c52f7f"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0e32668dc357c683:0",
+   "question": "How many total instructional hours are needed for the program?",
+   "answers": [
+    "40L/12T"
+   ],
+   "gold_ids": [
+    "utm:0e32668dc357c683"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0e32668dc357c683:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:0e32668dc357c683"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0f9d24506622d032:0",
+   "question": "Which of the following topics is included in the curriculum of MAT240H5, focusing on vector spaces over various fields?",
+   "answers": [
+    "Vector spaces over arbitrary fields (including C and finite fields)"
+   ],
+   "gold_ids": [
+    "utm:0f9d24506622d032"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0f9d24506622d032:1",
+   "question": "Which subjects are included in the MAT240H5 course?",
+   "answers": [
+    "linear equations and matrices"
+   ],
+   "gold_ids": [
+    "utm:0f9d24506622d032"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:0f9d24506622d032:2",
+   "question": "Which subjects are included in the MAT240H5 course?",
+   "answers": [
+    "bases and linear independence"
+   ],
+   "gold_ids": [
+    "utm:0f9d24506622d032"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:116dadbc8a68dc6b:0",
+   "question": "How many total instructional hours are there for the science course?",
+   "answers": [
+    "36L/12T"
+   ],
+   "gold_ids": [
+    "utm:116dadbc8a68dc6b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:116dadbc8a68dc6b:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:116dadbc8a68dc6b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:13468fc99894cfaf:0",
+   "question": "How is the MCV4U course delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:13468fc99894cfaf"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:162e35492cca1dec:1",
+   "question": "Which students are prioritized for enrollment in MAT398H5?",
+   "answers": [
+    "priority is given to students enrolled in Mathematical Sciences Specialist or Major programs."
+   ],
+   "gold_ids": [
+    "utm:162e35492cca1dec"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:162e35492cca1dec:2",
+   "question": "Which distribution category does MAT398H5 fall under?",
+   "answers": [
+    "Science."
+   ],
+   "gold_ids": [
+    "utm:162e35492cca1dec"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:16e2175e55f5ce1c:0",
+   "question": "What is the total credit requirement for the Mathematical Sciences - Minor (Science) program?",
+   "answers": [
+    "4.0 credits are required."
+   ],
+   "gold_ids": [
+    "utm:16e2175e55f5ce1c"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:22e832795c42693e:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:22e832795c42693e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:271be072dbf06a3e:0",
+   "question": "What is the total number of credits needed to complete the Mathematical Sciences - Specialist (Science) - ERSPE2511 program?",
+   "answers": [
+    "14.0 credits"
+   ],
+   "gold_ids": [
+    "utm:271be072dbf06a3e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:2b2aac69702ac98b:0",
+   "question": "Which of the following best describes the focus of the Applied Mathematics Major?",
+   "answers": [
+    "mathematical applications and the core mathematical and statistical foundations for them"
+   ],
+   "gold_ids": [
+    "utm:2b2aac69702ac98b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:2f341e259e155331:0",
+   "question": "What courses must be completed before enrolling in MAT392H5?",
+   "answers": [
+    "MAT202H5 and MAT244H5 and (MAT236H5 or MAT257Y5) and (MAT224H5 or MAT247H5)"
+   ],
+   "gold_ids": [
+    "utm:2f341e259e155331"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:30e7ed142d505ba0:0",
+   "question": "What courses must be completed before enrolling in MAT307H5?",
+   "answers": [
+    "[(MAT224H5 or MAT240H5) and (MAT232H5 or MAT233H5)] or MAT257Y5"
+   ],
+   "gold_ids": [
+    "utm:30e7ed142d505ba0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:329bc6e482382d00:1",
+   "question": "Which distribution requirement category does MAT257Y5 belong to?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:329bc6e482382d00"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:329bc6e482382d00:2",
+   "question": "In what format is the MAT257Y5 course taught?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:329bc6e482382d00"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:35b7f42f5b9bda5d:0",
+   "question": "Which distribution requirement category does MAT159H5 fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:35b7f42f5b9bda5d"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:35b7f42f5b9bda5d:1",
+   "question": "How many total instructional hours are there for the MAT159H5 course?",
+   "answers": [
+    "36L/24T"
+   ],
+   "gold_ids": [
+    "utm:35b7f42f5b9bda5d"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:35b7f42f5b9bda5d:2",
+   "question": "What course must be completed before enrolling in MAT159H5?",
+   "answers": [
+    "MAT157H5"
+   ],
+   "gold_ids": [
+    "utm:35b7f42f5b9bda5d"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:36463f7a2cc284f3:2",
+   "question": "How many instructional hours are scheduled for the course in total?",
+   "answers": [
+    "80L/24T"
+   ],
+   "gold_ids": [
+    "utm:36463f7a2cc284f3"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:3aca3d07553bb3aa:0",
+   "question": "What conditions must be met to enroll in MAT497H5?",
+   "answers": [
+    "permission of instructor and department, a minimum CGPA of 3.2 and completion of at least 6.0 credits of MAT courses."
+   ],
+   "gold_ids": [
+    "utm:3aca3d07553bb3aa"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:3aca3d07553bb3aa:2",
+   "question": "Which distribution category does MAT497H5 Further Studies in Mathematics fall under?",
+   "answers": [
+    "Science."
+   ],
+   "gold_ids": [
+    "utm:3aca3d07553bb3aa"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:3dc60667e3ab4d40:0",
+   "question": "What courses must be completed before enrolling in MAT401H5?",
+   "answers": [
+    "(MAT224H5 or MAT240H5) and (MAT236H5 or MAT257Y5) and MAT301H5"
+   ],
+   "gold_ids": [
+    "utm:3dc60667e3ab4d40"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:3dc60667e3ab4d40:1",
+   "question": "Which courses are excluded from enrollment in MAT401H5?",
+   "answers": [
+    "MAT347Y1 or MAT401H1 or MATD01H3"
+   ],
+   "gold_ids": [
+    "utm:3dc60667e3ab4d40"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:3dc60667e3ab4d40:2",
+   "question": "Which Science subfield does the MAT401H5 course, focusing on Polynomial Equations and Fields, fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:3dc60667e3ab4d40"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:3eabab031544d64b:0",
+   "question": "What courses must be completed before enrolling in MAT311H5 Partial Differential Equations?",
+   "answers": [
+    "MAT257Y5 or (MAT102H5 and MAT236H5 and MAT244H5)"
+   ],
+   "gold_ids": [
+    "utm:3eabab031544d64b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:40bbc1b3b59e89c7:0",
+   "question": "What courses must be completed before enrolling in this course?",
+   "answers": [
+    "MAT102H5 and (MAT223H5 or MAT240H5) and (STA246H5 or STA256H5)"
+   ],
+   "gold_ids": [
+    "utm:40bbc1b3b59e89c7"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:4760957572674c5e:1",
+   "question": "How many total instructional hours are required for the program?",
+   "answers": [
+    "36L/12T"
+   ],
+   "gold_ids": [
+    "utm:4760957572674c5e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:4cf102611c9374af:0",
+   "question": "What courses must be completed before enrolling in MAT345H5?",
+   "answers": [
+    "MAT202H5 and (MAT223H5 or MAT240H5)"
+   ],
+   "gold_ids": [
+    "utm:4cf102611c9374af"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:4de6b9340eb0ddc1:0",
+   "question": "What courses and GPA requirements must be met before enrolling in MAT492H5?",
+   "answers": [
+    "MAT392H5, 5.5 additional credits in MAT (with at least 2.0 at the 300 level), and a minimum CGPA of 3.2"
+   ],
+   "gold_ids": [
+    "utm:4de6b9340eb0ddc1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:4de6b9340eb0ddc1:1",
+   "question": "Which students are eligible to take MAT492H5?",
+   "answers": [
+    "restricted to students enrolled in the Mathematical Sciences Specialist or Major programs"
+   ],
+   "gold_ids": [
+    "utm:4de6b9340eb0ddc1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:4de6b9340eb0ddc1:2",
+   "question": "Which distribution category does MAT492H5, Senior Thesis, fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:4de6b9340eb0ddc1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:4feabee7abaddf6d:1",
+   "question": "Which group of students is prioritized for enrollment in MAT388H5?",
+   "answers": [
+    "students enrolled in the Mathematical Sciences and Applied Statistics Specialist or Major programs"
+   ],
+   "gold_ids": [
+    "utm:4feabee7abaddf6d"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:4feabee7abaddf6d:2",
+   "question": "What delivery method is used for the MAT388H5 course?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:4feabee7abaddf6d"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:5603d6fb8e946957:1",
+   "question": "For students in Commerce, Economics, or Management, where should they look to find the appropriate calculus courses?",
+   "answers": [
+    "the relevant program page to determine which calculus courses to enroll in"
+   ],
+   "gold_ids": [
+    "utm:5603d6fb8e946957"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:5758d5c1dffb8bdf:2",
+   "question": "What are students advised to do to choose the appropriate courses?",
+   "answers": [
+    "the 100-level calculus pre-requisites"
+   ],
+   "gold_ids": [
+    "utm:5758d5c1dffb8bdf"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:584f1164df965cce:0",
+   "question": "Which distribution category does this course fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:584f1164df965cce"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:584f1164df965cce:1",
+   "question": "How many instructional hours are there in total for the course?",
+   "answers": [
+    "36L/12T"
+   ],
+   "gold_ids": [
+    "utm:584f1164df965cce"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:584f1164df965cce:2",
+   "question": "How can the course be taken?",
+   "answers": [
+    "Online, In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:584f1164df965cce"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:5a7f707ee4cc7416:0",
+   "question": "How many total instructional hours are there for the Science course?",
+   "answers": [
+    "36L/12T"
+   ],
+   "gold_ids": [
+    "utm:5a7f707ee4cc7416"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:5a7f707ee4cc7416:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:5a7f707ee4cc7416"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:5f92d469f494c3d6:0",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:5f92d469f494c3d6"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:60c8665d0475b3f1:1",
+   "question": "Which course must be completed with at least a 60% grade according to the provided information?",
+   "answers": [
+    "ISP100H5"
+   ],
+   "gold_ids": [
+    "utm:60c8665d0475b3f1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:61d203c6d745ffb8:0",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:61d203c6d745ffb8"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:61d203c6d745ffb8:1",
+   "question": "How many total instructional hours are needed for the Science course?",
+   "answers": [
+    "40L/12T"
+   ],
+   "gold_ids": [
+    "utm:61d203c6d745ffb8"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:6387087e16298cd6:0",
+   "question": "How is the program delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:6387087e16298cd6"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:6ca2ca881243a3bc:0",
+   "question": "What is the title of the course that introduces real analysis with a focus on rigorous theory?",
+   "answers": [
+    "Introduction to Real Analysis"
+   ],
+   "gold_ids": [
+    "utm:6ca2ca881243a3bc"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:6ca2ca881243a3bc:1",
+   "question": "What courses are required before enrolling in MAT337H5?",
+   "answers": [
+    "MAT257Y5 or [(MAT224H5 or MAT240H5) and MAT236H5 and MAT244H5]"
+   ],
+   "gold_ids": [
+    "utm:6ca2ca881243a3bc"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:6ca2ca881243a3bc:2",
+   "question": "Which students are prioritized for enrollment in MAT337H5?",
+   "answers": [
+    "students enrolled in the Mathematical Sciences or Applied Statistics Specialist or Major programs"
+   ],
+   "gold_ids": [
+    "utm:6ca2ca881243a3bc"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:6d1bc65e1e6252ea:0",
+   "question": "What course grade is required to enroll in MAT133Y5?",
+   "answers": [
+    "Minimum 70% in Grade 12 Advanced Functions (MHF4U)."
+   ],
+   "gold_ids": [
+    "utm:6d1bc65e1e6252ea"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:6d1bc65e1e6252ea:1",
+   "question": "Which of the following courses are excluded for enrollment in MAT133Y5?",
+   "answers": [
+    "MAT132H5 or MAT134H5 or MAT135H5 or MAT136H5 or MAT137H5 or MAT137Y5 or MAT139H5 or MAT157H5 or MAT157Y5 or MAT159H5 or MAT135H1 or MAT136H1 or MAT133Y1 or MAT137Y1 or MAY157Y1 or MATA30H3 or MATA31H3 or MATA32H3 or MATA33H3 or MATA35H3 or MATA36H3 or MATA37H3"
+   ],
+   "gold_ids": [
+    "utm:6d1bc65e1e6252ea"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:6d1bc65e1e6252ea:2",
+   "question": "What is the suggested minimum grade for students preparing to take the MAT133Y5 course?",
+   "answers": [
+    "Minimum 70% in Grade"
+   ],
+   "gold_ids": [
+    "utm:6d1bc65e1e6252ea"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:72aa897f16a77074:0",
+   "question": "In what way is the Mathematical Sciences - Major: Applied Mathematics program offered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:72aa897f16a77074"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:72bc3acc96d8582a:0",
+   "question": "What is the minimum number of U of T credits required to enroll in the Mathematical Sciences - Specialist (Science) program?",
+   "answers": [
+    "4.0 U of T credits"
+   ],
+   "gold_ids": [
+    "utm:72bc3acc96d8582a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:75ba7888ac7cbe6b:0",
+   "question": "What course grade is required before enrolling in MAT102H5?",
+   "answers": [
+    "Minimum 70% in Grade 12 Advanced Functions (MHF4U)"
+   ],
+   "gold_ids": [
+    "utm:75ba7888ac7cbe6b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:75ba7888ac7cbe6b:1",
+   "question": "Which courses cannot be taken alongside MAT102H5?",
+   "answers": [
+    "CSC110Y5 or MAT138H1 or MAT246H1 or CSC165H1 or CSCA67H3"
+   ],
+   "gold_ids": [
+    "utm:75ba7888ac7cbe6b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:75ba7888ac7cbe6b:2",
+   "question": "What is the Distribution Requirement for the MAT102H5 course?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:75ba7888ac7cbe6b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:78ce9e82c3129dad:0",
+   "question": "What courses must be completed before enrolling in MAT332H5?",
+   "answers": [
+    "MAT257Y5 or [ MAT236H5 and (MAT223H5 or MAT240H5) and MAT244H5 ]"
+   ],
+   "gold_ids": [
+    "utm:78ce9e82c3129dad"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:78ce9e82c3129dad:1",
+   "question": "What courses are excluded from enrollment in MAT332H5?",
+   "answers": [
+    "MAT335H1 or MATC35H3"
+   ],
+   "gold_ids": [
+    "utm:78ce9e82c3129dad"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7adc4b2ee6c87bcb:0",
+   "question": "What courses must be completed before enrolling in MAT344H5?",
+   "answers": [
+    "MAT102H5 and (MAT223H5 or MAT240H5)"
+   ],
+   "gold_ids": [
+    "utm:7adc4b2ee6c87bcb"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7add72159cd66b05:0",
+   "question": "What course provides a mathematical foundation in game theory?",
+   "answers": [
+    "MAT406H5"
+   ],
+   "gold_ids": [
+    "utm:7add72159cd66b05"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7add72159cd66b05:1",
+   "question": "Which subjects are included in the MAT406H5 course?",
+   "answers": [
+    "combinatorial games, two-player matrix games, and multi-player games"
+   ],
+   "gold_ids": [
+    "utm:7add72159cd66b05"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7c4715d4e10d3ad0:0",
+   "question": "How is the Life Science Program course delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:7c4715d4e10d3ad0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7c4715d4e10d3ad0:1",
+   "question": "How many total instructional hours are needed for the Life Science Program?",
+   "answers": [
+    "40L/12T"
+   ],
+   "gold_ids": [
+    "utm:7c4715d4e10d3ad0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7c4715d4e10d3ad0:2",
+   "question": "What distribution requirement must students fulfill in the Life Science Program?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:7c4715d4e10d3ad0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7c5b142e536fa87d:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:7c5b142e536fa87d"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7e6e8cfef63d8468:1",
+   "question": "Which distribution category does MAT237H5 fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:7e6e8cfef63d8468"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7eda6d580c7783e1:0",
+   "question": "What courses must be completed before enrolling in MAT402H5?",
+   "answers": [
+    "MAT102H5 and (MAT232H5 or MAT233H5 or MAT257Y5) and (MAT224H5 or MAT240H5) and 0.5 additional credit of MAT at the 300+ level."
+   ],
+   "gold_ids": [
+    "utm:7eda6d580c7783e1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:7eda6d580c7783e1:1",
+   "question": "Which course cannot be taken alongside MAT402H5?",
+   "answers": [
+    "MAT402H1 or MATD02H3"
+   ],
+   "gold_ids": [
+    "utm:7eda6d580c7783e1"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:828334aa4be59fbc:0",
+   "question": "How many total instructional hours are there for the MAT102H5 course?",
+   "answers": [
+    "40L/12T"
+   ],
+   "gold_ids": [
+    "utm:828334aa4be59fbc"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:828334aa4be59fbc:1",
+   "question": "Which methods can be used to take MAT102H5?",
+   "answers": [
+    "Online, In Class, Hybrid, Online (Summer only)"
+   ],
+   "gold_ids": [
+    "utm:828334aa4be59fbc"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:86340383ffdaf01e:0",
+   "question": "What educational qualifications does A. Rennet possess?",
+   "answers": [
+    "B.A., Ph.D."
+   ],
+   "gold_ids": [
+    "utm:86340383ffdaf01e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:86340383ffdaf01e:1",
+   "question": "How can one contact Jacopo De Simoi?",
+   "answers": [
+    "Room 3040, Deerfield Hall, 905-569-5698, jacopods@math.utoronto.ca"
+   ],
+   "gold_ids": [
+    "utm:86340383ffdaf01e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:8fee2d97c6317cb3:0",
+   "question": "What is the minimum academic standard that students must achieve to enroll in the Applied Mathematics (Science) major within Mathematical Sciences?",
+   "answers": [
+    "4.0 U of T credits"
+   ],
+   "gold_ids": [
+    "utm:8fee2d97c6317cb3"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:92f78fe2c4538611:0",
+   "question": "What courses are required before enrolling in MAT233H5?",
+   "answers": [
+    "MAT134H5 or MAT136H5 or MAT137Y5 or MAT139H5 or MAT157Y5 or MAT159H5 or 65% in MAT133Y5"
+   ],
+   "gold_ids": [
+    "utm:92f78fe2c4538611"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:92f78fe2c4538611:1",
+   "question": "What courses are excluded from enrollment in MAT233H5?",
+   "answers": [
+    "MAT232H5 or MAT257Y5 or MAT235Y1 or MAT237Y1 or MAT257Y1 or MATB41H3"
+   ],
+   "gold_ids": [
+    "utm:92f78fe2c4538611"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:92f78fe2c4538611:2",
+   "question": "Which course is suggested as a preparation for enrolling in MAT233H5?",
+   "answers": [
+    "MAT223H5 or MAT240H5"
+   ],
+   "gold_ids": [
+    "utm:92f78fe2c4538611"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:93ab311f232b900e:0",
+   "question": "What courses must be completed before enrolling in MAT223H5 Linear Algebra I?",
+   "answers": [
+    "Grade 12 Advanced Functions (MHF4U) and Grade 12 Calculus and Vectors (MCV4U or MAT102H5)"
+   ],
+   "gold_ids": [
+    "utm:93ab311f232b900e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:97f47aeaa60a699d:0",
+   "question": "What courses must be completed before enrolling in MAT301H5?",
+   "answers": [
+    "MAT102H5 and (MAT202H5 or MAT224H5 or MAT240H5)"
+   ],
+   "gold_ids": [
+    "utm:97f47aeaa60a699d"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:9bedcfef321f364e:0",
+   "question": "Which code corresponds to the Applied Mathematics major under Mathematical Sciences?",
+   "answers": [
+    "ERMAJ2512"
+   ],
+   "gold_ids": [
+    "utm:9bedcfef321f364e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:a591eb4f7c4c3622:1",
+   "question": "How is this course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:a591eb4f7c4c3622"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:a834714a3824cdcd:0",
+   "question": "What course grade is required to enroll in MAT132H5 Differential Calculus for Life Sciences?",
+   "answers": [
+    "Minimum 70% in Grade 12 Advanced Functions (MHF4U)"
+   ],
+   "gold_ids": [
+    "utm:a834714a3824cdcd"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:a834714a3824cdcd:1",
+   "question": "Which courses are excluded for enrollment in MAT132H5?",
+   "answers": [
+    "MAT133Y5 or MAT135H5 or MAT137H5 or MAT137Y5 or MAT157H5 or MAT157Y5 or MAT133Y1 or MAT135H1 or MAT137Y1 or MAT157Y1 or MATA29H3 or MATA30H3 or MATA31H3 or MATA32H3"
+   ],
+   "gold_ids": [
+    "utm:a834714a3824cdcd"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:a8f457f509aca20d:2",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:a8f457f509aca20d"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:a982f2e6de720b78:0",
+   "question": "What courses are required before enrolling in MAT236H5?",
+   "answers": [
+    "(MAT223H5 or MAT240H5) and (MAT232H5 or MAT233H5)"
+   ],
+   "gold_ids": [
+    "utm:a982f2e6de720b78"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:aeaf9b3afed98bc6:1",
+   "question": "Which students are prioritized for enrollment in MAT488H5?",
+   "answers": [
+    "students enrolled in the Mathematical Sciences or Applied Statistics Specialist or Major programs"
+   ],
+   "gold_ids": [
+    "utm:aeaf9b3afed98bc6"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b002f83b706ccf69:0",
+   "question": "What course grade is required to enroll in MAT135H5?",
+   "answers": [
+    "Minimum 70% in Grade 12 Advanced Functions (MHF4U)"
+   ],
+   "gold_ids": [
+    "utm:b002f83b706ccf69"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b002f83b706ccf69:1",
+   "question": "What is the Distribution Requirement for the MAT135H5 course?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:b002f83b706ccf69"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b002f83b706ccf69:2",
+   "question": "How many total instructional hours are there for the MAT135H5 course?",
+   "answers": [
+    "40L/12T"
+   ],
+   "gold_ids": [
+    "utm:b002f83b706ccf69"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b0755d3a33f0f3f8:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:b0755d3a33f0f3f8"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b1103b0c67cfd9df:0",
+   "question": "How many total instructional hours are there for the course?",
+   "answers": [
+    "36L/24T"
+   ],
+   "gold_ids": [
+    "utm:b1103b0c67cfd9df"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b1103b0c67cfd9df:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:b1103b0c67cfd9df"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b4124301a0ad9278:0",
+   "question": "What courses must be completed before enrolling in MAT354H5 Complex Analysis?",
+   "answers": [
+    "MAT257Y5 or [(MAT137Y5 or MAT139H5 or MAT157Y5 or MAT159H5) and (MAT202H5 or MAT240H5 or MAT337H5) and (MAT232H5 or MAT233H5)]"
+   ],
+   "gold_ids": [
+    "utm:b4124301a0ad9278"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b4124301a0ad9278:2",
+   "question": "How many instructional hours are allocated for the MAT354H5 Complex Analysis course?",
+   "answers": [
+    "36L/24T"
+   ],
+   "gold_ids": [
+    "utm:b4124301a0ad9278"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b849de7cf5d48490:0",
+   "question": "What courses must be completed before enrolling in MAT224H5?",
+   "answers": [
+    "MAT102H5 and MAT223H5"
+   ],
+   "gold_ids": [
+    "utm:b849de7cf5d48490"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b849de7cf5d48490:1",
+   "question": "Which distribution requirement category does the MAT224H5 Linear Algebra II course fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:b849de7cf5d48490"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:b849de7cf5d48490:2",
+   "question": "How many instructional hours are allocated for the lectures and tutorials combined in the MAT224H5 Linear Algebra II course?",
+   "answers": [
+    "36L/12T"
+   ],
+   "gold_ids": [
+    "utm:b849de7cf5d48490"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:ba6364709c61d693:0",
+   "question": "What course is highly suggested for freshmen in the Fall term who are enrolled in MAT157H5?",
+   "answers": [
+    "MAT102H5 (strongly recommended in the Fall term for students taking MAT157H5 in their first year)"
+   ],
+   "gold_ids": [
+    "utm:ba6364709c61d693"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:ba6364709c61d693:1",
+   "question": "What distribution requirement does MAT157H5 Analysis I fulfill?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:ba6364709c61d693"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:bf79a2874884c138:0",
+   "question": "What courses are required before enrolling in MAT244H5?",
+   "answers": [
+    "(MAT134H5 or MAT136H5 or MAT137Y5 or MAT139H5 or MAT157Y5 or MAT159H5 or MAT233H5) and (MAT223H5 or MAT240H5)"
+   ],
+   "gold_ids": [
+    "utm:bf79a2874884c138"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c0be2ea0ccf94ccf:0",
+   "question": "What conditions must be met to enroll in MAT498H5?",
+   "answers": [
+    "permission of instructor and department, a minimum CGPA of 3.2 and completion of at least 6.0 credits of MAT courses."
+   ],
+   "gold_ids": [
+    "utm:c0be2ea0ccf94ccf"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c0be2ea0ccf94ccf:2",
+   "question": "Which distribution category does MAT498H5 Further Studies in Mathematics fall under?",
+   "answers": [
+    "Science."
+   ],
+   "gold_ids": [
+    "utm:c0be2ea0ccf94ccf"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c0c70a11e371692f:1",
+   "question": "Which group of students is prioritized for enrollment in MAT486H5?",
+   "answers": [
+    "students enrolled in the Mathematical Sciences - Major: Applied Mathematics program"
+   ],
+   "gold_ids": [
+    "utm:c0c70a11e371692f"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c0c70a11e371692f:2",
+   "question": "How is the MAT486H5 course typically taught?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:c0c70a11e371692f"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c2e55fc8447b67c6:0",
+   "question": "Which students are prioritized for enrollment in MAT305H5?",
+   "answers": [
+    "students enrolled in the Mathematical Sciences, Computer Science and Applied Statistics Specialist or Major programs"
+   ],
+   "gold_ids": [
+    "utm:c2e55fc8447b67c6"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c38c570cd573ab7f:0",
+   "question": "What courses must be completed before enrolling in MAT264H5?",
+   "answers": [
+    "(MAT244H5 or MAT244H1 or MAT267H1 or MATB44H3) and MAT102H5"
+   ],
+   "gold_ids": [
+    "utm:c38c570cd573ab7f"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c4ace575bb09e48b:0",
+   "question": "What courses are required before enrolling in MAT309H5?",
+   "answers": [
+    "MAT257Y5 or [ MAT236H5 and (MAT202H5 or MAT224H5 or MAT240H5) and 0.5 additional credit of MAT at the 300+ level]"
+   ],
+   "gold_ids": [
+    "utm:c4ace575bb09e48b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c4ace575bb09e48b:1",
+   "question": "What courses are excluded from enrollment in MAT309H5?",
+   "answers": [
+    "CSC438H1 or MAT309H1 or MAT409H1 or MATC09H3"
+   ],
+   "gold_ids": [
+    "utm:c4ace575bb09e48b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c4ace575bb09e48b:2",
+   "question": "Which program's students get first access to enroll in MAT309H5?",
+   "answers": [
+    "students enrolled in the Mathematical Sciences and Computer Science Specialist or Major programs"
+   ],
+   "gold_ids": [
+    "utm:c4ace575bb09e48b"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:c59c0963861ad815:2",
+   "question": "What delivery method is used for the MAT315H5 course?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:c59c0963861ad815"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:cc4572c1c5495873:1",
+   "question": "Which students are prioritized for enrollment in MAT478H5?",
+   "answers": [
+    "students enrolled in the Mathematical Sciences or Applied Statistics Specialist or Major programs"
+   ],
+   "gold_ids": [
+    "utm:cc4572c1c5495873"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:cc4572c1c5495873:2",
+   "question": "What delivery method is used for the MAT478H5 course?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:cc4572c1c5495873"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:cce035c90c3707e8:0",
+   "question": "What kind of experience do students in the Research Opportunity Program gain?",
+   "answers": [
+    "become involved in original research"
+   ],
+   "gold_ids": [
+    "utm:cce035c90c3707e8"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:d75290c48e09dc5a:0",
+   "question": "Which two programs are students unable to enroll in or complete at the same time based on the provided information?",
+   "answers": [
+    "the Mathematical Sciences \u2013 Major: Mathematics (ERMAJ2511) and Mathematical Sciences \u2013 Major: Applied Mathematics (ERMAJ2512) programs"
+   ],
+   "gold_ids": [
+    "utm:d75290c48e09dc5a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:de9c13619fdbe5e4:1",
+   "question": "What course must be taken in the second year of the program?",
+   "answers": [
+    "MAT244H5"
+   ],
+   "gold_ids": [
+    "utm:de9c13619fdbe5e4"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:de9c13619fdbe5e4:2",
+   "question": "What course must be taken in later parts of the program?",
+   "answers": [
+    "MAT311H5"
+   ],
+   "gold_ids": [
+    "utm:de9c13619fdbe5e4"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:deacb9c85f711ba5:0",
+   "question": "What is the minimum academic standard that students need to fulfill to join the Mathematical Sciences - Major: Mathematics (Science) program?",
+   "answers": [
+    "4.0 U of T credits"
+   ],
+   "gold_ids": [
+    "utm:deacb9c85f711ba5"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:dfb323a9fd74d401:0",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:dfb323a9fd74d401"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:dff6f9e39d894b89:0",
+   "question": "How many instructional hours are there in this course?",
+   "answers": [
+    "36L/24T"
+   ],
+   "gold_ids": [
+    "utm:dff6f9e39d894b89"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:dff6f9e39d894b89:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:dff6f9e39d894b89"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:dff6f9e39d894b89:2",
+   "question": "Which distribution requirement does this course fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:dff6f9e39d894b89"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:e0000a77535e8732:0",
+   "question": "What distribution requirement does the MAT136H5 course satisfy?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:e0000a77535e8732"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:e0000a77535e8732:1",
+   "question": "How many total instructional hours are there for the MAT136H5 course?",
+   "answers": [
+    "40L/12T"
+   ],
+   "gold_ids": [
+    "utm:e0000a77535e8732"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:e0000a77535e8732:2",
+   "question": "How is MAT136H5 delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:e0000a77535e8732"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:e38a4bef5a99bada:0",
+   "question": "How many total instructional hours are there for the course?",
+   "answers": [
+    "40L/12T"
+   ],
+   "gold_ids": [
+    "utm:e38a4bef5a99bada"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:e38a4bef5a99bada:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:e38a4bef5a99bada"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:e9f1398dc1f5e6a6:1",
+   "question": "How is the course delivered?",
+   "answers": [
+    "In Class"
+   ],
+   "gold_ids": [
+    "utm:e9f1398dc1f5e6a6"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:eb0432c24ad997c0:2",
+   "question": "Which distribution category does MAT397H5 Further Studies in Mathematics fall under?",
+   "answers": [
+    "Science."
+   ],
+   "gold_ids": [
+    "utm:eb0432c24ad997c0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:ee43ca1ed6e105f0:0",
+   "question": "What courses are highly recommended for Mathematical Sciences Specialists to take?",
+   "answers": [
+    "MAT157H5, MAT159H5, MAT257Y5, and MAT354H5"
+   ],
+   "gold_ids": [
+    "utm:ee43ca1ed6e105f0"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:efc49844bce5c00e:0",
+   "question": "Which distribution requirement is associated with MAT137H5?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:efc49844bce5c00e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:efc49844bce5c00e:1",
+   "question": "How many total instructional hours are there for the MAT137H5 course?",
+   "answers": [
+    "40L/24T"
+   ],
+   "gold_ids": [
+    "utm:efc49844bce5c00e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:efc49844bce5c00e:2",
+   "question": "How is MAT137H5 delivered?",
+   "answers": [
+    "In Class, Hybrid"
+   ],
+   "gold_ids": [
+    "utm:efc49844bce5c00e"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:f46abd6abea00e9c:1",
+   "question": "What fundamental counting methods are taught in the MAT202H5 course?",
+   "answers": [
+    "subsets, permutations, finite sequences, inclusion-exclusion"
+   ],
+   "gold_ids": [
+    "utm:f46abd6abea00e9c"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:fde806337118463a:1",
+   "question": "Which of the following courses cannot be taken concurrently with MAT134H5?",
+   "answers": [
+    "MAT133Y5 or MAT136H5 or MAT137Y5 or MAT139H5 or MAT157Y5 or MAT159H5 or MAT133Y1 or MAT136H1 or MAT137Y1 or MAT157Y1 or MATA33H3 or MATA35H3 or MATA36H3 or MATA37H3"
+   ],
+   "gold_ids": [
+    "utm:fde806337118463a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:fde806337118463a:2",
+   "question": "What distribution requirement does the MAT134H5 course satisfy?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:fde806337118463a"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  },
+  {
+   "qid": "utm:ff7dd9b803e34bc3:2",
+   "question": "Which distribution requirement category does the course MAT405H5: Introduction to Topology fall under?",
+   "answers": [
+    "Science"
+   ],
+   "gold_ids": [
+    "utm:ff7dd9b803e34bc3"
+   ],
+   "multi_hop": false,
+   "meta": {
+    "generator": "qwen2.5:7b",
+    "verifier": "llama3.1:8b"
+   }
+  }
+ ]
+}
