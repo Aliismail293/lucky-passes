@@ -1,5 +1,3 @@
-\section{Method}
-\label{sec:method}
 % Drafted by Claude from the code (lp/) and configs/; every design choice below is in research-progress.md with
 % its reason. Ali: check each sentence against the code before keeping it.
 
@@ -28,7 +26,7 @@ since a coin flip would answer half of them and inflate guess-lucky passes.
 \textbf{Natural Questions} \citep{kwiatkowski2019nq}: questions and gold passages from BEIR's \texttt{nq}
 \citep{thakur2021beir}, joined on normalised question text with the short answers of NQ-open \citep{lee2019latent},
 with every gold passage plus a fixed random sample of distractor passages from the BEIR corpus.
-\textbf{Invented documents} (control): the bundled demo corpus of ragaudit, documents about a fictional coastal
+\textbf{Invented documents} (control): the bundled demo corpus of \toolname, documents about a fictional coastal
 survey office that no model can have seen in training. Questions are generated from each chunk and checked by a
 second model from a different family; the corpus yields fewer questions than the other datasets, and we use all
 that pass verification.

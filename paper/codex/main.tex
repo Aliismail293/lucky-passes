@@ -1,0 +1,73 @@
+% Lucky passes paper: CODEX version (Journal of Computing, Data, and Exploration, U of T Mississauga).
+% Template: https://www.overleaf.com/read/wnzmspydjxrv (main.tex + pepadun.sty + pepadun.bib), read 2026-11-25.
+% Build: uv run python scripts/build_overleaf.py --venue codex -> paper/codex_overleaf.zip. On Overleaf, open the
+% template, Menu -> Copy Project, then upload the zip's files into the copy (replace main.tex; keep pepadun.sty and
+% pepadun.bib, which this file needs). Compiler: pdfLaTeX; bibliography: biber (the style loads biblatex, IEEE).
+% Same section files as the ACL version (paper/main.tex); only the frame differs. Numbers checked by check_numbers.
+%
+% Journal rules this file follows (research-progress.md, "Venue: CODEX"):
+% - double-blind: the title page has the title only; no author, tool name or repository link;
+% - title of at most 10 words; abstract 150-250 words (submissions page; the template says 200-300, so aim for
+%   200-250); 3-5 keywords, alphabetical, separated by semicolons; no symbols or equations in title or abstract;
+% - sections: Introduction, Research Methodology, Results and Discussion, Conclusions (template headings);
+% - figures and tables inside the text where first discussed, numbered, referred to by number ("Table 1"), never
+%   by position ("below"); tables with horizontal rules only (booktabs);
+% - IEEE numeric citations; DOIs or URLs where available;
+% - any LLM use disclosed in the acknowledgements.
+\documentclass[11pt]{article}
+\usepackage{pepadun}
+\addbibresource{references.bib}
+
+% The section files use natbib commands (ACL); map them to biblatex's IEEE style.
+\newcommand{\citep}[1]{\cite{#1}}
+\newcommand{\citet}[1]{\textcite{#1}}
+
+\newcommand{\toolname}{an open-source RAG testing tool (name withheld for review)}
+\newcommand{\repolink}{[anonymised repository link]}
+\newcommand{\aliwrites}[1]{\noindent\fbox{\parbox{\linewidth}{\small\textbf{[Ali writes this section.]}\\ #1}}}
+
+% At most 10 words. Ali picks it (paper/FRAMING.md).
+\title{[Title: at most ten words; Ali picks]}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\aliwrites{Between 150 and 250 words, in English, with no symbols or equations. One paragraph each for: the problem; the method; % nocheck (word-count guidance, not a result)
+the main result (one number with its interval and n, from results/FINDINGS.md); what a practitioner should do.
+What do we add beyond Jonah et al.\ (2026)?}
+\end{abstract}
+
+\keywords{[3 to 5, alphabetical; e.g. evaluation; large language models; parametric knowledge; retrieval-augmented generation]}
+
+\section{INTRODUCTION}
+\input{sections/introduction}
+\subsection{Related work}
+\input{sections/related}
+
+\section{RESEARCH METHODOLOGY}
+\label{sec:method}
+\input{sections/method}
+\subsection{Reproducibility}
+\input{sections/reproducibility}
+
+\section{RESULTS AND DISCUSSION}
+\label{sec:results}
+\input{sections/results}
+\subsection{Discussion}
+\input{sections/discussion}
+\subsection{Limitations}
+\input{sections/limitations}
+
+\section{CONCLUSIONS}
+\input{sections/conclusion}
+
+\begin{acknowledgments}
+\input{sections/acknowledgements}
+\end{acknowledgments}
+
+\printbibliography[title={REFERENCES}, heading=bibintoc]
+
+\end{document}

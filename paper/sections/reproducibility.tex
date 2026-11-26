@@ -1,7 +1,6 @@
-\section*{Reproducibility Statement}
 % Drafted by Claude. Ali: check the commands still work from a fresh clone (Phase 7 does this for the pilot).
 All code, configurations, per-question results (\texttt{results/*/records.jsonl}) and summaries
-(\texttt{results/*/summary.json}) are released at \url{https://github.com/Aliismail293/lucky-passes}. Every model
+(\texttt{results/*/summary.json}) are released at \repolink. Every model
 runs locally through Ollama at temperature 0 with a fixed seed, and every model call is cached on disk, keyed by a
 hash of the model, prompt and decoding parameters, so a stopped run resumes where it stopped. Question samples use a
 fixed seed. Three commands reproduce the pilot (\texttt{uv sync}; \texttt{uv run python scripts/download\_data.py};
