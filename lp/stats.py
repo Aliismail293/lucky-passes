@@ -70,3 +70,42 @@ def mcnemar(a: list[bool], b: list[bool]) -> dict:
         return {"b01": 0, "b10": 0, "p": 1.0}
     tail = sum(comb(flips, i) for i in range(min(b01, b10) + 1)) / 2**flips
     return {"b01": b01, "b10": b10, "p": min(1.0, 2 * tail)}
+
+
+def _binom_cdf(k: int, n: int, p: float) -> float:
+    return sum(comb(n, i) * p**i * (1 - p) ** (n - i) for i in range(k + 1))
+
+
+def clopper_pearson(successes: int, n: int, alpha: float = 0.05) -> dict:
+    """Exact (Clopper-Pearson) 95% interval for a proportion.
+
+    Unlike the percentile bootstrap, it doesn't collapse to [0, 0] when no successes are seen: 0 of 150 gives an
+    upper bound of about 2.4%. Each bound is found by bisection on the binomial CDF.
+    """
+    if n == 0:
+        return {"value": None, "lo": None, "hi": None, "n": 0}
+
+    def solve(target, k):  # the p at which P(X <= k) = target; the CDF falls as p rises
+        lo, hi = 0.0, 1.0
+        for _ in range(60):
+            mid = (lo + hi) / 2
+            if _binom_cdf(k, n, mid) > target:
+                lo = mid
+            else:
+                hi = mid
+        return (lo + hi) / 2
+
+    lower = 0.0 if successes == 0 else solve(1 - alpha / 2, successes - 1)
+    upper = 1.0 if successes == n else solve(alpha / 2, successes)
+    return {"value": successes / n, "lo": lower, "hi": upper, "n": n}
+
+
+def holm(p_values: list[float]) -> list[float]:
+    """Holm-Bonferroni adjusted p-values, in the input order."""
+    order = sorted(range(len(p_values)), key=lambda i: p_values[i])
+    adjusted = [0.0] * len(p_values)
+    running = 0.0
+    for rank, i in enumerate(order):
+        running = max(running, min(1.0, (len(p_values) - rank) * p_values[i]))
+        adjusted[i] = running
+    return adjusted

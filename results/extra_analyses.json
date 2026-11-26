@@ -1,0 +1,2150 @@
+{
+ "note": "post-review analyses; see the docstring of scripts/extra_analyses.py",
+ "core": {
+  "cells": [
+   {
+    "dataset": "hotpotqa",
+    "model": "llama3.1:8b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 10,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.3084971078187607,
+     "n": 10
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 92,
+    "accuracy_given_not_all_gold": {
+     "value": 0.3804347826086957,
+     "lo": 0.2811765501795013,
+     "hi": 0.48761645903166395,
+     "n": 92
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "llama3.1:8b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 4,
+    "accuracy_given_no_gold": {
+     "value": 0.5,
+     "lo": 0.06758598648854292,
+     "hi": 0.9324140135114571,
+     "n": 4
+    },
+    "lucky_answer_in_context": 2,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 56,
+    "accuracy_given_not_all_gold": {
+     "value": 0.35714285714285715,
+     "lo": 0.23355479745226587,
+     "hi": 0.49640688670179245,
+     "n": 56
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "llama3.1:8b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 54,
+    "accuracy_given_not_all_gold": {
+     "value": 0.2777777777777778,
+     "lo": 0.16455470627671315,
+     "hi": 0.41643501183684617,
+     "n": 54
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "llama3.2:3b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 10,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.3084971078187607,
+     "n": 10
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 92,
+    "accuracy_given_not_all_gold": {
+     "value": 0.2608695652173913,
+     "lo": 0.17483794698973704,
+     "hi": 0.3628513704814761,
+     "n": 92
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "llama3.2:3b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 4,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.6023646356164747,
+     "n": 4
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 56,
+    "accuracy_given_not_all_gold": {
+     "value": 0.17857142857142858,
+     "lo": 0.0891009532139771,
+     "hi": 0.3039716069422428,
+     "n": 56
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "llama3.2:3b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 54,
+    "accuracy_given_not_all_gold": {
+     "value": 0.18518518518518517,
+     "lo": 0.09254548670605095,
+     "hi": 0.314296516980208,
+     "n": 54
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "qwen2.5:7b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 10,
+    "accuracy_given_no_gold": {
+     "value": 0.1,
+     "lo": 0.002528578544461813,
+     "hi": 0.4450161170281953,
+     "n": 10
+    },
+    "lucky_answer_in_context": 1,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 92,
+    "accuracy_given_not_all_gold": {
+     "value": 0.40217391304347827,
+     "lo": 0.3012306242529875,
+     "hi": 0.5095960422539259,
+     "n": 92
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "qwen2.5:7b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "no_gold_retrieved": 4,
+    "accuracy_given_no_gold": {
+     "value": 0.5,
+     "lo": 0.06758598648854292,
+     "hi": 0.9324140135114571,
+     "n": 4
+    },
+    "lucky_answer_in_context": 2,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 56,
+    "accuracy_given_not_all_gold": {
+     "value": 0.44642857142857145,
+     "lo": 0.3134360832815829,
+     "hi": 0.5852833372475432,
+     "n": 56
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 54,
+    "accuracy_given_not_all_gold": {
+     "value": 0.3148148148148148,
+     "lo": 0.19523941100319148,
+     "hi": 0.455523994872843,
+     "n": 54
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "llama3.1:8b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "llama3.1:8b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 0,
+    "accuracy_given_no_gold": {
+     "value": null,
+     "lo": null,
+     "hi": null,
+     "n": 0
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "llama3.1:8b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 0,
+    "accuracy_given_no_gold": {
+     "value": null,
+     "lo": null,
+     "hi": null,
+     "n": 0
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "llama3.2:3b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "llama3.2:3b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 0,
+    "accuracy_given_no_gold": {
+     "value": null,
+     "lo": null,
+     "hi": null,
+     "n": 0
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "llama3.2:3b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 0,
+    "accuracy_given_no_gold": {
+     "value": null,
+     "lo": null,
+     "hi": null,
+     "n": 0
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "qwen2.5:7b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "qwen2.5:7b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 0,
+    "accuracy_given_no_gold": {
+     "value": null,
+     "lo": null,
+     "hi": null,
+     "n": 0
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 0,
+    "accuracy_given_no_gold": {
+     "value": null,
+     "lo": null,
+     "hi": null,
+     "n": 0
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "llama3.1:8b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 14,
+    "accuracy_given_no_gold": {
+     "value": 0.07142857142857142,
+     "lo": 0.0018067806591253737,
+     "hi": 0.3386844899318212,
+     "n": 14
+    },
+    "lucky_answer_in_context": 1,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "llama3.1:8b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "llama3.1:8b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 4,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.6023646356164747,
+     "n": 4
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "llama3.2:3b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 14,
+    "accuracy_given_no_gold": {
+     "value": 0.07142857142857142,
+     "lo": 0.0018067806591253737,
+     "hi": 0.3386844899318212,
+     "n": 14
+    },
+    "lucky_answer_in_context": 1,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "llama3.2:3b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "llama3.2:3b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 4,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.6023646356164747,
+     "n": 4
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "qwen2.5:7b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "no_gold_retrieved": 14,
+    "accuracy_given_no_gold": {
+     "value": 0.14285714285714285,
+     "lo": 0.017794515483191498,
+     "hi": 0.428129160909699,
+     "n": 14
+    },
+    "lucky_answer_in_context": 1,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "qwen2.5:7b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 4,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.6023646356164747,
+     "n": 4
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "llama3.1:8b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 149,
+    "lucky_pass_exact": {
+     "value": 0.2483221476510067,
+     "lo": 0.1812618478894477,
+     "hi": 0.3256669513678895,
+     "n": 149
+    },
+    "memory_lucky_exact": {
+     "value": 0.020134228187919462,
+     "lo": 0.00417156525022605,
+     "hi": 0.057711550466036654,
+     "n": 149
+    },
+    "no_gold_retrieved": 72,
+    "accuracy_given_no_gold": {
+     "value": 0.5138888888888888,
+     "lo": 0.393100046479662,
+     "hi": 0.6334997211807669,
+     "n": 72
+    },
+    "lucky_answer_in_context": 29,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.053691275167785234,
+     "lo": 0.02346213428477867,
+     "hi": 0.10305082766986434,
+     "n": 149
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.19463087248322147,
+     "lo": 0.13439165886086185,
+     "hi": 0.26741215796487927,
+     "n": 149
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "llama3.1:8b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 149,
+    "lucky_pass_exact": {
+     "value": 0.21476510067114093,
+     "lo": 0.1517772633452073,
+     "hi": 0.2894426393070154,
+     "n": 149
+    },
+    "memory_lucky_exact": {
+     "value": 0.020134228187919462,
+     "lo": 0.00417156525022605,
+     "hi": 0.057711550466036654,
+     "n": 149
+    },
+    "no_gold_retrieved": 70,
+    "accuracy_given_no_gold": {
+     "value": 0.45714285714285713,
+     "lo": 0.3374476980729807,
+     "hi": 0.5805791036849537,
+     "n": 70
+    },
+    "lucky_answer_in_context": 26,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.040268456375838924,
+     "lo": 0.014918931013120529,
+     "hi": 0.08558480916807215,
+     "n": 149
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.15436241610738255,
+     "lo": 0.10043976407848182,
+     "hi": 0.22256268061350076,
+     "n": 149
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "llama3.1:8b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 149,
+    "lucky_pass_exact": {
+     "value": 0.15436241610738255,
+     "lo": 0.10043976407848182,
+     "hi": 0.22256268061350076,
+     "n": 149
+    },
+    "memory_lucky_exact": {
+     "value": 0.006711409395973154,
+     "lo": 0.00016990373911579494,
+     "hi": 0.036824934370884466,
+     "n": 149
+    },
+    "no_gold_retrieved": 52,
+    "accuracy_given_no_gold": {
+     "value": 0.4423076923076923,
+     "lo": 0.3046956247117468,
+     "hi": 0.586724439327656,
+     "n": 52
+    },
+    "lucky_answer_in_context": 15,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.053691275167785234,
+     "lo": 0.02346213428477867,
+     "hi": 0.10305082766986434,
+     "n": 149
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.10067114093959731,
+     "lo": 0.057448028997936273,
+     "hi": 0.1606024457081328,
+     "n": 149
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "llama3.2:3b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.23333333333333334,
+     "lo": 0.16822525096306457,
+     "hi": 0.30927743174829037,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 73,
+    "accuracy_given_no_gold": {
+     "value": 0.4794520547945205,
+     "lo": 0.36100464763565177,
+     "hi": 0.5996181332155397,
+     "n": 73
+    },
+    "lucky_answer_in_context": 26,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.06,
+     "lo": 0.02779997779445592,
+     "hi": 0.11084152001362552,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.17333333333333334,
+     "lo": 0.11646217336062509,
+     "hi": 0.24356675011341972,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "llama3.2:3b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.19333333333333333,
+     "lo": 0.13346678584650756,
+     "hi": 0.265711481457349,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 71,
+    "accuracy_given_no_gold": {
+     "value": 0.4084507042253521,
+     "lo": 0.29318783078653643,
+     "hi": 0.5315982062856024,
+     "n": 71
+    },
+    "lucky_answer_in_context": 25,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.02666666666666667,
+     "lo": 0.007312546398008213,
+     "hi": 0.06686787667748945,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.16,
+     "lo": 0.10528667783956386,
+     "hi": 0.22864918353310765,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "llama3.2:3b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.12666666666666668,
+     "lo": 0.07801452543040338,
+     "hi": 0.19072061375638855,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 53,
+    "accuracy_given_no_gold": {
+     "value": 0.3584905660377358,
+     "lo": 0.23143094687129978,
+     "hi": 0.5019667760094333,
+     "n": 53
+    },
+    "lucky_answer_in_context": 12,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.04666666666666667,
+     "lo": 0.01896556963457746,
+     "hi": 0.09378586498779645,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.08,
+     "lo": 0.04202026470017234,
+     "hi": 0.13557389021263916,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "qwen2.5:7b",
+    "retriever": "bm25",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.24666666666666667,
+     "lo": 0.18000648527084245,
+     "hi": 0.3236100200889077,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.04,
+     "lo": 0.014818521114898064,
+     "hi": 0.08502781471819881,
+     "n": 150
+    },
+    "no_gold_retrieved": 73,
+    "accuracy_given_no_gold": {
+     "value": 0.5068493150684932,
+     "lo": 0.38717290451438735,
+     "hi": 0.6259528638386331,
+     "n": 73
+    },
+    "lucky_answer_in_context": 28,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.06,
+     "lo": 0.02779997779445592,
+     "hi": 0.11084152001362552,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.18666666666666668,
+     "lo": 0.12776826559889082,
+     "hi": 0.25835907285346316,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "qwen2.5:7b",
+    "retriever": "dense",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.23333333333333334,
+     "lo": 0.16822525096306457,
+     "hi": 0.30927743174829037,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.02666666666666667,
+     "lo": 0.007312546398008213,
+     "hi": 0.06686787667748945,
+     "n": 150
+    },
+    "no_gold_retrieved": 71,
+    "accuracy_given_no_gold": {
+     "value": 0.49295774647887325,
+     "lo": 0.3721686909287839,
+     "hi": 0.6143526162701818,
+     "n": 71
+    },
+    "lucky_answer_in_context": 26,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.06,
+     "lo": 0.02779997779445592,
+     "hi": 0.11084152001362552,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.16,
+     "lo": 0.10528667783956386,
+     "hi": 0.22864918353310765,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.15333333333333332,
+     "lo": 0.09975195141558652,
+     "hi": 0.22113973314511065,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 53,
+    "accuracy_given_no_gold": {
+     "value": 0.4339622641509434,
+     "lo": 0.29839212048755204,
+     "hi": 0.5771741676209701,
+     "n": 53
+    },
+    "lucky_answer_in_context": 15,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.05333333333333334,
+     "lo": 0.023303810196470043,
+     "hi": 0.10238189602332376,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.1,
+     "lo": 0.05705743483624698,
+     "hi": 0.15956788512757708,
+     "n": 150
+    }
+   }
+  ],
+  "accuracy_given_no_gold_pooled": {
+   "hotpotqa": {
+    "value": 0.1111111111111111,
+    "lo": 0.037076661307191394,
+    "hi": 0.2405358084955141,
+    "n": 45,
+    "distinct_questions": 13
+   },
+   "invented": {
+    "value": 0.0,
+    "lo": 0.0,
+    "hi": 0.7075982261787135,
+    "n": 3,
+    "distinct_questions": 1
+   },
+   "nq": {
+    "value": 0.07017543859649122,
+    "lo": 0.019450420694709203,
+    "hi": 0.17003981995864142,
+    "n": 57,
+    "distinct_questions": 15
+   },
+   "utm": {
+    "value": 0.45918367346938777,
+    "lo": 0.41834708166899215,
+    "hi": 0.5004321923930097,
+    "n": 588,
+    "distinct_questions": 97
+   }
+  },
+  "missing_call_bounds": [
+   {
+    "retriever": "bm25",
+    "observed": {
+     "value": 0.2483221476510067,
+     "lo": 0.1812618478894477,
+     "hi": 0.3256669513678895,
+     "n": 149
+    },
+    "if_not_lucky": {
+     "value": 0.24666666666666667,
+     "lo": 0.18000648527084245,
+     "hi": 0.3236100200889077,
+     "n": 150
+    },
+    "if_lucky": {
+     "value": 0.25333333333333335,
+     "lo": 0.1859304369076144,
+     "hi": 0.3307438277096456,
+     "n": 150
+    }
+   },
+   {
+    "retriever": "dense",
+    "observed": {
+     "value": 0.21476510067114093,
+     "lo": 0.1517772633452073,
+     "hi": 0.2894426393070154,
+     "n": 149
+    },
+    "if_not_lucky": {
+     "value": 0.21333333333333335,
+     "lo": 0.15073023651283385,
+     "hi": 0.2876066226106647,
+     "n": 150
+    },
+    "if_lucky": {
+     "value": 0.22,
+     "lo": 0.15653733844069334,
+     "hi": 0.294854073530861,
+     "n": 150
+    }
+   },
+   {
+    "retriever": "hybrid",
+    "observed": {
+     "value": 0.15436241610738255,
+     "lo": 0.10043976407848182,
+     "hi": 0.22256268061350076,
+     "n": 149
+    },
+    "if_not_lucky": {
+     "value": 0.15333333333333332,
+     "lo": 0.09975195141558652,
+     "hi": 0.22113973314511065,
+     "n": 150
+    },
+    "if_lucky": {
+     "value": 0.16,
+     "lo": 0.10528667783956386,
+     "hi": 0.22864918353310765,
+     "n": 150
+    }
+   }
+  ],
+  "closed_book_llama_8b_vs_3b": {
+   "hotpotqa": {
+    "n": 150,
+    "b01": 13,
+    "b10": 17,
+    "p": 0.584664711728692
+   },
+   "invented": {
+    "n": 48,
+    "b01": 1,
+    "b10": 2,
+    "p": 1.0
+   },
+   "nq": {
+    "n": 150,
+    "b01": 6,
+    "b10": 19,
+    "p": 0.01463329792022705
+   },
+   "utm": {
+    "n": 149,
+    "b01": 0,
+    "b10": 3,
+    "p": 0.25
+   }
+  }
+ },
+ "ksweep": {
+  "cells": [
+   {
+    "dataset": "hotpotqa",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 1,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 15,
+    "accuracy_given_no_gold": {
+     "value": 0.13333333333333333,
+     "lo": 0.016575913440083634,
+     "hi": 0.4046026966033721,
+     "n": 15
+    },
+    "lucky_answer_in_context": 1,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 150,
+    "accuracy_given_not_all_gold": {
+     "value": 0.5733333333333334,
+     "lo": 0.490064088118204,
+     "hi": 0.6536474054806782,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 3,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 3,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.7075982261787135,
+     "n": 3
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 77,
+    "accuracy_given_not_all_gold": {
+     "value": 0.36363636363636365,
+     "lo": 0.25695374222305756,
+     "hi": 0.4811514304037,
+     "n": 77
+    }
+   },
+   {
+    "dataset": "hotpotqa",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "not_all_gold_retrieved": 54,
+    "accuracy_given_not_all_gold": {
+     "value": 0.3148148148148148,
+     "lo": 0.19523941100319148,
+     "hi": 0.455523994872843,
+     "n": 54
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 1,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 1,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.9750000000000001,
+     "n": 1
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 3,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 0,
+    "accuracy_given_no_gold": {
+     "value": null,
+     "lo": null,
+     "hi": null,
+     "n": 0
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "invented",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 48,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "no_gold_retrieved": 0,
+    "accuracy_given_no_gold": {
+     "value": null,
+     "lo": null,
+     "hi": null,
+     "n": 0
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.07397278534728019,
+     "n": 48
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 1,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.02,
+     "lo": 0.004143625281220531,
+     "hi": 0.05733422228820578,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "no_gold_retrieved": 17,
+    "accuracy_given_no_gold": {
+     "value": 0.17647058823529413,
+     "lo": 0.037985068070625905,
+     "hi": 0.4343178728442839,
+     "n": 17
+    },
+    "lucky_answer_in_context": 1,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.013333333333333334,
+     "lo": 0.0016188270298397862,
+     "hi": 0.04733301949633556,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 3,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 8,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.3694166475528192,
+     "n": 8
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "nq",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "no_gold_retrieved": 4,
+    "accuracy_given_no_gold": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.6023646356164747,
+     "n": 4
+    },
+    "lucky_answer_in_context": 0,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.0,
+     "lo": 0.0,
+     "hi": 0.024292597166108598,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 1,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.2733333333333333,
+     "lo": 0.2038287250981679,
+     "hi": 0.3520217706814358,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.04666666666666667,
+     "lo": 0.01896556963457746,
+     "hi": 0.09378586498779645,
+     "n": 150
+    },
+    "no_gold_retrieved": 89,
+    "accuracy_given_no_gold": {
+     "value": 0.4606741573033708,
+     "lo": 0.3544164072099635,
+     "hi": 0.5696227744144864,
+     "n": 89
+    },
+    "lucky_answer_in_context": 29,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.08,
+     "lo": 0.04202026470017234,
+     "hi": 0.13557389021263916,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.18,
+     "lo": 0.12209962757762022,
+     "hi": 0.2509778950060161,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 3,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.23333333333333334,
+     "lo": 0.16822525096306457,
+     "hi": 0.30927743174829037,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.03333333333333333,
+     "lo": 0.010910186468911343,
+     "hi": 0.07607232253734691,
+     "n": 150
+    },
+    "no_gold_retrieved": 71,
+    "accuracy_given_no_gold": {
+     "value": 0.49295774647887325,
+     "lo": 0.3721686909287839,
+     "hi": 0.6143526162701818,
+     "n": 71
+    },
+    "lucky_answer_in_context": 21,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.09333333333333334,
+     "lo": 0.051970172294478256,
+     "hi": 0.15163853130364818,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.12,
+     "lo": 0.07269346669676441,
+     "hi": 0.18300887702476137,
+     "n": 150
+    }
+   },
+   {
+    "dataset": "utm",
+    "model": "qwen2.5:7b",
+    "retriever": "hybrid",
+    "k": 5,
+    "n": 150,
+    "lucky_pass_exact": {
+     "value": 0.15333333333333332,
+     "lo": 0.09975195141558652,
+     "hi": 0.22113973314511065,
+     "n": 150
+    },
+    "memory_lucky_exact": {
+     "value": 0.006666666666666667,
+     "lo": 0.00016877114310992437,
+     "hi": 0.03658316774058029,
+     "n": 150
+    },
+    "no_gold_retrieved": 53,
+    "accuracy_given_no_gold": {
+     "value": 0.4339622641509434,
+     "lo": 0.29839212048755204,
+     "hi": 0.5771741676209701,
+     "n": 53
+    },
+    "lucky_answer_in_context": 15,
+    "lucky_answer_not_in_context_exact": {
+     "value": 0.05333333333333334,
+     "lo": 0.023303810196470043,
+     "hi": 0.10238189602332376,
+     "n": 150
+    },
+    "lucky_contains_only_exact": {
+     "value": 0.1,
+     "lo": 0.05705743483624698,
+     "hi": 0.15956788512757708,
+     "n": 150
+    }
+   }
+  ],
+  "accuracy_given_no_gold_pooled": {
+   "hotpotqa": {
+    "value": 0.10526315789473684,
+    "lo": 0.01301216437177749,
+    "hi": 0.33137666445676606,
+    "n": 19,
+    "distinct_questions": 15
+   },
+   "invented": {
+    "value": 0.0,
+    "lo": 0.0,
+    "hi": 0.9750000000000001,
+    "n": 1,
+    "distinct_questions": 1
+   },
+   "nq": {
+    "value": 0.10344827586206896,
+    "lo": 0.021863736829853597,
+    "hi": 0.27351519789242296,
+    "n": 29,
+    "distinct_questions": 17
+   },
+   "utm": {
+    "value": 0.4647887323943662,
+    "lo": 0.39636748306917113,
+    "hi": 0.5342036630644744,
+    "n": 213,
+    "distinct_questions": 89
+   }
+  }
+ },
+ "error_sample": {
+  "answer in a non-gold retrieved chunk": {
+   "value": 0.36666666666666664,
+   "lo": 0.19929862501203438,
+   "hi": 0.5614401509880425,
+   "n": 30
+  },
+  "bad question": {
+   "value": 0.36666666666666664,
+   "lo": 0.19929862501203438,
+   "hi": 0.5614401509880425,
+   "n": 30
+  },
+  "guess": {
+   "value": 0.03333333333333333,
+   "lo": 0.0008435709266305098,
+   "hi": 0.17216945563341263,
+   "n": 30
+  },
+  "judge error": {
+   "value": 0.2,
+   "lo": 0.07713551200106555,
+   "hi": 0.3856665109966072,
+   "n": 30
+  },
+  "memory": {
+   "value": 0.03333333333333333,
+   "lo": 0.0008435709266305098,
+   "hi": 0.17216945563341263,
+   "n": 30
+  }
+ }
+}

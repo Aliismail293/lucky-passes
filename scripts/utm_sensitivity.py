@@ -3,8 +3,11 @@
 The calendar repeats field values across course entries ("Mode of delivery: In Class", "Distribution
 requirement: Science"). A question whose answer is one of those values can be answered from any course's entry,
 so "no gold passage retrieved" doesn't mean the answer wasn't in the context. This script calls an answer
-boilerplate when its normalised text occurs in at least THRESHOLD of the corpus chunks, and re-summarises the UTM
-cells without those questions. The pre-registered numbers in summary.json are unchanged.
+boilerplate when its normalised text occurs, as whole words, in at least THRESHOLD of the corpus chunks, and
+re-summarises the UTM cells without those questions, for a sweep of thresholds (the threshold was chosen after
+seeing the data, so the sweep shows the conclusion doesn't hinge on it). scripts/extra_analyses.py has a
+threshold-free version: lucky passes whose retrieved passages contain the answer. The pre-registered numbers in
+summary.json are unchanged.
 
 Usage: uv run python scripts/utm_sensitivity.py results/core
 """
@@ -19,16 +22,17 @@ from lp.datasets import chunk_corpus
 from lp.judge import normalize
 from lp.runner import corpus_folder
 
-THRESHOLDS = (10, 5)
+THRESHOLDS = (2, 3, 5, 10, 15, 20)
 
 
 def chunk_texts(config_path: Path) -> dict[str, str]:
     chunks = chunk_corpus(corpus_folder(load_config(config_path), "utm"))
-    return {f"utm:{c.chunk_id[:16]}": normalize(c.text) for c in chunks}
+    return {f"utm:{c.chunk_id[:16]}": f" {normalize(c.text)} " for c in chunks}
 
 
 def answer_frequency(answers: list[str], texts: dict[str, str]) -> int:
-    return max(sum(normalize(a) in t for t in texts.values()) for a in answers)
+    """In how many chunks the most widespread gold answer occurs, as whole words after normalising."""
+    return max(sum(f" {normalize(a)} " in t for t in texts.values()) for a in answers if normalize(a))
 
 
 def main(argv: list[str]) -> int:
