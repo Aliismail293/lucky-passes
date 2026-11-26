@@ -15,6 +15,20 @@ is, which way it biases the results, and what the study does about it. Tagged nu
   - The invented corpus is small: 48 questions `[src: results/core/summary.json#meta/datasets/invented/verified_questions]`.
     So its rates have wide intervals.
 
+## Design
+- **The public benchmarks give few chances for a lucky pass.**
+  - At hybrid k = 5, only 1 HotpotQA and 4 NQ questions out of 150 had no gold passage retrieved (results fact
+    sheet, section 1b).
+  - The NQ pool is every gold passage plus 20000 random distractors, and HotpotQA questions name one of their
+    entities. Both make retrieval easy.
+  - Bias: low lucky-pass rates there say more about the retrieval set-up than about the models. Report accuracy
+    given a miss alongside every rate.
+- **The invented control can't test H1.** Dense and hybrid retrieval never missed gold on it, so a lucky pass was
+  impossible there. A harder invented corpus, or a forced miss (remove the gold passage), would be needed.
+- **Several analyses were chosen after seeing the results.** These are the UTM threshold, the answer-in-context rule,
+  conditioning on misses, exact intervals and the Holm family (results fact sheet, section 8). They don't change the
+  pre-registered numbers, but they are exploratory.
+
 ## Measurement
 - **Gold labels undercount retrieval.**
   - A "lucky pass" may really be a retrieved non-gold passage that also contains the answer (cite `cho2026rare`).
@@ -28,8 +42,11 @@ is, which way it biases the results, and what the study does about it. Tagged nu
     they were scored on.
   - Those items carry reference labels from a stronger model (Claude Opus), **not human labels**. So the selection
     agreement is optimistic.
-  - What the study does: Ali's own labels on a fresh 50-item audit sample give the unbiased estimate. That number
-    goes in Results.
+  - The selection items are HotpotQA and invented only, so they never test the judges on NQ or UTM answers.
+  - The two judge set-ups err in opposite directions: about 16% false accepts for the qwen answers, about 17%
+    false rejects for the llama answers. So comparisons between model families are confounded with the judge.
+  - What the study does: Ali's own labels on a fresh 50-item audit sample (29 UTM, 16 NQ, 5 HotpotQA items) give
+    the unbiased estimate. That number goes in Results.
   - The llama generators' judge (qwen2.5:7b, prompt v3) was chosen using answers written by qwen2.5:7b. Its
     accuracy on llama answers may differ.
 - **The pilot sanity gate failed; Ali chose to proceed** (research-progress.md, 2026-11-25).
@@ -47,6 +64,9 @@ is, which way it biases the results, and what the study does about it. Tagged nu
     test, so its own questions may suit it.
   - A verifier from a different family (llama3.1:8b) checks each question. That limits the problem but doesn't
     remove it.
+  - qwen2.5:7b's closed-book UTM accuracy is 18.0% [12.0, 24.0], n = 150
+    `[src: results/core/summary.json#cells[dataset=utm,model=qwen2.5:7b,retriever=hybrid]/rates/closed_accuracy]`,
+    against 1.3–3.4% for the llama models. Its own questions suit it.
 - **The prompt allows memory.**
   - The RAG prompt asks the model to use the passages but doesn't forbid its own knowledge, as in a typical
     application.

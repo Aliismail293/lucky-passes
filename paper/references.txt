@@ -32,3 +32,10 @@ arxiv:1906.00300   # Latent Retrieval (NQ-open)
 arxiv:2104.08663   # BEIR
 doi:10.1561/1500000019     # BM25 and beyond
 doi:10.1145/1571941.1572114  # Reciprocal Rank Fusion
+# Added after the Phase 7 internal review (2026-11-26)
+arxiv:2004.04906   # karpukhin2020dpr
+arxiv:1906.02900   # min2019compositional
+arxiv:2211.08411   # kandpal2022longtail
+arxiv:2305.14627   # gao2023alce
+arxiv:2112.12870   # rashkin2021ais
+arxiv:2109.00062   # arabzadeh2021shallow

@@ -208,3 +208,32 @@ Standard reference for RRF, which our hybrid retriever uses (k=60). Verified thr
 > "Reciprocal rank fusion outperforms condorcet and individual rank learning methods"
 
 Use: Method, hybrid retriever.
+
+## D. Added after the Phase 7 internal review (2026-11-26)
+
+Suggested by the NLP reviewer. Notes only; Ali decides whether and where to cite them.
+
+### karpukhin2020dpr: Dense Passage Retrieval for Open-Domain Question Answering (arXiv 2004.04906)
+- Verified 2026-11-26 (title and authors match the fetched page).
+- Why it matters here: Defines retrieval accuracy by whether a retrieved passage *contains the answer string*, not by gold ids. That is the answer-in-context rule used in the post-review analysis; cite it there.
+
+### min2019compositional: Compositional Questions Do Not Necessitate Multi-hop Reasoning (arXiv 1906.02900)
+- Verified 2026-11-26 (title and authors match the fetched page).
+- Why it matters here: Shows many HotpotQA questions can be answered from a single paragraph. Explains why hit_any is near 100% on HotpotQA and why the secondary rule's "half the evidence" passes are common.
+
+### kandpal2022longtail: Large Language Models Struggle to Learn Long-Tail Knowledge (arXiv 2211.08411)
+- Verified 2026-11-26 (title and authors match the fetched page).
+- Why it matters here: Model knowledge depends on how often a fact appears in pre-training. Relevant to memory-lucky passes and to H3 (model size).
+
+### gao2023alce: Enabling Large Language Models to Generate Text with Citations (arXiv 2305.14627)
+- Verified 2026-11-26 (title and authors match the fetched page).
+- Why it matters here: Evaluates whether generated answers are supported by cited passages. A different way to ask "did retrieval earn this answer?"
+
+### rashkin2021ais: Measuring Attribution in Natural Language Generation Models (arXiv 2112.12870)
+- Verified 2026-11-26 (title and authors match the fetched page).
+- Why it matters here: Attribution (AIS): is an output attributable to a source. The conceptual neighbour of a lucky pass: a correct answer not attributable to the retrieved context.
+
+### arabzadeh2021shallow: Shallow pooling for sparse labels (arXiv 2109.00062)
+- Verified 2026-11-26 (title and authors match the fetched page).
+- Why it matters here: Sparse relevance labels miss relevant passages, so evaluations that trust them are biased. The IR version of the UTM gold-label problem.
+

@@ -18,7 +18,10 @@ source.
 - **The measure.** How much an answer-only score overstates retrieval: accuracy − true-pass rate = the lucky-pass
   rate.
 - **Main rule (pre-registered): hit_any.** A question counts as retrieved if *any* gold passage is in the top k.
-  - *Why:* it's conservative. It gives a lower bound on lucky passes, and it was fixed before the full run.
+  - *Why:* it's the stricter of the two rules, so it counts fewer lucky passes than hit_all, and it was fixed
+    before the full run.
+  - It is **not** a lower bound on true lucky passes. Incomplete gold labels and judge false accepts push the
+    other way (see Limitations, and the answer-in-context check in the results fact sheet).
 - **Secondary rule: hit_all.** A question counts as retrieved only if *every* gold passage is in the top k. This
   only matters for multi-hop HotpotQA.
   - Every pilot HotpotQA question has 2 gold paragraphs: computed from `results/pilot/records.jsonl` (100 of 100
@@ -47,6 +50,8 @@ Every dataset uses n = 150 questions in core; the invented corpus uses all it ha
 
 **Natural Questions.**
 - Questions and gold passages come from BEIR `nq`, joined on normalised question text with NQ-open short answers.
+  - 2255 of 3452 BEIR queries matched `[src: results/core/summary.json#meta/datasets/nq/matched_to_nq_open]`.
+  - Whether the join favours some question types wasn't checked.
 - **Corpus:** every gold passage, plus a fixed-seed reservoir sample of 20000 distractors
   `[src: lp/config.py#nq_distractors]`.
 - The BEIR files are pinned to Hugging Face revisions (`scripts/download_data.py`).

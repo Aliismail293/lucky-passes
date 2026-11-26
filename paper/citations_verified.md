@@ -10,7 +10,7 @@ page returned HTTP 200 with a title matching the one we cite. The raw fetched me
 For Natural Questions the quote comes from the ACL Anthology page (https://aclanthology.org/Q19-1026/), which was also
 fetched. The same command re-runs the check (Phase 7, step 4).
 
-27 references, all verified. "Authors" lists the first three as the page gives them; the full list is in the JSON.
+33 references, all verified (6 added on 2026-11-26 after the Phase 7 review). "Authors" lists the first three as the page gives them; the full list is in the JSON.
 
 | # | Key | Title (as on the page) | Authors (first 3) | Date on page | Link | Status |
 |---|---|---|---|---|---|---|
@@ -41,6 +41,12 @@ fetched. The same command re-runs the check (Phase 7, step 4).
 | 25 | thakur2021beir | BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models | Thakur, Nandan; Reimers, Nils; Rücklé, Andreas (5 total) | 2021-04-17 | https://arxiv.org/abs/2104.08663 | verified |
 | 26 | robertson2009bm25 | The Probabilistic Relevance Framework: BM25 and Beyond | Stephen Robertson; Hugo Zaragoza | 2009 (Foundations and Trends in IR) | https://doi.org/10.1561/1500000019 | verified (Crossref) |
 | 27 | cormack2009rrf | Reciprocal rank fusion outperforms condorcet and individual rank learning methods | Gordon V. Cormack; Charles L A Clarke; Stefan Buettcher | 2009 (SIGIR '09) | https://doi.org/10.1145/1571941.1572114 | verified (Crossref) |
+| 28 | karpukhin2020dpr | Dense Passage Retrieval for Open-Domain Question Answering | Karpukhin, Vladimir; Oğuz, Barlas; Min, Sewon (8 total) | 2020-04-10 | https://arxiv.org/abs/2004.04906 | verified |
+| 29 | min2019compositional | Compositional Questions Do Not Necessitate Multi-hop Reasoning | Min, Sewon; Wallace, Eric; Singh, Sameer (6 total) | 2019-06-07 | https://arxiv.org/abs/1906.02900 | verified |
+| 30 | kandpal2022longtail | Large Language Models Struggle to Learn Long-Tail Knowledge | Kandpal, Nikhil; Deng, Haikang; Roberts, Adam (5 total) | 2022-11-15 | https://arxiv.org/abs/2211.08411 | verified |
+| 31 | gao2023alce | Enabling Large Language Models to Generate Text with Citations | Gao, Tianyu; Yen, Howard; Yu, Jiatong (4 total) | 2023-05-24 | https://arxiv.org/abs/2305.14627 | verified |
+| 32 | rashkin2021ais | Measuring Attribution in Natural Language Generation Models | Rashkin, Hannah; Nikolaev, Vitaly; Lamm, Matthew (10 total) | 2021-12-23 | https://arxiv.org/abs/2112.12870 | verified |
+| 33 | arabzadeh2021shallow | Shallow pooling for sparse labels | Arabzadeh, Negar; Vtyurina, Alexandra; Yan, Xinyi (4 total) | 2021-08-31 | https://arxiv.org/abs/2109.00062 | verified |
 
 Notes
 - Dates are the arXiv first-submission dates shown on each page. Where a paper was later published at a venue, the
@@ -53,3 +59,4 @@ Notes
 ## Re-verification (Phase 7, step 4)
 
 - 2026-11-25 02:00: `scripts/verify_citations.py --file paper/references.txt --check-quotes paper/related_work_notes.md` re-fetched all 28 pages: every one HTTP 200 with the same title and authors as `verified_pages.json`; 0 quotes not found. Every key cited in `paper/main.tex` and `paper/sections/` is in `references.bib`. Re-run once more on the final reference list before submission.
+- 2026-11-26 (Phase 7, after the internal review): added 6 references suggested by the NLP reviewer (rows 28–33). `scripts/verify_citations.py --file paper/references.txt --out paper/verified_pages.json --check-quotes paper/related_work_notes.md` re-fetched all 34 pages (33 references plus the Natural Questions ACL page): every one resolved with a matching title; 0 quotes not found. Re-run once more on the final reference list before submission.
