@@ -3,6 +3,7 @@
 - H2 (k): k-sweep, k = 1 vs k = 5 (qwen2.5:7b, hybrid), per dataset.
 - H2 (retriever): core, BM25 vs hybrid at k = 5, per dataset and model.
 - H3 (model size): core, llama3.1:8b vs llama3.2:3b (same family) at hybrid k = 5, per dataset.
+- Holm-adjusted p-values (p_holm) treat every McNemar test in the file as one family.
 - H4: across the core cells at hybrid k = 5 (dataset x model), Spearman correlation of closed-book accuracy with
   the lucky-pass rate.
 
@@ -82,6 +83,14 @@ def compare(a: dict[str, dict], b: dict[str, dict], meta: dict) -> dict:
     return out
 
 
+def add_holm(out: dict) -> None:
+    """Holm-adjust every McNemar p-value in the file as one family (all comparisons x all measures)."""
+    tests = [row[m]["mcnemar"] for key in ("h2_k", "h2_retriever", "h3_size") for row in out[key] for m in MEASURES]
+    for test, adjusted in zip(tests, stats.holm([t["p"] for t in tests]), strict=True):
+        test["p_holm"] = adjusted
+    out["holm_family_size"] = len(tests)
+
+
 def main() -> int:
     core, core_meta = load("core")
     ksweep, ksweep_meta = load("ksweep")
@@ -113,6 +122,7 @@ def main() -> int:
         lucky = [c["rates"]["lucky_pass"]["value"] for c in cells]
         h4[label] = {"cells": len(cells)} | spearman(closed, lucky, seed=core_meta["seed"])
     out["h4_closed_vs_lucky"] = h4
+    add_holm(out)
 
     path = RESULTS / "comparisons.json"
     path.write_text(json.dumps(out, indent=1))

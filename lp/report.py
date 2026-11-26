@@ -219,6 +219,11 @@ def _grouped_bars(plt, groups: list[str], series: dict[str, list[dict | None]], 
                 hi.append(100 * (ci["hi"] - ci["value"]))
         ax.bar(xs, ys, width * 0.92, color=SERIES_COLORS[s % len(SERIES_COLORS)], label=name, edgecolor="white")
         ax.errorbar(xs, ys, yerr=[lo, hi], fmt="none", ecolor=INK_SECONDARY, elinewidth=0.8, capsize=2)
+        for x, y in zip(xs, ys, strict=True):
+            if y == 0:  # a zero bar is invisible; label it so it doesn't read as missing data
+                ax.annotate(
+                    "0", (x, 0), xytext=(0, 2), textcoords="offset points", ha="center", fontsize=6, color=INK_SECONDARY
+                )
     ax.set_xticks(range(len(groups)))
     ax.set_xticklabels(groups)
     ax.set_ylabel(ylabel)
