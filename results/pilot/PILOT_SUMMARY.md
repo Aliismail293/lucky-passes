@@ -18,10 +18,10 @@ lucky-pass rate.
 | HotpotQA (n = 100) | BM25 | Dense | Hybrid |
 |---|---|---|---|
 | Answer accuracy (what answer-only eval reports) | 54.0 [45.0, 64.0] | 63.0 [54.0, 72.0] | 62.0 [53.0, 71.0] |
-| **Lucky pass (correct, no gold passage in top 5)** | **1.0 [0.0, 3.0]** | **2.0 [0.0, 5.0]** | **0.0 [0.0, 0.0]** |
+| **Lucky pass, main rule (pre-registered): correct, no gold passage in top 5** | **1.0 [0.0, 3.0]** | **2.0 [0.0, 5.0]** | **0.0 [0.0, 0.0]** |
 | Any gold passage in top 5 | 92.0 [87.0, 97.0] | 96.0 [92.0, 99.0] | 100.0 [100.0, 100.0] |
 | All gold passages in top 5 (multi-hop needs both) | 37.0 [28.0, 46.0] | 67.0 [58.0, 76.0] | 69.0 [60.0, 78.0] |
-| **Lucky pass if multi-hop needs *all* gold** | **22.0 [15.0, 30.0]** | **9.0 [4.0, 15.0]** | **4.0 [1.0, 8.0]** |
+| **Lucky pass, secondary rule: correct, not *all* gold passages in top 5** | **22.0 [15.0, 30.0]** | **9.0 [4.0, 15.0]** | **4.0 [1.0, 8.0]** |
 
 Closed-book accuracy is 22.0 [14.0, 30.0] and oracle accuracy 89.0 [83.0, 95.0], for every retriever.
 
@@ -31,13 +31,18 @@ Closed-book accuracy is 22.0 [14.0, 30.0] and oracle accuracy 89.0 [83.0, 95.0],
 - Closed-book accuracy: 10.4 [2.1, 18.8].
 
 **What the pilot shows**
-1. **Under the strict rule (any gold passage counts), lucky passes are rare at k = 5.** BM25 had 1 lucky pass and
-   dense 2, all answered right closed-book too ("memory lucky"); hybrid had none. HotpotQA questions name one of
-   their two entities, so retrieval almost always finds one gold paragraph.
-2. **Under the multi-hop rule, the gap is large and depends on the retriever.**
-   - With BM25, 22% of HotpotQA questions were answered correctly without both supporting paragraphs; with
-     hybrid, 4%.
-   - The invented documents had 0% under every retriever.
+1. **Under the pre-registered main rule (correct, but no gold passage in the top 5), lucky passes are rare at
+   k = 5.**
+   - HotpotQA (n = 100 per retriever): BM25 1.0% [0.0, 3.0], dense 2.0% [0.0, 5.0], hybrid 0.0% [0.0, 0.0].
+   - Invented corpus (n = 48): 0.0% [0.0, 0.0] under every retriever.
+   - The 3 HotpotQA lucky passes were all answered right closed-book too ("memory lucky").
+   - HotpotQA questions name one of their two entities, so retrieval almost always finds one gold paragraph.
+2. **Under the secondary "all gold passages retrieved" rule, the gap is large and depends on the retriever.**
+   HotpotQA questions need two paragraphs, so this rule also counts a correct answer as lucky when either one is
+   missing from the top 5.
+   - HotpotQA (n = 100 per retriever): BM25 22.0% [15.0, 30.0], dense 9.0% [4.0, 15.0], hybrid 4.0% [1.0, 8.0].
+   - Invented corpus (n = 48): 0.0% [0.0, 0.0] under every retriever (each question has one gold passage, so
+     the two rules agree there).
    - That is the effect the full study measures: how much weaker retrieval inflates answer-only scores on public
      data.
 3. **Memory helps on public data, but not only there.**
