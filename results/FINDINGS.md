@@ -50,7 +50,7 @@ llama3.1:8b) and NQ 1.3 [0.0, 3.3] (BM25, qwen2.5:7b).
     chunk retrieved" doesn't mean the answer was missing from the context.
 - **Post-hoc sensitivity check (not pre-registered).** With those questions removed, the UTM rate falls to 1.3–11.8%
   (n = 75–76 per cell); with a stricter 5-chunk threshold it is 1.5–13.2% (n = 67–68). Example: qwen2.5:7b with
-  hybrid falls from 15.3 [10.0, 21.3] (n = 150) to 3.9 [0.0, 9.2] (n = 76).
+  hybrid falls from 15.3 [10.0, 21.3] (n = 150) to 3.9 [0.0, 7.9] (n = 76).
 - **Error analysis of 30 random lucky passes** (one per question and model; 28 are UTM because 270 of the 279
   core lucky passes are UTM). These categories are Claude's reading, not human labels:
   - bad question, 11: it names no course or program, e.g. "How is the course delivered?";
