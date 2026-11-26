@@ -4,6 +4,8 @@
 #   bash scripts/overnight.sh pilot                     Phase 3 pilot
 #   bash scripts/overnight.sh full                      core grid, then the k-sweep
 #   bash scripts/overnight.sh full --approve-hours 14   same, allowing a run estimated up to 14 h
+#   bash scripts/overnight.sh judges --prompt v3 --out results/judge_selection_v3
+#                                                       judge comparison on the labelled pilot items
 #
 # Safe to stop (Ctrl+C) or crash: run the same command again and it resumes from the cache.
 # Everything is logged to logs/ and to ~/Desktop/research-design/research-progress.md.
@@ -41,12 +43,15 @@ case "$STAGE" in
     run_step scripts/run_ksweep.py ${EXTRA[@]+"${EXTRA[@]}"} || exit $?
     run_step scripts/make_paper_assets.py
     ;;
+  judges)
+    run_step scripts/eval_judges.py ${EXTRA[@]+"${EXTRA[@]}"}
+    ;;
   core|ksweep)
     run_step scripts/preflight.py "$STAGE" || exit 1
     run_step "scripts/run_${STAGE}.py" ${EXTRA[@]+"${EXTRA[@]}"}
     ;;
   *)
-    echo "Unknown stage: $STAGE (use pilot, full, core or ksweep)"
+    echo "Unknown stage: $STAGE (use pilot, full, core, ksweep or judges)"
     exit 2
     ;;
 esac

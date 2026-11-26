@@ -1146,6 +1146,9 @@
       "qwen2.5:7b": "llama3.1:8b+gemma2:9b"
     },
     "judge_prompt": "v2",
+    "judge_prompts": {
+      "qwen2.5:7b": "v2"
+    },
     "hotpotqa_corpus": "full",
     "retrievers": [
       "bm25",
@@ -1159,9 +1162,9 @@
     "question_generator": "qwen2.5:7b",
     "question_verifier": "llama3.1:8b",
     "bootstrap_resamples": 1000,
-    "git_commit": "efb262a",
-    "started": "2026-11-25 01:10",
-    "finished": "2026-11-25 01:50",
+    "git_commit": "437b394",
+    "started": "2026-11-25 04:49",
+    "finished": "2026-11-25 04:49",
     "datasets": {
       "hotpotqa": {
         "available": 7405,
@@ -1190,27 +1193,27 @@
     },
     "estimate": {
       "answer_calls": 740,
-      "answer_calls_cached": 451,
-      "judge_calls_cached": 435,
-      "judge_calls_uncached_est": 336,
+      "answer_calls_cached": 740,
+      "judge_calls_cached": 924,
+      "judge_calls_uncached_est": 0,
       "question_generation_calls_est": 0,
-      "uncached_calls_est": 625,
-      "seconds_per_call": 6.348,
+      "uncached_calls_est": 0,
+      "seconds_per_call": 4.255,
       "embeddings_uncached": 0,
       "seconds_per_embedding": 0.0357,
-      "hours_est": 1.1020833333333333
+      "hours_est": 0.0
     },
     "failures": 0,
     "timing": {
-      "wall_seconds": 2403.5,
-      "uncached_calls": 564,
-      "cache_hits": 1100,
+      "wall_seconds": 1.1,
+      "uncached_calls": 0,
+      "cache_hits": 1664,
       "failures": 0,
       "seconds_per_uncached_call": 4.255,
-      "seconds_per_100_questions": 3404.1,
+      "seconds_per_100_questions": 3404.0,
       "projections_hours": {
-        "core": 34.0,
-        "ksweep": 11.3
+        "core": 17.0,
+        "ksweep": 5.7
       },
       "question_model_pairs": 148
     }

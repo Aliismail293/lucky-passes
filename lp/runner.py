@@ -17,7 +17,7 @@ from typing import Any
 
 from lp import classify, generate, judge, report
 from lp.cache import Cache
-from lp.config import REPO_ROOT, RunConfig, judge_for, judge_models
+from lp.config import REPO_ROOT, RunConfig, judge_for, judge_models, judge_prompt_for
 from lp.datasets import (
     Dataset,
     Passage,
@@ -285,7 +285,7 @@ def walk_planned_calls(clients: Clients, config: RunConfig, dataset: Dataset, re
                 counts["answers_cached"] += 1
                 prediction = generate.clean_answer(raw)
                 item_id = f"{q.qid}|{model}|{mode}"
-                version = config.judge_prompt
+                version = judge_prompt_for(config, model)
                 if not judge.needs_llm(q.answers, prediction, item_id, config.judge_agreement_sample, version):
                     continue
                 prompt = judge.judge_prompt(q.question, q.answers, prediction, version)
@@ -361,7 +361,13 @@ def judged(clients: Clients, config: RunConfig, model: str, q, prediction: str, 
     judge_client = [clients.chat(j) for j in judge_models(config, model)]
     item_id = f"{q.qid}|{model}|{mode}"
     return judge.judge(
-        q.question, q.answers, prediction, judge_client, item_id, config.judge_agreement_sample, config.judge_prompt
+        q.question,
+        q.answers,
+        prediction,
+        judge_client,
+        item_id,
+        config.judge_agreement_sample,
+        judge_prompt_for(config, model),
     )
 
 
@@ -536,6 +542,7 @@ def run(
         "models": config.models,
         "judges": {m: judge_for(config, m) for m in config.models},
         "judge_prompt": config.judge_prompt,
+        "judge_prompts": {m: judge_prompt_for(config, m) for m in config.models},
         "hotpotqa_corpus": config.hotpotqa_corpus,
         "retrievers": config.retrievers,
         "ks": config.ks,

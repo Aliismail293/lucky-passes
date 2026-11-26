@@ -1,15 +1,16 @@
-# Phase 4 core grid: 4 datasets x 3 models x 3 retrievers at k=5.
+# Phase 4 core grid: 4 datasets x 3 models x 3 retrievers at k=5. n = 150 per dataset (Ali, 2026-11-25; invented
+# uses all it has).
 run_name: core
 seed: 13
 datasets:
   - name: hotpotqa
-    n: 300
+    n: 150
   - name: nq
-    n: 300
+    n: 150
   - name: invented
-    n: 300
+    n: 150
   - name: utm
-    n: 300
+    n: 150
 models: [qwen2.5:7b, llama3.1:8b, llama3.2:3b]
 retrievers: [bm25, dense, hybrid]
 ks: [5]

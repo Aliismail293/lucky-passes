@@ -71,7 +71,7 @@ def test_v2_prompt_has_examples_including_a_wrong_entity_and_puts_the_item_last(
     last = prompt.rsplit(judge.REFERENCE_LABEL, 1)[1]
     assert "Christopher Pine" in last and "James Corden" in last
     with pytest.raises(ValueError):
-        judge.judge_prompt("q", ["a"], "b", version="v3")
+        judge.judge_prompt("q", ["a"], "b", version="v9")
 
 
 def test_mock_judge_grades_the_item_not_the_examples():
@@ -283,3 +283,20 @@ def test_choose_accepts_pairs_only_when_every_judge_is_cross_family():
     chosen = evaluate.choose(results)
     assert chosen["qwen"] == "llama3.1:8b+gemma2:9b"
     assert chosen["llama"] == "qwen2.5:7b"
+
+
+def test_v3_adds_rules_and_examples_and_keeps_v2_unchanged():
+    v2 = judge.judge_prompt("When?", ["07:00 to 15:00"], "8 AM - 5 PM", version="v2")
+    v3 = judge.judge_prompt("When?", ["07:00 to 15:00"], "8 AM - 5 PM", version="v3")
+    assert "whatever the format" not in v2 and "09:30 to 16:00" not in v2
+    assert "whatever the format" in v3 and "several required items" in v3
+    assert v3.count('{"correct": false}') == v2.count('{"correct": false}') + 2
+    assert v3.rsplit(judge.REFERENCE_LABEL, 1)[1] == v2.rsplit(judge.REFERENCE_LABEL, 1)[1]
+
+
+def test_llama_generators_get_v3_qwen_keep_v2():
+    from lp.config import RunConfig, judge_prompt_for
+
+    config = RunConfig(run_name="x", seed=1, datasets=[], models=[], retrievers=[], ks=[])
+    assert judge_prompt_for(config, "llama3.2:3b") == "v3"
+    assert judge_prompt_for(config, "qwen2.5:7b") == "v2"
