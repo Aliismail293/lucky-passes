@@ -1,6 +1,12 @@
-% AI-use disclosure for CODEX (Journal of Computing, Data, and Exploration), whose checklist says: LLM-generated
-% submissions are not considered original contributions; any LLM use (editing, writing, data analysis, etc.) must be
-% disclosed in the acknowledgements. Keep every clause literally true of the submitted version: Ali deletes or edits
-% the bracketed parts once the drafted sections are rewritten.
-\aliwrites{AI-use disclosure (journal policy: disclose any LLM use here). Draft; make every clause true of the final text:
-``Use of large language models. The objects of study are open-weight LLMs (Qwen2.5, Llama~3.1/3.2, Gemma~2) run locally, and some of them also served as the automatic answer judges described in Section~\ref{sec:method}. Separately, the author used an AI coding assistant (Claude, Anthropic) to write the experiment and analysis code under the author's direction, to produce reference labels used to choose the automatic judge (spot-checked by the author; the judge accuracy reported in Section~\ref{sec:results} uses the author's own labels on a separate, fresh sample), and to draft early versions of the Research Methodology, Limitations and Reproducibility text, [which the author then rewrote in the author's own words]. [The assistant was also used for light editing of the author's own text.] The research question, hypotheses and interpretation are the author's. The author wrote the Abstract, Introduction, Discussion and Conclusions, checked every number against the released result files, and takes full responsibility for the content.''} % nocheck (model versions, not results)
+% AI-use disclosure. CODEX checklist: "If an LLM is used for editing, writing, data analysis, etc., please disclose
+% it in the acknowledgements section." Drafted by Claude at Ali's request (2026-11-25) as a plain statement of facts.
+% Bracketed clauses are not yet true; remove the brackets only when they are. Ali rewrites this paragraph in Ali's
+% own words too, since it is part of the paper text.
+Use of AI tools. The experiment code, the experiment runs and the analysis scripts were built with Claude Code
+(Anthropic), an AI coding assistant, under the author's direction. Claude also produced the reference labels used to
+choose the automatic answer judge; the author spot-checked them, and they are not presented as human labels.
+[The judge accuracy reported in the Results section uses the author's own labels on a separate, fresh sample.]
+Claude also prepared fact sheets summarising the study design and the results files, from which the author wrote the
+text. The open-weight language models under study (Qwen2.5, Llama 3.1, Llama 3.2 and Gemma 2) also served as automatic % nocheck (model versions, not results)
+answer judges. [Every sentence of the paper text was written by the author.] [The author verified all numbers in the
+paper against the released results files.]

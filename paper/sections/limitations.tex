@@ -1,28 +1,5 @@
-% Drafted by Claude (spec B5, Phase 6: written honestly). Ali: keep what's true of the final results; numbers
-% marked TODO are filled from results/ once the full run is in.
-\textbf{Small local models only.} We test three open models of 3B--8B parameters. Larger or hosted models memorise
-more, so their memory-lucky share is likely larger; our numbers say nothing directly about them.
-
-\textbf{Four datasets, English only.} Two public QA datasets, one invented corpus and one university calendar. The
-invented corpus is small, so its rates have wide intervals. All text is English.
-
-\textbf{Gold labels undercount retrieval.} A lucky pass under gold labels may be a retrieved non-gold passage that
-also contains the answer \citep{cho2026rare}, especially in the large HotpotQA pool, where other paragraphs can mention
-the same entity. The main rule (any gold passage) is a lower bound on lucky passes, but the label noise goes the
-other way; the hand categorisation of lucky passes estimates how often this happens.
-
-\textbf{An LLM judges correctness.} Answers that contains-match cannot decide are judged by a local LLM. The judge
-was selected on reference labels from a stronger model (not human labels), on the same items it was then scored on,
-so its agreement there is optimistic; the author's labels on a fresh sample give the unbiased estimate. The judge for
-the \texttt{llama} generators (\texttt{qwen2.5:7b}) was selected on answers written by \texttt{qwen2.5:7b}, so its
-accuracy may differ on \texttt{llama} answers.
-
-\textbf{Generated questions.} Questions for the invented corpus and the calendar are written by
-\texttt{qwen2.5:7b}, which is also a generator under test; questions it wrote may suit it. A second model from a
-different family verifies each question, which limits but does not remove this.
-
-\textbf{The prompt allows memory.} The RAG prompt asks the model to use the passages but does not forbid its own
-knowledge, as in a typical application. A strict prompt would likely lower memory-lucky passes; we did not test it.
-
-\textbf{Possible bad gold answers.} Some HotpotQA questions have gold answers that do not answer the question; two
-such questions were flagged during the pilot and kept in the data.
+% Ali writes this section (decision 2026-11-25). Facts: paper/codex/factsheets/limitations.md.
+\aliwrites{Limitations. Facts: \texttt{paper/codex/factsheets/limitations.md}.
+Which limitation would most change the headline number? Put it first.
+For each one, which way does it bias the result, and what did the study do about it?
+Mention the failed pilot sanity gate and why you went ahead anyway.}
