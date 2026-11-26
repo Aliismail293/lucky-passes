@@ -15,8 +15,8 @@ def cell(retriever, k):
 
 def test_headline_table_keeps_only_hybrid_k5(tmp_path):
     report.write_headline_table({"cells": [cell("hybrid", 5), cell("bm25", 5), cell("hybrid", 1)]}, tmp_path)
-    rows = [line for line in (tmp_path / "headline_hybrid_k5.tex").read_text().splitlines() if line.startswith("nq")]
-    assert rows == ["nq & m\\_1 & 10 & " + " & ".join(["50.0 {\\scriptsize[40.0, 60.0]}"] * 5) + " \\\\"]
+    rows = [line for line in (tmp_path / "headline_hybrid_k5.tex").read_text().splitlines() if line.startswith("NQ")]
+    assert rows == ["NQ & m\\_1 & 10 & " + " & ".join(["50.0 {\\scriptsize[40.0, 60.0]}"] * 5) + " \\\\"]
 
 
 def test_headline_table_skipped_without_hybrid_k5(tmp_path):
